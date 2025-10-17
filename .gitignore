@@ -1,0 +1,19 @@
+.env
+
+# Python 관련
+venv/
+__pycache__/
+*.pyc
+
+# Node.js 관련
+frontend/node_modules/
+frontend/dist/
+frontend/.env*
+
+# IDE 및 OS 관련
+.vscode/
+.idea/
+.DS_Store
+
+# W&B 로컬 데이터
+backend/wandb/
