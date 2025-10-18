@@ -4,4 +4,9 @@ celery
 redis
 websockets
 wandb
-python-cors
+huggingface-hub
+transformers
+Pillow
+torchvision
+bitsandbytes
+accelerate

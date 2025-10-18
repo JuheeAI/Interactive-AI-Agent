@@ -17,3 +17,11 @@ frontend/.env*
 
 # W&B 로컬 데이터
 backend/wandb/
+
+# AI 모델 파일
+backend/tools/vqa_models/
+backend/tools/sam_models/
+backend/tools/rae_models/
+
+# 테스트용 이미지
+backend/test_image.jpg

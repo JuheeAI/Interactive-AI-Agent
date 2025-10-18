@@ -1,5 +1,7 @@
 from celery import Celery, states
 from celery.app.task import Task
+from PIL import Image
+from tools.vqa_tool import run_vqa  
 import os
 import time
 import wandb
@@ -11,29 +13,32 @@ celery_app = Celery(
 )
 
 @celery_app.task(bind=True)
-def run_fake_ai_task(self: Task):
+def run_vqa_task(self: Task): 
     """
-    10초 동안 진행 상황을 업데이트하는 가짜 AI 작업
+    VQA 모델을 실행하는 실제 AI 작업
     """
-    # W&B 초기화
     wandb.init(project="ai_agent_project", name=f"job_{self.request.id}")
-
     start_time = time.time()
-    wandb.log({"status": "STARTED"})
+    wandb.log({"status": "STARTED", "task_type": "VQA"})
 
-    # 1. 작업 시작 알림
-    self.update_state(state='PROGRESS', meta={'status': '1/3 - 작업 시작...'})
-    time.sleep(5)
+    try:
+        self.update_state(state='PROGRESS', meta={'status': 'VQA 모델 실행 시작...'})
+        
+        image_path = "test_image.jpg" 
+        question = "What is in this image?"
+        
+        image = Image.open(image_path)
+        answer = run_vqa(image, question)
 
-    # 2. 50% 진행 알림
-    self.update_state(state='PROGRESS', meta={'status': '2/3 - 50% 진행 중...'})
-    wandb.log({"progress": 50})
-    time.sleep(5)
+        end_time = time.time()
+        duration = end_time - start_time
+        wandb.log({"status": "COMPLETED", "duration_seconds": duration, "question": question, "answer": answer})
+        wandb.finish()
+        
+        return {'status': 'VQA 작업 완료!', 'answer': answer, 'duration': duration}
 
-    # 작업 완료
-    end_time = time.time()
-    duration = end_time - start_time
-    wandb.log({"status": "COMPLETED", "duration_seconds": duration})
-    wandb.finish()
-
-    return {'status': '3/3 - 작업 완료!', 'duration': duration}
+    except Exception as e:
+        wandb.log({"status": "FAILED", "error": str(e)})
+        wandb.finish()
+        self.update_state(state=states.FAILURE, meta={'exc_type': type(e).__name__, 'exc_message': str(e)})
+        raise e

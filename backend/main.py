@@ -1,6 +1,6 @@
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
-from tasks import run_fake_ai_task
+from tasks import run_vqa_task
 import asyncio
 
 app = FastAPI()
@@ -20,13 +20,13 @@ def read_root():
 
 @app.post("/agent/invoke")
 async def invoke_task():
-    task = run_fake_ai_task.delay()
+    task = run_vqa_task.delay()
     return {"status": "processing", "job_id": task.id}
 
 @app.websocket("/ws/{job_id}")
 async def websocket_endpoint(websocket: WebSocket, job_id: str):
     await websocket.accept()
-    task = run_fake_ai_task.AsyncResult(job_id)
+    task = run_vqa_task.AsyncResult(job_id)
     
     last_message = None  
 
