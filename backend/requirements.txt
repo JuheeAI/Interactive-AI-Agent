@@ -10,3 +10,9 @@ Pillow
 torchvision
 bitsandbytes
 accelerate
+google-generativeai
+python-multipart
+openai
+diffusers
+gevent 
+scipy

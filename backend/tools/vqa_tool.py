@@ -1,53 +1,39 @@
+import multiprocessing
+
+# 이 코드를 파일 최상단에 추가하여 CUDA 충돌을 방지합니다.
+try:
+    multiprocessing.set_start_method('spawn', force=True)
+except RuntimeError:
+    pass
+
 import torch
 from PIL import Image
-from transformers import AutoProcessor, AutoModelForCausalLM
+from transformers import BlipProcessor, BlipForQuestionAnswering
 
-MODEL = None
+# 모델과 프로세서를 한 번만 로드하기 위한 전역 변수
 PROCESSOR = None
+MODEL = None
 
-def load_model():
-    """모델과 프로세서를 메모리에 한 번만 로드합니다."""
-    global MODEL, PROCESSOR
-    if MODEL is None:
-        model_path = "./tools/vqa_models"  
-        PROCESSOR = AutoProcessor.from_pretrained(model_path, trust_remote_code=True)
-        MODEL = AutoModelForCausalLM.from_pretrained(
-            model_path,
-            torch_dtype=torch.float16, 
-            device_map="auto",
-            trust_remote_code=True
-        )
+def load_vqa_model():
+    """VQA 모델과 프로세서를 메모리에 한 번만 로드합니다."""
+    global PROCESSOR, MODEL
+    if PROCESSOR is None or MODEL is None:
+        model_name = "Salesforce/blip-vqa-base"
+        PROCESSOR = BlipProcessor.from_pretrained(model_name)
+        MODEL = BlipForQuestionAnswering.from_pretrained(model_name).to("cuda")
 
 def run_vqa(image: Image.Image, question: str) -> str:
     """
-    이미지와 질문을 받아 VQA 모델을 실행하고 답변을 반환합니다.
+    이미지와 질문을 받아 답변을 텍스트로 반환합니다.
     """
-    load_model() 
+    load_vqa_model()
 
-    messages = [
-        {
-            "role": "user",
-            "content": [
-                {"type": "image"},
-                {"type": "text", "text": question},
-            ],
-        }
-    ]
+    rgb_image = image.convert("RGB")
 
-    text = PROCESSOR.apply_chat_template(
-        messages, tokenize=False, add_generation_prompt=True
-    )
-    
-    inputs = PROCESSOR(text=[text], images=[image], padding=True, return_tensors="pt").to("cuda")
+    inputs = PROCESSOR(rgb_image, question, return_tensors="pt").to("cuda")
 
-    generated_ids = MODEL.generate(**inputs, max_new_tokens=1024, use_cache=True)
-    
-    generated_ids_trimmed = [
-        out_ids[len(in_ids):] for in_ids, out_ids in zip(inputs.input_ids, generated_ids)
-    ]
-    
-    output_text = PROCESSOR.batch_decode(
-        generated_ids_trimmed, skip_special_tokens=True, clean_up_tokenization_spaces=False
-    )[0]
+    out = MODEL.generate(**inputs, max_new_tokens=50)
 
-    return output_text
+    answer = PROCESSOR.decode(out[0], skip_special_tokens=True)
+
+    return answer
