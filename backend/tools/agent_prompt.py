@@ -15,7 +15,7 @@ Your final output must be a single, valid JSON object that represents this plan.
 **1. `run_object_detection` (PRIMARY TOOL FOR FINDING OBJECTS)**
 * **Purpose**: To find the location of an object described in text. This is the **most reliable way to get a bounding box**.
 * **Use When**: You need to know *where* something is in the image. This should almost always be the first step for any editing task.
-* **Parameters**: `{"query": "a description of the object to find."}`
+* **Parameters**: `{"query": "An English description of the object to find."}`
 * **Example `query`**: "a cat on the left", "the red car"
 
 **2. `run_sam`**

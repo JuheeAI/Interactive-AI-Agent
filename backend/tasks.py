@@ -67,8 +67,15 @@ def run_agent_task(self: Task, image_path: str, user_prompt: str):
         for i, step in enumerate(plan_json.get("plan", [])):
             tool_name = step.get("tool_name")
             params = step.get("parameters", {})
+
+            if tool_name == "run_object_detection":
+                query = params.get("query", "")
+                if not re.match(r"^[a-zA-Z0-9\s,-]+$", query):
+                    raise ValueError(f"LLM이 영어 쿼리를 생성하지 않았습니다. (생성된 쿼리: {query})")
+
             self.update_state(state='PROGRESS', meta={'status': f'({i+1}/{len(plan_json["plan"])}) {tool_name} 실행 중...'})
                         
+                       
             result = None
             if tool_name == "run_vqa":
                 result = run_vqa(original_image, **params)

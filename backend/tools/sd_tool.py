@@ -7,17 +7,22 @@ except RuntimeError:
 
 import torch
 from PIL import Image
-from diffusers import AutoPipelineForInpainting
+from diffusers import StableDiffusion3InpaintPipeline
+import os
 
 PIPELINE = None
 
 def load_pipeline():
-    """Inpainting 파이프라인을 메모리에 한 번만 로드합니다."""
+    """SD3 파이프라인을 메모리에 한 번만 로드합니다."""
     global PIPELINE
     if PIPELINE is None:
-        PIPELINE = AutoPipelineForInpainting.from_pretrained(
-            "diffusers/stable-diffusion-xl-inpainting-1.0",
+        hf_token = os.environ.get("HUGGING_FACE_TOKEN")
+
+        PIPELINE = StableDiffusion3InpaintPipeline.from_pretrained(
+            "stabilityai/stable-diffusion-3-medium-diffusers", 
             torch_dtype=torch.float16,
+            token=hf_token
+        )
         PIPELINE.enable_model_cpu_offload()
 
 def run_inpainting(image: Image.Image, mask_image: Image.Image, prompt: str) -> Image.Image:
@@ -30,8 +35,8 @@ def run_inpainting(image: Image.Image, mask_image: Image.Image, prompt: str) -> 
         prompt=prompt,
         image=image,
         mask_image=mask_image,
-        num_inference_steps=20, 
-        guidance_scale=7.5
+        num_inference_steps=28, 
+        guidance_scale=7.0
     ).images[0]
 
     return result_image

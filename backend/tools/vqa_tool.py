@@ -8,7 +8,7 @@ except RuntimeError:
 
 import torch
 from PIL import Image
-from transformers import BlipProcessor, BlipForQuestionAnswering
+from transformers import AutoProcessor, AutoModelForCausalLM
 
 # 모델과 프로세서를 한 번만 로드하기 위한 전역 변수
 PROCESSOR = None
