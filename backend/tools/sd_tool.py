@@ -16,10 +16,8 @@ def load_pipeline():
     global PIPELINE
     if PIPELINE is None:
         PIPELINE = AutoPipelineForInpainting.from_pretrained(
-            "runwayml/stable-diffusion-inpainting",
+            "diffusers/stable-diffusion-xl-inpainting-1.0",
             torch_dtype=torch.float16,
-            variant="fp16"
-        ) # .to("cuda")
         PIPELINE.enable_model_cpu_offload()
 
 def run_inpainting(image: Image.Image, mask_image: Image.Image, prompt: str) -> Image.Image:
