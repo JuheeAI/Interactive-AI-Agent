@@ -164,11 +164,6 @@
 
 본 프로젝트의 **대화형 에이전트 아키텍처**는 `LLaVA-Interactive` 연구에서, **고품질 이미지 생성**에 대한 접근 방식은 `Diffusion Transformers with Representation Autoencoders (RAE)` 연구에서 큰 영감을 얻었습니다. 훌륭한 연구를 공개해주신 모든 연구자분들께 감사를 표합니다.
 
-### **무엇을 새로 알아봐야 하나요?**
-
-- **RAE 논문을 다시 읽어볼 필요는 없습니다.** 지금은 Lama Cleaner나 Stable Diffusion XL Inpainting 같은 **실용적인 고품질 Inpainting 오픈소스**에 집중하는 것이 좋습니다. RAE는 이들의 "학문적 친척" 정도로만 이해하시면 충분합니다.
-- 대신, **Stable Diffusion XL Inpainting** 이나 **PowerPaint** 같은 모델의 사용법, 특히 `diffusers` 라이브러리에서 어떻게 사용하는지를 알아보는 것이 훨씬 더 실용적입니다.
-
 ## 🔟 Agent Perfomance & Evaluation
 
 본 에이전트의 성능은 자체적으로 구축할 평가 파이프라인을 통해 정성적 분석과 정량적 지표 모두를 사용하여 종합적으로 측정 및 관리될 예정입니다.
