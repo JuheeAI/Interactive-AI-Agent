@@ -1,19 +1,36 @@
+# --- Web & API Core ---
 fastapi
 uvicorn
+python-multipart
+websockets
+
+# --- Task Queue & Async ---
 celery
 redis
-websockets
+gevent
+
+# --- Monitoring & Profiling ---
 wandb
+psutil
+line_profiler
+
+# --- AI & Data Processing ---
 huggingface-hub
 transformers
-Pillow
-torchvision
-bitsandbytes
-accelerate
-google-generativeai
-python-multipart
-openai
 diffusers
-gevent 
+accelerate
+bitsandbytes
+Pillow
 scipy
 sentencepiece
+protobuf
+openai
+google-generativeai
+
+# --- Torch Ecosystem ---
+# RunPod 이미지(pytorch:1.0.2-cu1281-torch280...)에는 
+# 이미 최적화된 Torch 2.8.0+cu128 버전이 설치되어 있습니다.
+# AWS나 일반 환경으로 배포할 시 주석을 해제해 주세요!
+# torch
+# torchvision
+# torchaudio
