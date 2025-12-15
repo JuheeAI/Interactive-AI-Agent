@@ -8,11 +8,16 @@ websockets
 celery
 redis
 gevent
+tqdm
+pandas
+matplotlib
+eventlet
 
 # --- Monitoring & Profiling ---
 wandb
 psutil
 line_profiler
+nvidia-ml-py
 
 # --- AI & Data Processing ---
 huggingface-hub
@@ -26,6 +31,7 @@ sentencepiece
 protobuf
 openai
 google-generativeai
+hf_transfer
 
 # --- Torch Ecosystem ---
 # RunPod 이미지(pytorch:1.0.2-cu1281-torch280...)에는 

@@ -1,0 +1,16 @@
+ID,Type,Image,Prompt,Time(s),CLIP,VQA Ans,Mem(MB)
+1,SD3_Easy,test_cat.jpg,change the cat to a dog,90.49,21.62,-,20321.0
+2,SD3_Hard,test_cat.jpg,make the cat look like a cybor...,9.05,23.57,-,20904.0
+3,VQA,test_cat.jpg,what is the animal doing?,7.57,-,sleeping,19310.0
+4,SD3_Easy,test_room.jpg,add a red sofa in the center,8.9,21.76,-,21355.0
+5,SD3_Hard,test_room.jpg,transform the room into a futu...,8.78,21.03,-,21355.0
+6,VQA,test_room.jpg,what is the color of the wall?,2.33,-,white,19310.0
+7,SD3_Easy,test_person.jpg,change the person to a robot,8.56,20.3,-,21355.0
+8,SD3_Hard,test_person.jpg,make the person look like a ma...,9.0,23.12,-,21355.0
+9,VQA,test_person.jpg,is the person smiling?,2.41,-,yes,19310.0
+10,SD3_Easy,test_food.jpg,change the pizza to a cake,9.72,22.63,-,21355.0
+11,SD3_Hard,test_food.jpg,make the food look like it is ...,8.5,23.78,-,21355.0
+12,VQA,test_food.jpg,what kind of food is this?,3.25,-,pizza,19310.0
+13,SD3_Easy,test_city.jpg,add a flying car in the sky,8.79,20.4,-,21355.0
+14,SD3_Hard,test_city.jpg,make it look like a post-apoca...,9.09,18.3,-,21355.0
+15,VQA,test_city.jpg,is it day or night?,2.34,-,day,19312.0
