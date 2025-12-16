@@ -17,17 +17,9 @@ except ImportError:
     """
 
 from .tools.vqa_tool import run_vqa
-from .tools.object_detection_tool import run_object_detection
-
-try:
-    from .tools.sam_tool import run_sam_box as run_sam
-except ImportError:
-    from .tools.sam_tool import run_sam
-
-from .tools.sd_tool import run_inpainting  
+from .tools.sd_tool import run_inpainting as run_img2img
 from .tools.evaluation_tool import calculate_clip_score
 
-# --- 설정 ---
 broker_url = os.environ.get("CELERY_BROKER_URL", "redis://localhost:6379/0")
 backend_url = os.environ.get("CELERY_RESULT_BACKEND", "redis://localhost:6379/0")
 
@@ -52,7 +44,7 @@ def run_agent_task(self, prompt: str, image_data: str):
         image_bytes = base64.b64decode(image_data)
         original_image = Image.open(io.BytesIO(image_bytes)).convert("RGB")
         
-        print(f"🧠 LLM: '{prompt}'에 대한 계획 수립 중...")
+        print(f"LLM: '{prompt}'에 대한 계획 수립 중...")
 
         llm_start = time.time()
         headers = {"Authorization": f"Bearer {OPENAI_API_KEY}", "Content-Type": "application/json"}
@@ -82,7 +74,7 @@ def run_agent_task(self, prompt: str, image_data: str):
         for idx, step in enumerate(plan):
             tool = step['tool_name']
             params = step['parameters']
-            print(f"🚀 [Step {idx+1}] {tool} 실행 중...")
+            print(f"[Step {idx+1}] {tool} 실행 중...")
 
             for k, v in params.items():
                 if v == "[PREVIOUS_STEP_RESULT]": params[k] = last_result
@@ -90,39 +82,27 @@ def run_agent_task(self, prompt: str, image_data: str):
 
             # --- 도구 분기 처리 ---
             start_t = time.time()
-            
-            if tool == "run_object_detection":
-                last_result = run_object_detection(original_image, params['query'])
-                if not last_result: raise Exception("객체를 찾지 못했습니다.")
-                print(f"좌표: {last_result}")
 
-            elif tool == "run_sam":
-                last_result = run_sam(original_image, last_result)
-                print("마스크 생성 완료")
-                if isinstance(last_result, Image.Image):
-                     wandb.log({f"step_{idx}_mask": wandb.Image(last_result)})
-
-            elif tool == "run_inpainting":
-                print("SD3 이미지 생성 중...")
-                # 생성에 사용된 프롬프트 저장 (평가용)
+            if tool == "run_img2img": 
+                print("FLUX.2 이미지 생성 중...")
                 target_prompt = params['prompt']
-                
-                last_result = run_inpainting(params['image'], params['mask_image'], params['prompt'])
+
+                last_result = run_img2img(params['image'], None, params['prompt']) 
+
                 final_data = last_result
                 if isinstance(last_result, Image.Image):
-                     wandb.log({f"step_{idx}_result": wandb.Image(last_result)})
+                    wandb.log({f"step_{idx}_result": wandb.Image(last_result)})
 
             elif tool == "run_vqa":
                 last_result = run_vqa(original_image, params['question'])
                 final_data = last_result
-            
+
             duration = time.time() - start_t
             wandb.log({f"timer/{tool}": duration})
             print(f"[Step {idx+1}] 완료 ({duration:.2f}s)")
 
         total_latency = time.time() - task_start_time
 
-        # --- 정량적 평가 지표 측정 ---
         metrics = {"timer/total_latency": total_latency}
 
         # 1. GPU Peak Memory 측정 (MB)

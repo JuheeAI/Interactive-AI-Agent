@@ -31,6 +31,7 @@ fi
 
 echo "Celery 서버 시작 (Eventlet Pool, Concurrency=10)..."
 # 백그라운드 실행
+WANDB_API_KEY=$WANDB_API_KEY WANDB_PROJECT=$WANDB_PROJECT \
 nohup celery -A app.tasks worker --loglevel=info --pool=eventlet --concurrency=10 --time-limit=300 --soft-time-limit=280 > celery.log 2>&1 &
 
 echo "FastAPI Server 시작..."
