@@ -18,22 +18,32 @@ echo "로그 파일 초기화..."
 > worker.log
 
 echo "환경 변수 설정 중..."
+ENV_FILE="./.env"
+if [ -f "$ENV_FILE" ]; then
+    echo ".env 파일에서 환경 변수 로드 중..."
+    set -a
+    source "$ENV_FILE"
+    set +a
+else
+    echo ".env 파일이 없습니다."
+    exit 1
+fi
+
 export CELERY_BROKER_URL=redis://localhost:6379/0
 export CELERY_RESULT_BACKEND=redis://localhost:6379/0
 export HF_HOME="/workspace/hf_cache"
 export HF_HUB_DISABLE_PROGRESS_BARS=1
 
-ENV_FILE="./.env"
-if [ -f "$ENV_FILE" ]; then
-    echo ".env 파일에서 환경 변수 로드 중..."
-    export $(grep -E '^[A-Z_]+=' "$ENV_FILE" | xargs)
-fi
-
 echo "Celery 서버 시작 (Eventlet Pool, Concurrency=10)..."
 # 백그라운드 실행
 WANDB_API_KEY=$WANDB_API_KEY WANDB_PROJECT=$WANDB_PROJECT \
-nohup celery -A app.tasks worker --loglevel=info --pool=eventlet --concurrency=10 --time-limit=300 --soft-time-limit=280 > celery.log 2>&1 &
-
+nohup celery -A app.tasks worker \
+    --loglevel=info \
+    --pool=eventlet \
+    --concurrency=10 \
+    --time-limit=300 \
+    --soft-time-limit=280 > celery.log 2>&1 &
+    
 echo "FastAPI Server 시작..."
 uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
 

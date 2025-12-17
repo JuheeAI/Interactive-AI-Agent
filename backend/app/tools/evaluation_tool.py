@@ -13,7 +13,7 @@ def load_clip_model():
         print(f"평가용 CLIP 모델 로딩 중: {model_id}...")
         try:
             PROCESSOR = CLIPProcessor.from_pretrained(model_id)
-            MODEL = CLIPModel.from_pretrained(model_id).to(DEVICE)
+            MODEL = CLIPModel.from_pretrained(model_id, weights_only=False).to(DEVICE)
             print("CLIP 모델 로딩 완료!")
         except Exception as e:
             print(f"CLIP 모델 로딩 실패: {e}")

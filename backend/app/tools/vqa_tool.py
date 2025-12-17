@@ -1,5 +1,10 @@
 import torch
-from transformers import pipeline
+from transformers import (
+    pipeline, 
+    AutoModelForVisualQuestionAnswering, 
+    AutoTokenizer, 
+    AutoImageProcessor
+)
 from PIL import Image
 
 VQA_PIPELINE = None
@@ -8,13 +13,23 @@ def run_vqa(image: Image.Image, question: str) -> str:
     global VQA_PIPELINE
     
     if VQA_PIPELINE is None:
-        print("VQA 모델 로딩 중 (dandelin/vilt-b32-finetuned-vqa)...")
-        
+        print("VQA 모델 로딩 중...")
         device = 0 if torch.cuda.is_available() else -1
+        
+        model_id = "dandelin/vilt-b32-finetuned-vqa"
+        
+        model = AutoModelForVisualQuestionAnswering.from_pretrained(
+            model_id, 
+            weights_only=False
+        )
+        tokenizer = AutoTokenizer.from_pretrained(model_id)
+        image_processor = AutoImageProcessor.from_pretrained(model_id)
         
         VQA_PIPELINE = pipeline(
             "visual-question-answering", 
-            model="dandelin/vilt-b32-finetuned-vqa",
+            model=model,
+            tokenizer=tokenizer,
+            image_processor=image_processor,
             device=device
         )
     

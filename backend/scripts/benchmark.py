@@ -120,15 +120,20 @@ def run_benchmark():
                     "Image": filename,
                     "Prompt": prompt[:30] + "..." if len(prompt) > 30 else prompt, 
                     "Time(s)": round(metrics.get("timer/total_latency", 0), 2),
-                    "SD3(s)": round(metrics.get("timer/run_inpainting", 0), 2),
                     "Mem(MB)": round(metrics.get("system/peak_gpu_memory_mb", 0), 0),
-                    "CLIP": 0.0,
-                    "VQA Ans": ""
+                    "CLIP": "-",
+                    "Self-Check": "-",
+                    "VQA/Feedback": ""
                 }
 
                 if result["type"] == "image":
                     summary["CLIP"] = round(metrics.get("evaluation/clip_score", 0), 2)
-                    summary["VQA Ans"] = "-"
+                    
+                    pass_fail = metrics.get("evaluation/self_success_rate")
+                    summary["Self-Check"] = "PASS" if pass_fail == 1 else "FAIL"
+                    
+                    feedback = metrics.get("evaluation/self_feedback_ans", "")
+                    summary["VQA/Feedback"] = feedback[:25] + "..." if len(feedback) > 25 else feedback
                     
                     save_name = f"{i+1}_{task_type}_{filename}"
                     save_path = os.path.join(RESULT_DIR, save_name)
@@ -137,7 +142,7 @@ def run_benchmark():
                         
                 elif result["type"] == "text":
                     summary["CLIP"] = "-"
-                    summary["VQA Ans"] = result["data"]
+                    summary["VQA/Feedback"] = result["data"]
                 
                 results_summary.append(summary)
 
@@ -150,14 +155,14 @@ def run_benchmark():
     if results_summary:
         df = pd.DataFrame(results_summary)
         
-        cols = ["ID", "Type", "Image", "Prompt", "Time(s)", "CLIP", "VQA Ans", "Mem(MB)"]
+        cols = ["ID", "Type", "Prompt", "Time(s)", "CLIP", "Self-Check", "VQA/Feedback", "Mem(MB)"]
         df = df[cols]
 
         print("\n\n📊 [Benchmark Report]")
-        print("=" * 100)
+        print("=" * 120)
         print(df.to_string(index=False))
-        print("=" * 100)
-        
+        print("=" * 120)
+
         df.to_csv(os.path.join(RESULT_DIR, "final_report.csv"), index=False)
         print(f"\n리포트 저장 완료: {RESULT_DIR}/final_report.csv")
     else:

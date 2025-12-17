@@ -13,6 +13,18 @@ import time
 # PROFILE_OUTPUT_DIR = "profiler_output" 
 # os.makedirs(PROFILE_OUTPUT_DIR, exist_ok=True)
 
+import torch.nn.functional as F
+
+orig_sdpa = F.scaled_dot_product_attention
+
+def patched_sdpa(*args, **kwargs):
+    if 'enable_gqa' in kwargs:
+        kwargs.pop('enable_gqa')
+    return orig_sdpa(*args, **kwargs)
+
+F.scaled_dot_product_attention = patched_sdpa
+
+
 # 로깅 설정
 logger = logging.getLogger(__name__)
 
@@ -91,16 +103,16 @@ class Flux2ImageGenerator:
             torch_dtype=torch.bfloat16 
         ).to("cuda")
 
-        logger.info("모델 컴파일 중...")
-        try:
-            self.pipeline.transformer = torch.compile(
-                self.pipeline.transformer, 
-                mode="reduce-overhead", 
-                fullgraph=True
-            )
-            logger.info("컴파일 성공.")
-        except Exception as e:
-            logger.warning(f"모델 컴파일 실패 (속도 저하 가능성): {e}")
+        # logger.info("모델 컴파일 중...")
+        # try:
+        #     self.pipeline.transformer = torch.compile(
+        #         self.pipeline.transformer, 
+        #         mode="reduce-overhead", 
+        #         fullgraph=True
+        #     )
+        #     logger.info("컴파일 성공.")
+        # except Exception as e:
+        #     logger.warning(f"모델 컴파일 실패 (속도 저하 가능성): {e}")
 
         logger.info("FLUX.2 파이프라인 로드 완료.")
         return self.pipeline
@@ -136,7 +148,7 @@ class Flux2ImageGenerator:
                     prompt=prompt,
                     image=image, 
                     guidance_scale=4.0, 
-                    num_inference_steps=20, 
+                    num_inference_steps=8, 
                 ).images[0]
 
         # 3. 프로파일링 결과 저장 (Chrome Trace Format)

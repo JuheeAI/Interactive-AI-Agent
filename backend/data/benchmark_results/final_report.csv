@@ -1,16 +1,16 @@
 ID,Type,Image,Prompt,Time(s),CLIP,VQA Ans,Mem(MB)
-1,SD3_Easy,test_cat.jpg,change the cat to a dog,64.04,24.01,-,19559.0
-2,SD3_Hard,test_cat.jpg,make the cat look like a cybor...,63.93,33.81,-,19559.0
-3,VQA,test_cat.jpg,what is the animal doing?,2.43,-,sleeping,18506.0
-4,SD3_Easy,test_room.jpg,add a red sofa in the center,64.07,31.39,-,19559.0
-5,SD3_Hard,test_room.jpg,transform the room into a futu...,65.74,34.75,-,19559.0
-6,VQA,test_room.jpg,what is the color of the wall?,1.72,-,white,18505.0
-7,SD3_Easy,test_person.jpg,change the person to a robot,63.74,27.98,-,19559.0
-8,SD3_Hard,test_person.jpg,make the person look like a ma...,63.92,26.14,-,19559.0
-9,VQA,test_person.jpg,is the person smiling?,1.97,-,yes,18506.0
-10,SD3_Easy,test_food.jpg,change the pizza to a cake,64.2,22.78,-,19559.0
-11,SD3_Hard,test_food.jpg,make the food look like it is ...,64.89,31.76,-,19559.0
-12,VQA,test_food.jpg,what kind of food is this?,1.75,-,pizza,18506.0
-13,SD3_Easy,test_city.jpg,add a flying car in the sky,56.47,31.93,-,19504.0
-14,SD3_Hard,test_city.jpg,make it look like a post-apoca...,57.26,30.91,-,19504.0
-15,VQA,test_city.jpg,is it day or night?,1.56,-,day,18507.0
+1,SD3_Easy,test_cat.jpg,change the cat to a dog,29.04,25.27,-,33232.0
+2,SD3_Hard,test_cat.jpg,make the cat look like a cybor...,17.59,33.26,-,33811.0
+3,VQA,test_cat.jpg,what is the animal doing?,3.58,-,sleeping,33219.0
+4,SD3_Easy,test_room.jpg,add a red sofa in the center,17.6,35.36,-,34259.0
+5,SD3_Hard,test_room.jpg,transform the room into a futu...,18.15,32.63,-,34259.0
+6,VQA,test_room.jpg,what is the color of the wall?,1.86,-,white,33218.0
+7,SD3_Easy,test_person.jpg,change the person to a robot,16.83,27.16,-,34259.0
+8,SD3_Hard,test_person.jpg,make the person look like a ma...,18.07,24.75,-,34259.0
+9,VQA,test_person.jpg,is the person smiling?,1.77,-,yes,33219.0
+10,SD3_Easy,test_food.jpg,change the pizza to a cake,17.47,27.62,-,34259.0
+11,SD3_Hard,test_food.jpg,make the food look like it is ...,18.49,31.52,-,34259.0
+12,VQA,test_food.jpg,what kind of food is this?,1.82,-,pizza,33219.0
+13,SD3_Easy,test_city.jpg,add a flying car in the sky,15.76,21.43,-,34206.0
+14,SD3_Hard,test_city.jpg,make it look like a post-apoca...,16.57,31.84,-,34206.0
+15,VQA,test_city.jpg,is it day or night?,1.68,-,day,33222.0

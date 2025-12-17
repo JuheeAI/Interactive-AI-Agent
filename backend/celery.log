@@ -1,4 +1,5 @@
-/usr/local/lib/python3.12/dist-packages/celery/platforms.py:841: SecurityWarning: You're running the worker with superuser privileges: this is
+1 RLock(s) were not greened, to fix this error make sure you run eventlet.monkey_patch() before importing any other modules.
+/usr/local/lib/python3.11/dist-packages/celery/platforms.py:841: SecurityWarning: You're running the worker with superuser privileges: this is
 absolutely not recommended!
 
 Please specify a different user using the --uid option.
@@ -7,12 +8,12 @@ User information: uid=0 euid=0 gid=0 egid=0
 
   warnings.warn(SecurityWarning(ROOT_DISCOURAGED.format(
  
- -------------- celery@0573109cd933 v5.6.0 (recovery)
+ -------------- celery@77da2b6105c4 v5.6.0 (recovery)
 --- ***** ----- 
--- ******* ---- Linux-6.8.0-87-generic-x86_64-with-glibc2.39 2025-12-16 08:16:07
+-- ******* ---- Linux-6.5.0-35-generic-x86_64-with-glibc2.35 2025-12-17 09:14:28
 - *** --- * --- 
 - ** ---------- [config]
-- ** ---------- .> app:         tasks:0x77eaab2b3650
+- ** ---------- .> app:         tasks:0x74a34585d910
 - ** ---------- .> transport:   redis://localhost:6379/0
 - ** ---------- .> results:     redis://localhost:6379/0
 - *** --- * --- .> concurrency: 10 (eventlet)
@@ -25,202 +26,142 @@ User information: uid=0 euid=0 gid=0 egid=0
 [tasks]
   . app.tasks.run_agent_task
 
-[2025-12-16 08:16:07,216: INFO/MainProcess] Connected to redis://localhost:6379/0
-[2025-12-16 08:16:07,217: INFO/MainProcess] mingle: searching for neighbors
-[2025-12-16 08:16:08,229: INFO/MainProcess] mingle: all alone
-[2025-12-16 08:16:08,235: INFO/MainProcess] pidbox: Connected to redis://localhost:6379/0.
-[2025-12-16 08:16:08,241: INFO/MainProcess] celery@0573109cd933 ready.
-[2025-12-16 08:16:08,248: INFO/MainProcess] Task app.tasks.run_agent_task[4e20c8c4-d658-4d55-9510-fcfc17d71599] received
-[2025-12-16 08:16:08,509: WARNING/MainProcess] wandb: Currently logged in as: 1032677 (1032677-ebay) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
-[2025-12-16 08:16:08,823: WARNING/MainProcess] wandb: WARNING Using a boolean value for 'reinit' is deprecated. Use 'return_previous' or 'finish_previous' instead.
-[2025-12-16 08:16:09,290: WARNING/MainProcess] wandb: Tracking run with wandb version 0.23.1
-[2025-12-16 08:16:09,290: WARNING/MainProcess] wandb: Run data is saved locally in /workspace/Interactive-AI-Agent/backend/wandb/run-20251216_081608-gucozu9s
+[2025-12-17 09:14:28,502: INFO/MainProcess] Connected to redis://localhost:6379/0
+[2025-12-17 09:14:28,505: INFO/MainProcess] mingle: searching for neighbors
+[2025-12-17 09:14:29,513: INFO/MainProcess] mingle: all alone
+[2025-12-17 09:14:29,518: INFO/MainProcess] celery@77da2b6105c4 ready.
+[2025-12-17 09:14:29,523: INFO/MainProcess] pidbox: Connected to redis://localhost:6379/0.
+[2025-12-17 09:14:29,524: INFO/MainProcess] Task app.tasks.run_agent_task[bc5807a1-ed3d-4067-8396-901379cad166] received
+[2025-12-17 09:14:29,774: WARNING/MainProcess] wandb: Currently logged in as: 1032677 (1032677-ebay) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+[2025-12-17 09:14:30,016: WARNING/MainProcess] wandb: WARNING Using a boolean value for 'reinit' is deprecated. Use 'return_previous' or 'finish_previous' instead.
+[2025-12-17 09:14:30,527: WARNING/MainProcess] wandb: setting up run 5o3lfmrp
+[2025-12-17 09:14:30,618: WARNING/MainProcess] wandb: Tracking run with wandb version 0.23.1
+[2025-12-17 09:14:30,618: WARNING/MainProcess] wandb: Run data is saved locally in /workspace/Interactive-AI-Agent/backend/wandb/run-20251217_091429-5o3lfmrp
 wandb: Run `wandb offline` to turn off syncing.
-[2025-12-16 08:16:09,290: WARNING/MainProcess] wandb: Syncing run job_4e20c8c4-d658-4d55-9510-fcfc17d71599
-[2025-12-16 08:16:09,290: WARNING/MainProcess] wandb:  View project at https://wandb.ai/1032677-ebay/ai_agent_project
-[2025-12-16 08:16:09,291: WARNING/MainProcess] wandb:  View run at https://wandb.ai/1032677-ebay/ai_agent_project/runs/gucozu9s
-[2025-12-16 08:16:09,465: WARNING/MainProcess] LLM: 'change the cat to a dog'에 대한 계획 수립 중...
-[2025-12-16 08:16:10,602: WARNING/MainProcess] 📋 계획: [
+[2025-12-17 09:14:30,618: WARNING/MainProcess] wandb: Syncing run job_bc5807a1-ed3d-4067-8396-901379cad166
+[2025-12-17 09:14:30,619: WARNING/MainProcess] wandb:  View project at https://wandb.ai/1032677-ebay/ai_agent_project
+[2025-12-17 09:14:30,619: WARNING/MainProcess] wandb:  View run at https://wandb.ai/1032677-ebay/ai_agent_project/runs/5o3lfmrp
+[2025-12-17 09:14:30,761: WARNING/MainProcess] LLM: 'change the cat to a dog'에 대한 계획 수립 중...
+[2025-12-17 09:14:32,943: WARNING/MainProcess] 📋 계획: [
   {
     "tool_name": "run_img2img",
     "parameters": {
       "image": "[ORIGINAL_IMAGE]",
-      "prompt": "change the cat to a dog, with the dog sitting in the same pose, in the same lighting and background as the original image to maintain the photo's style and context."
+      "prompt": "change the cat to a dog, with the dog sitting in the same pose, same lighting, and same background as the original photo."
     }
   }
 ]
-[2025-12-16 08:16:10,603: WARNING/MainProcess] [Step 1] run_img2img 실행 중...
-[2025-12-16 08:16:10,603: WARNING/MainProcess] FLUX.2 이미지 생성 중...
-[2025-12-16 08:16:10,603: INFO/MainProcess] ⚡ FLUX.2 Img2Img 모델 로드 중 (Text Encoder는 Remote 사용)...
-[2025-12-16 08:16:10,799: WARNING/MainProcess] Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]
-[2025-12-16 08:16:11,795: WARNING/MainProcess] Loading pipeline components...:  40%|####      | 2/5 [00:00<00:01,  2.01it/s]
-[2025-12-16 08:16:12,049: WARNING/MainProcess] Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
-[2025-12-16 08:16:12,050: WARNING/MainProcess] [A
-[2025-12-16 08:16:13,355: WARNING/MainProcess] Loading checkpoint shards:  50%|#####     | 1/2 [00:01<00:01,  1.30s/it]
-[2025-12-16 08:16:13,356: WARNING/MainProcess] [A
-[2025-12-16 08:16:14,404: WARNING/MainProcess] Loading checkpoint shards: 100%|##########| 2/2 [00:02<00:00,  1.15s/it]
-[2025-12-16 08:16:14,405: WARNING/MainProcess] [A
-[2025-12-16 08:16:14,405: WARNING/MainProcess] Loading checkpoint shards: 100%|##########| 2/2 [00:02<00:00,  1.18s/it]
-[2025-12-16 08:16:14,424: WARNING/MainProcess] Loading pipeline components...:  60%|######    | 3/5 [00:03<00:02,  1.39s/it]
+[2025-12-17 09:14:32,943: WARNING/MainProcess] [Step 1] run_img2img 실행 중...
+[2025-12-17 09:14:32,944: WARNING/MainProcess] FLUX.2 이미지 생성 중...
+[2025-12-17 09:14:32,944: INFO/MainProcess] ⚡ FLUX.2 Img2Img 모델 로드 중 (Text Encoder는 Remote 사용)...
+[2025-12-17 09:14:33,142: WARNING/MainProcess] Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]
+[2025-12-17 09:14:33,393: WARNING/MainProcess] Loading pipeline components...:  20%|##        | 1/5 [00:00<00:00,  4.00it/s]
 `torch_dtype` is deprecated! Use `dtype` instead!
-[2025-12-16 08:16:17,113: WARNING/MainProcess] Loading pipeline components...:  80%|########  | 4/5 [00:06<00:01,  1.87s/it]
-[2025-12-16 08:16:17,158: WARNING/MainProcess] Loading pipeline components...: 100%|##########| 5/5 [00:06<00:00,  1.27s/it]
-[2025-12-16 08:16:17,265: INFO/MainProcess] 모델 컴파일 중...
-[2025-12-16 08:16:17,268: INFO/MainProcess] 컴파일 성공.
-[2025-12-16 08:16:17,268: INFO/MainProcess] FLUX.2 파이프라인 로드 완료.
-[W1216 08:16:18.587287688 CPUAllocator.cpp:245] Memory block of unknown size was allocated before the profiling started, profiler results will not include the deallocation event
-[2025-12-16 08:16:18,124: WARNING/MainProcess]   0%|          | 0/20 [00:00<?, ?it/s]
-[2025-12-16 08:16:19,252: WARNING/MainProcess] /usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/functions.py:1575: UserWarning: Dynamo detected a call to a `functools.lru_cache`-wrapped function. Dynamo ignores the cache wrapper and directly traces the wrapped function. Silent incorrectness is only a *potential* risk, not something we have observed. Enable TORCH_LOGS="+dynamo" for a DEBUG stack trace.
-  torch._dynamo.utils.warn_once(msg)
-
-[2025-12-16 08:16:32,581: WARNING/MainProcess]   5%|5         | 1/20 [00:14<04:34, 14.46s/it]
-[2025-12-16 08:16:35,868: WARNING/MainProcess]  10%|#         | 2/20 [00:17<02:21,  7.89s/it]
-[2025-12-16 08:16:37,019: WARNING/MainProcess]  40%|####      | 8/20 [00:18<00:17,  1.47s/it]
-[2025-12-16 08:16:38,666: WARNING/MainProcess]  45%|####5     | 9/20 [00:20<00:16,  1.50s/it]
-[2025-12-16 08:16:40,312: WARNING/MainProcess]  50%|#####     | 10/20 [00:22<00:15,  1.52s/it]
-[2025-12-16 08:16:41,948: WARNING/MainProcess]  55%|#####5    | 11/20 [00:23<00:13,  1.55s/it]
-[2025-12-16 08:16:43,587: WARNING/MainProcess]  60%|######    | 12/20 [00:25<00:12,  1.57s/it]
-[2025-12-16 08:16:45,228: WARNING/MainProcess]  65%|######5   | 13/20 [00:27<00:11,  1.59s/it]
-[2025-12-16 08:16:46,869: WARNING/MainProcess]  70%|#######   | 14/20 [00:28<00:09,  1.60s/it]
-[2025-12-16 08:16:48,513: WARNING/MainProcess]  75%|#######5  | 15/20 [00:30<00:08,  1.61s/it]
-[2025-12-16 08:16:50,155: WARNING/MainProcess]  80%|########  | 16/20 [00:32<00:06,  1.62s/it]
-[2025-12-16 08:16:51,800: WARNING/MainProcess]  85%|########5 | 17/20 [00:33<00:04,  1.63s/it]
-[2025-12-16 08:16:53,446: WARNING/MainProcess]  90%|######### | 18/20 [00:35<00:03,  1.63s/it]
-[2025-12-16 08:16:55,094: WARNING/MainProcess]  95%|#########5| 19/20 [00:36<00:01,  1.64s/it]
-[2025-12-16 08:16:56,743: WARNING/MainProcess] 100%|##########| 20/20 [00:38<00:00,  1.64s/it]
-[2025-12-16 08:16:56,744: WARNING/MainProcess] 100%|##########| 20/20 [00:38<00:00,  1.93s/it]
-[2025-12-16 08:17:06,432: INFO/MainProcess] 
-
-============ 📊 FLUX.2 GPU Profiling Results (Top 10) ============
-[2025-12-16 08:17:16,868: INFO/MainProcess] -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg       CPU Mem  Self CPU Mem      CUDA Mem  Self CUDA Mem    # of Calls  
--------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-                                         FLUX_INFERENCE         0.30%     144.563ms       100.00%       48.344s       48.344s       0.000us         0.00%     1822.753s     1822.753s           0 B     -12.50 MB       8.89 MB     -17.59 GB             1  
-                             Torch-Compiled Region: 0/0         0.09%      43.555ms        48.86%       23.620s        1.181s       31.429s        93.79%     1822.215s       91.111s           0 B      -4.97 KB      -8.12 MB     -60.59 GB            20  
-                                    Command Buffer Full        45.98%       22.227s        45.98%       22.227s      16.428ms     1789.114s      5339.11%     1789.114s        1.322s           0 B           0 B           0 B           0 B          1353  
-                                        cudaGraphLaunch         0.05%      24.385ms        38.01%       18.375s     967.104ms       0.000us         0.00%     1789.112s       94.164s           0 B           0 B           0 B           0 B            19  
-                                         FLUX_INFERENCE         0.00%       0.000us         0.00%       0.000us       0.000us       50.172s       149.72%       50.172s       16.724s           0 B           0 B           0 B           0 B             3  
-void cutlass::Kernel2<cutlass_80_tensorop_bf16_s1681...         0.00%       0.000us         0.00%       0.000us       0.000us       26.606s        79.40%       26.606s       7.071ms           0 B           0 B           0 B           0 B          3763  
-void kDequantizeBlockwise<__nv_bfloat16, 512, 64, 8,...         0.00%       0.000us         0.00%       0.000us       0.000us        2.469s         7.37%        2.469s     590.723us           0 B           0 B           0 B           0 B          4180  
-void pytorch_flash::flash_fwd_kernel<Flash_fwd_kerne...         0.00%       0.000us         0.00%       0.000us       0.000us        2.408s         7.19%        2.408s       2.150ms           0 B           0 B           0 B           0 B          1120  
-                                               aten::mm         0.24%     116.361ms         0.39%     186.587ms     210.832us        1.509s         4.50%        1.580s       1.786ms           0 B           0 B       3.34 GB       3.34 GB           885  
-                                triton_poi_fused_cat_22         0.00%       0.000us         0.00%       0.000us       0.000us     586.395ms         1.75%     586.395ms     610.828us           0 B           0 B           0 B           0 B           960  
--------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-Self CPU time total: 48.345s
-Self CUDA time total: 33.510s
-
-[2025-12-16 08:17:16,868: INFO/MainProcess] ==================================================================
-[2025-12-16 08:17:16,868: INFO/MainProcess] ⏱️ Diffusion Model (UNet+VAE) Time: 59.60s
-[2025-12-16 08:17:16,868: INFO/MainProcess] ⏱️ Full Img2Img Time (Encoder+Diffusion): 59.60s
-[2025-12-16 08:17:17,192: WARNING/MainProcess] [Step 1] 완료 (66.59s)
-[2025-12-16 08:17:17,192: WARNING/MainProcess] GPU Peak Memory: 33496.63 MB
-[2025-12-16 08:17:17,193: WARNING/MainProcess] 평가용 CLIP 모델 로딩 중: openai/clip-vit-base-patch32...
+[2025-12-17 09:14:37,956: WARNING/MainProcess] Loading pipeline components...:  40%|####      | 2/5 [00:04<00:08,  2.79s/it]
+[2025-12-17 09:14:38,999: WARNING/MainProcess] Loading pipeline components...:  60%|######    | 3/5 [00:05<00:03,  1.99s/it]
+[2025-12-17 09:14:39,097: WARNING/MainProcess] Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+[2025-12-17 09:14:39,097: WARNING/MainProcess] [A
+[2025-12-17 09:14:41,051: WARNING/MainProcess] Loading checkpoint shards:  50%|#####     | 1/2 [00:01<00:01,  1.95s/it]
+[2025-12-17 09:14:41,051: WARNING/MainProcess] [A
+[2025-12-17 09:14:42,639: WARNING/MainProcess] Loading checkpoint shards: 100%|##########| 2/2 [00:03<00:00,  1.74s/it]
+[2025-12-17 09:14:42,640: WARNING/MainProcess] [A
+[2025-12-17 09:14:42,640: WARNING/MainProcess] Loading checkpoint shards: 100%|##########| 2/2 [00:03<00:00,  1.77s/it]
+[2025-12-17 09:14:42,662: WARNING/MainProcess] Loading pipeline components...:  80%|########  | 4/5 [00:09<00:02,  2.65s/it]
+[2025-12-17 09:14:42,663: WARNING/MainProcess] Loading pipeline components...: 100%|##########| 5/5 [00:09<00:00,  1.90s/it]
+[2025-12-17 09:14:42,993: INFO/MainProcess] FLUX.2 파이프라인 로드 완료.
+[2025-12-17 09:14:43,858: WARNING/MainProcess]   0%|          | 0/8 [00:00<?, ?it/s]
+[2025-12-17 09:14:44,945: WARNING/MainProcess]  12%|#2        | 1/8 [00:01<00:07,  1.09s/it]
+[2025-12-17 09:14:46,716: WARNING/MainProcess]  25%|##5       | 2/8 [00:02<00:08,  1.49s/it]
+[2025-12-17 09:14:48,496: WARNING/MainProcess]  38%|###7      | 3/8 [00:04<00:08,  1.62s/it]
+[2025-12-17 09:14:50,276: WARNING/MainProcess]  50%|#####     | 4/8 [00:06<00:06,  1.68s/it]
+[2025-12-17 09:14:52,060: WARNING/MainProcess]  62%|######2   | 5/8 [00:08<00:05,  1.72s/it]
+[2025-12-17 09:14:53,846: WARNING/MainProcess]  75%|#######5  | 6/8 [00:09<00:03,  1.74s/it]
+[2025-12-17 09:14:55,639: WARNING/MainProcess]  88%|########7 | 7/8 [00:11<00:01,  1.76s/it]
+[2025-12-17 09:14:57,432: WARNING/MainProcess] 100%|##########| 8/8 [00:13<00:00,  1.77s/it]
+[2025-12-17 09:14:57,432: WARNING/MainProcess] 100%|##########| 8/8 [00:13<00:00,  1.70s/it]
+[2025-12-17 09:14:58,223: INFO/MainProcess] ⏱️ Diffusion Model (UNet+VAE) Time: 15.23s
+[2025-12-17 09:14:58,223: INFO/MainProcess] ⏱️ Full Img2Img Time (Encoder+Diffusion): 15.23s
+[2025-12-17 09:14:58,564: WARNING/MainProcess] [Step 1] 완료 (25.62s)
+[2025-12-17 09:14:58,564: WARNING/MainProcess] GPU Peak Memory: 33232.23 MB
+[2025-12-17 09:14:58,564: WARNING/MainProcess] 평가용 CLIP 모델 로딩 중: openai/clip-vit-base-patch32...
 Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
-[2025-12-16 08:17:18,494: WARNING/MainProcess] CLIP 모델 로딩 완료!
-[2025-12-16 08:17:18,600: WARNING/MainProcess] CLIP Score: 24.0216 (Prompt: change the cat to a dog, with the dog sitting in the same pose, in the same lighting and background as the original image to maintain the photo's style and context.)
-[2025-12-16 08:17:18,706: WARNING/MainProcess] wandb: updating run metadata
-[2025-12-16 08:17:19,109: WARNING/MainProcess] wandb: uploading history steps 1-3, summary, console lines 29-74
-[2025-12-16 08:17:19,129: WARNING/MainProcess] wandb: 
+[2025-12-17 09:15:00,402: WARNING/MainProcess] CLIP 모델 로딩 완료!
+[2025-12-17 09:15:00,446: WARNING/MainProcess] CLIP Score: 25.2704 (Prompt: change the cat to a dog, with the dog sitting in the same pose, same lighting, and same background as the original photo.)
+[2025-12-17 09:15:00,552: WARNING/MainProcess] wandb: updating run metadata
+[2025-12-17 09:15:00,954: WARNING/MainProcess] wandb: uploading history steps 1-3, summary, console lines 14-42; uploading config.yaml
+[2025-12-17 09:15:01,179: WARNING/MainProcess] wandb: 
 wandb: Run summary:
-wandb:     evaluation/clip_score 24.0216
+wandb:     evaluation/clip_score 25.2704
 wandb:  evaluation/target_prompt change the cat to a ...
-wandb: system/peak_gpu_memory_mb 33496.62695
-wandb:        timer/llm_planning 1.13634
-wandb:         timer/run_img2img 66.58853
-wandb:       timer/total_latency 68.94325
+wandb: system/peak_gpu_memory_mb 33232.23047
+wandb:        timer/llm_planning 2.1808
+wandb:         timer/run_img2img 25.62006
+wandb:       timer/total_latency 29.03892
 wandb: 
-[2025-12-16 08:17:19,130: WARNING/MainProcess] wandb:  View run job_4e20c8c4-d658-4d55-9510-fcfc17d71599 at: https://wandb.ai/1032677-ebay/ai_agent_project/runs/gucozu9s
+[2025-12-17 09:15:01,180: WARNING/MainProcess] wandb:  View run job_bc5807a1-ed3d-4067-8396-901379cad166 at: https://wandb.ai/1032677-ebay/ai_agent_project/runs/5o3lfmrp
 wandb:  View project at: https://wandb.ai/1032677-ebay/ai_agent_project
 wandb: Synced 5 W&B file(s), 1 media file(s), 0 artifact file(s) and 0 other file(s)
-[2025-12-16 08:17:19,130: WARNING/MainProcess] wandb: Find logs at: ./wandb/run-20251216_081608-gucozu9s/logs
-[2025-12-16 08:17:19,174: INFO/MainProcess] Task app.tasks.run_agent_task[4e20c8c4-d658-4d55-9510-fcfc17d71599] succeeded in 70.92500904807821s: {'status': 'success', 'metrics': {'timer/total_latency': 68.94324922561646, 'system/peak_gpu_memory_mb': 33496.626953125, 'evaluation/clip_score': 24.0216, 'evaluation/target_prompt': 'change the cat to a dog, with the dog sitting in the same pose, in the same lighting and background as the original image to maintain the photo\'s style and context.'}, 'type': 'image', 'data': '/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAHgAoADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRC...', ...
-[2025-12-16 08:17:19,190: INFO/MainProcess] Task app.tasks.run_agent_task[5d195abd-dc2e-4fd1-82af-cc7ab652a2ae] received
-[2025-12-16 08:17:19,739: WARNING/MainProcess] wandb: Tracking run with wandb version 0.23.1
-[2025-12-16 08:17:19,739: WARNING/MainProcess] wandb: Run data is saved locally in /workspace/Interactive-AI-Agent/backend/wandb/run-20251216_081719-ldwh8lsb
+[2025-12-17 09:15:01,180: WARNING/MainProcess] wandb: Find logs at: ./wandb/run-20251217_091429-5o3lfmrp/logs
+[2025-12-17 09:15:01,213: INFO/MainProcess] Task app.tasks.run_agent_task[bc5807a1-ed3d-4067-8396-901379cad166] succeeded in 31.68782628327608s: {'status': 'success', 'metrics': {'timer/total_latency': 29.038922548294067, 'system/peak_gpu_memory_mb': 33232.23046875, 'evaluation/clip_score': 25.2704, 'evaluation/target_prompt': 'change the cat to a dog, with the dog sitting in the same pose, same lighting, and same background as the original photo.'}, 'type': 'image', 'data': '/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAHgAoADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVV...', ...
+[2025-12-17 09:15:01,230: INFO/MainProcess] Task app.tasks.run_agent_task[15099848-c243-416b-8ee3-077126c40180] received
+[2025-12-17 09:15:01,783: WARNING/MainProcess] wandb: Tracking run with wandb version 0.23.1
+[2025-12-17 09:15:01,783: WARNING/MainProcess] wandb: Run data is saved locally in /workspace/Interactive-AI-Agent/backend/wandb/run-20251217_091501-7x93mly4
 wandb: Run `wandb offline` to turn off syncing.
-[2025-12-16 08:17:19,740: WARNING/MainProcess] wandb: Syncing run job_5d195abd-dc2e-4fd1-82af-cc7ab652a2ae
-[2025-12-16 08:17:19,740: WARNING/MainProcess] wandb:  View project at https://wandb.ai/1032677-ebay/ai_agent_project
-[2025-12-16 08:17:19,740: WARNING/MainProcess] wandb:  View run at https://wandb.ai/1032677-ebay/ai_agent_project/runs/ldwh8lsb
-[2025-12-16 08:17:19,908: WARNING/MainProcess] LLM: 'make the cat look like a cyborg tiger with neon lights'에 대한 계획 수립 중...
-[2025-12-16 08:17:21,236: WARNING/MainProcess] 📋 계획: [
+[2025-12-17 09:15:01,784: WARNING/MainProcess] wandb: Syncing run job_15099848-c243-416b-8ee3-077126c40180
+[2025-12-17 09:15:01,784: WARNING/MainProcess] wandb:  View project at https://wandb.ai/1032677-ebay/ai_agent_project
+[2025-12-17 09:15:01,784: WARNING/MainProcess] wandb:  View run at https://wandb.ai/1032677-ebay/ai_agent_project/runs/7x93mly4
+[2025-12-17 09:15:01,940: WARNING/MainProcess] LLM: 'make the cat look like a cyborg tiger with neon lights'에 대한 계획 수립 중...
+[2025-12-17 09:15:03,947: WARNING/MainProcess] 📋 계획: [
   {
     "tool_name": "run_img2img",
     "parameters": {
       "image": "[ORIGINAL_IMAGE]",
-      "prompt": "transform the cat into a cyborg tiger with neon lights, while keeping the same lighting and background as the original image and maintaining the overall photo style."
+      "prompt": "transform the cat into a cyborg tiger with neon lights, featuring metallic textures and futuristic elements, in the same lighting and background as the original image, maintaining the same photo style."
     }
   }
 ]
-[2025-12-16 08:17:21,237: WARNING/MainProcess] [Step 1] run_img2img 실행 중...
-[2025-12-16 08:17:21,237: WARNING/MainProcess] FLUX.2 이미지 생성 중...
-[2025-12-16 08:17:21,650: WARNING/MainProcess]   0%|          | 0/20 [00:00<?, ?it/s]
-[2025-12-16 08:17:22,800: WARNING/MainProcess]  30%|###       | 6/20 [00:01<00:02,  5.22it/s]
-[2025-12-16 08:17:24,449: WARNING/MainProcess]  35%|###5      | 7/20 [00:02<00:06,  2.12it/s]
-[2025-12-16 08:17:26,100: WARNING/MainProcess]  40%|####      | 8/20 [00:04<00:08,  1.38it/s]
-[2025-12-16 08:17:27,755: WARNING/MainProcess]  45%|####5     | 9/20 [00:06<00:10,  1.06it/s]
-[2025-12-16 08:17:29,411: WARNING/MainProcess]  50%|#####     | 10/20 [00:07<00:11,  1.12s/it]
-[2025-12-16 08:17:31,067: WARNING/MainProcess]  55%|#####5    | 11/20 [00:09<00:11,  1.26s/it]
-[2025-12-16 08:17:32,726: WARNING/MainProcess]  60%|######    | 12/20 [00:11<00:10,  1.37s/it]
-[2025-12-16 08:17:34,388: WARNING/MainProcess]  65%|######5   | 13/20 [00:12<00:10,  1.45s/it]
-[2025-12-16 08:17:36,041: WARNING/MainProcess]  70%|#######   | 14/20 [00:14<00:09,  1.51s/it]
-[2025-12-16 08:17:37,694: WARNING/MainProcess]  75%|#######5  | 15/20 [00:16<00:07,  1.55s/it]
-[2025-12-16 08:17:39,347: WARNING/MainProcess]  80%|########  | 16/20 [00:17<00:06,  1.58s/it]
-[2025-12-16 08:17:41,002: WARNING/MainProcess]  85%|########5 | 17/20 [00:19<00:04,  1.60s/it]
-[2025-12-16 08:17:42,655: WARNING/MainProcess]  90%|######### | 18/20 [00:21<00:03,  1.62s/it]
-[2025-12-16 08:17:44,311: WARNING/MainProcess]  95%|#########5| 19/20 [00:22<00:01,  1.63s/it]
-[2025-12-16 08:17:45,967: WARNING/MainProcess] 100%|##########| 20/20 [00:24<00:00,  1.64s/it]
-[2025-12-16 08:17:45,969: WARNING/MainProcess] 100%|##########| 20/20 [00:24<00:00,  1.22s/it]
-[2025-12-16 08:17:55,170: INFO/MainProcess] 
-
-============ 📊 FLUX.2 GPU Profiling Results (Top 10) ============
-[2025-12-16 08:18:02,608: INFO/MainProcess] -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg       CPU Mem  Self CPU Mem      CUDA Mem  Self CUDA Mem    # of Calls  
--------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-                                         FLUX_INFERENCE        -2.93%  -983455.612us       100.00%       33.600s       33.600s       0.000us         0.00%     2108.361s     2108.361s           0 B     -12.50 MB     777.00 KB     -17.61 GB             1  
-                                    Command Buffer Full        72.40%       24.327s        72.40%       24.327s      17.168ms     2071.533s      6181.78%     2071.533s        1.462s           0 B           0 B           0 B           0 B          1417  
-                             Torch-Compiled Region: 0/0         0.03%      11.670ms        67.21%       22.583s        1.129s       33.091s        98.75%     1985.166s       99.258s           0 B           0 B           0 B           0 B            20  
-                                        cudaGraphLaunch         3.40%        1.143s        63.67%       21.395s        1.070s       0.000us         0.00%     1952.073s       97.604s           0 B           0 B           0 B           0 B            20  
-                                           Buffer Flush         0.09%      29.421ms         3.37%        1.133s        1.133s        1.659s         4.95%      122.777s      122.777s           0 B           0 B     599.50 KB     599.50 KB             1  
-                                         FLUX_INFERENCE         0.00%       0.000us         0.00%       0.000us       0.000us       33.565s       100.16%       33.565s       33.565s           0 B           0 B           0 B           0 B             1  
-void cutlass::Kernel2<cutlass_80_tensorop_bf16_s1681...         0.00%       0.000us         0.00%       0.000us       0.000us       26.791s        79.95%       26.791s       7.120ms           0 B           0 B           0 B           0 B          3763  
-void kDequantizeBlockwise<__nv_bfloat16, 512, 64, 8,...         0.00%       0.000us         0.00%       0.000us       0.000us        2.469s         7.37%        2.469s     590.670us           0 B           0 B           0 B           0 B          4180  
-void pytorch_flash::flash_fwd_kernel<Flash_fwd_kerne...         0.00%       0.000us         0.00%       0.000us       0.000us        2.426s         7.24%        2.426s       2.166ms           0 B           0 B           0 B           0 B          1120  
-                                Activity Buffer Request         0.02%       6.669ms         0.02%       6.669ms       3.334ms        1.659s         4.95%        1.659s     829.573ms           0 B           0 B           0 B           0 B             2  
--------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-Self CPU time total: 33.601s
-Self CUDA time total: 33.510s
-
-[2025-12-16 08:18:02,609: INFO/MainProcess] ==================================================================
-[2025-12-16 08:18:02,609: INFO/MainProcess] ⏱️ Diffusion Model (UNet+VAE) Time: 41.37s
-[2025-12-16 08:18:02,609: INFO/MainProcess] ⏱️ Full Img2Img Time (Encoder+Diffusion): 41.37s
-[2025-12-16 08:18:02,660: WARNING/MainProcess] [Step 1] 완료 (41.42s)
-[2025-12-16 08:18:02,661: WARNING/MainProcess] GPU Peak Memory: 33496.20 MB
-[2025-12-16 08:18:02,681: WARNING/MainProcess] CLIP Score: 37.4178 (Prompt: transform the cat into a cyborg tiger with neon lights, while keeping the same lighting and background as the original image and maintaining the overall photo style.)
-[2025-12-16 08:18:02,783: WARNING/MainProcess] wandb: updating run metadata
-[2025-12-16 08:18:03,186: WARNING/MainProcess] wandb: uploading history steps 1-3, summary, console lines 1-54
-[2025-12-16 08:18:03,307: WARNING/MainProcess] wandb: 
+[2025-12-17 09:15:03,947: WARNING/MainProcess] [Step 1] run_img2img 실행 중...
+[2025-12-17 09:15:03,948: WARNING/MainProcess] FLUX.2 이미지 생성 중...
+[2025-12-17 09:15:04,318: WARNING/MainProcess]   0%|          | 0/8 [00:00<?, ?it/s]
+[2025-12-17 09:15:05,410: WARNING/MainProcess]  12%|#2        | 1/8 [00:01<00:07,  1.09s/it]
+[2025-12-17 09:15:07,207: WARNING/MainProcess]  25%|##5       | 2/8 [00:02<00:09,  1.51s/it]
+[2025-12-17 09:15:09,001: WARNING/MainProcess]  38%|###7      | 3/8 [00:04<00:08,  1.64s/it]
+[2025-12-17 09:15:10,789: WARNING/MainProcess]  50%|#####     | 4/8 [00:06<00:06,  1.70s/it]
+[2025-12-17 09:15:12,580: WARNING/MainProcess]  62%|######2   | 5/8 [00:08<00:05,  1.73s/it]
+[2025-12-17 09:15:14,373: WARNING/MainProcess]  75%|#######5  | 6/8 [00:10<00:03,  1.75s/it]
+[2025-12-17 09:15:16,168: WARNING/MainProcess]  88%|########7 | 7/8 [00:11<00:01,  1.77s/it]
+[2025-12-17 09:15:17,964: WARNING/MainProcess] 100%|##########| 8/8 [00:13<00:00,  1.78s/it]
+[2025-12-17 09:15:17,964: WARNING/MainProcess] 100%|##########| 8/8 [00:13<00:00,  1.71s/it]
+[2025-12-17 09:15:18,748: INFO/MainProcess] ⏱️ Diffusion Model (UNet+VAE) Time: 14.80s
+[2025-12-17 09:15:18,748: INFO/MainProcess] ⏱️ Full Img2Img Time (Encoder+Diffusion): 14.80s
+[2025-12-17 09:15:18,817: WARNING/MainProcess] [Step 1] 완료 (14.87s)
+[2025-12-17 09:15:18,818: WARNING/MainProcess] GPU Peak Memory: 33810.64 MB
+[2025-12-17 09:15:18,839: WARNING/MainProcess] CLIP Score: 33.2629 (Prompt: transform the cat into a cyborg tiger with neon lights, featuring metallic textures and futuristic elements, in the same lighting and background as the original image, maintaining the same photo style.)
+[2025-12-17 09:15:18,942: WARNING/MainProcess] wandb: updating run metadata
+[2025-12-17 09:15:19,344: WARNING/MainProcess] wandb: uploading history steps 1-3, summary, console lines 1-26
+[2025-12-17 09:15:19,502: WARNING/MainProcess] wandb: 
 wandb: Run summary:
-wandb:     evaluation/clip_score 37.4178
+wandb:     evaluation/clip_score 33.2629
 wandb:  evaluation/target_prompt transform the cat in...
-wandb: system/peak_gpu_memory_mb 33496.19922
-wandb:        timer/llm_planning 1.32726
-wandb:         timer/run_img2img 41.42256
-wandb:       timer/total_latency 43.46931
+wandb: system/peak_gpu_memory_mb 33810.6377
+wandb:        timer/llm_planning 2.00635
+wandb:         timer/run_img2img 14.86941
+wandb:       timer/total_latency 17.58643
 wandb: 
-[2025-12-16 08:18:03,308: WARNING/MainProcess] wandb:  View run job_5d195abd-dc2e-4fd1-82af-cc7ab652a2ae at: https://wandb.ai/1032677-ebay/ai_agent_project/runs/ldwh8lsb
+[2025-12-17 09:15:19,503: WARNING/MainProcess] wandb:  View run job_15099848-c243-416b-8ee3-077126c40180 at: https://wandb.ai/1032677-ebay/ai_agent_project/runs/7x93mly4
 wandb:  View project at: https://wandb.ai/1032677-ebay/ai_agent_project
 wandb: Synced 5 W&B file(s), 1 media file(s), 0 artifact file(s) and 0 other file(s)
-[2025-12-16 08:18:03,308: WARNING/MainProcess] wandb: Find logs at: ./wandb/run-20251216_081719-ldwh8lsb/logs
-[2025-12-16 08:18:03,351: INFO/MainProcess] Task app.tasks.run_agent_task[5d195abd-dc2e-4fd1-82af-cc7ab652a2ae] succeeded in 44.15975037869066s: {'status': 'success', 'metrics': {'timer/total_latency': 43.46931314468384, 'system/peak_gpu_memory_mb': 33496.19921875, 'evaluation/clip_score': 37.4178, 'evaluation/target_prompt': 'transform the cat into a cyborg tiger with neon lights, while keeping the same lighting and background as the original image and maintaining the overall photo style.'}, 'type': 'image', 'data': '/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAHgAoADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRCh...', ...
-[2025-12-16 08:18:03,365: INFO/MainProcess] Task app.tasks.run_agent_task[7a884582-0a51-4c22-9a4f-ed5cf508e44b] received
-[2025-12-16 08:18:03,915: WARNING/MainProcess] wandb: Tracking run with wandb version 0.23.1
-[2025-12-16 08:18:03,915: WARNING/MainProcess] wandb: Run data is saved locally in /workspace/Interactive-AI-Agent/backend/wandb/run-20251216_081803-kx7l69zz
+[2025-12-17 09:15:19,503: WARNING/MainProcess] wandb: Find logs at: ./wandb/run-20251217_091501-7x93mly4/logs
+[2025-12-17 09:15:19,534: INFO/MainProcess] Task app.tasks.run_agent_task[15099848-c243-416b-8ee3-077126c40180] succeeded in 18.302802784368396s: {'status': 'success', 'metrics': {'timer/total_latency': 17.586427927017212, 'system/peak_gpu_memory_mb': 33810.6376953125, 'evaluation/clip_score': 33.2629, 'evaluation/target_prompt': 'transform the cat into a cyborg tiger with neon lights, featuring metallic textures and futuristic elements, in the same lighting and background as the original image, maintaining the same photo style.'}, 'type': 'image', 'data': '/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAHgAoADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSE...', ...
+[2025-12-17 09:15:19,550: INFO/MainProcess] Task app.tasks.run_agent_task[9d3e7f1f-c799-4d28-91a2-ac8a7f86adbf] received
+[2025-12-17 09:15:20,150: WARNING/MainProcess] wandb: Tracking run with wandb version 0.23.1
+[2025-12-17 09:15:20,151: WARNING/MainProcess] wandb: Run data is saved locally in /workspace/Interactive-AI-Agent/backend/wandb/run-20251217_091519-8dizbhes
 wandb: Run `wandb offline` to turn off syncing.
-[2025-12-16 08:18:03,916: WARNING/MainProcess] wandb: Syncing run job_7a884582-0a51-4c22-9a4f-ed5cf508e44b
-[2025-12-16 08:18:03,916: WARNING/MainProcess] wandb:  View project at https://wandb.ai/1032677-ebay/ai_agent_project
-[2025-12-16 08:18:03,916: WARNING/MainProcess] wandb:  View run at https://wandb.ai/1032677-ebay/ai_agent_project/runs/kx7l69zz
-[2025-12-16 08:18:04,083: WARNING/MainProcess] LLM: 'what is the animal doing?'에 대한 계획 수립 중...
-[2025-12-16 08:18:05,406: WARNING/MainProcess] 📋 계획: [
+[2025-12-17 09:15:20,151: WARNING/MainProcess] wandb: Syncing run job_9d3e7f1f-c799-4d28-91a2-ac8a7f86adbf
+[2025-12-17 09:15:20,151: WARNING/MainProcess] wandb:  View project at https://wandb.ai/1032677-ebay/ai_agent_project
+[2025-12-17 09:15:20,151: WARNING/MainProcess] wandb:  View run at https://wandb.ai/1032677-ebay/ai_agent_project/runs/8dizbhes
+[2025-12-17 09:15:20,294: WARNING/MainProcess] LLM: 'what is the animal doing?'에 대한 계획 수립 중...
+[2025-12-17 09:15:21,186: WARNING/MainProcess] 📋 계획: [
   {
     "tool_name": "run_vqa",
     "parameters": {
@@ -228,385 +169,273 @@ wandb: Run `wandb offline` to turn off syncing.
     }
   }
 ]
-[2025-12-16 08:18:05,406: WARNING/MainProcess] [Step 1] run_vqa 실행 중...
-[2025-12-16 08:18:05,407: WARNING/MainProcess] VQA 모델 로딩 중 (dandelin/vilt-b32-finetuned-vqa)...
+[2025-12-17 09:15:21,186: WARNING/MainProcess] [Step 1] run_vqa 실행 중...
+[2025-12-17 09:15:21,187: WARNING/MainProcess] VQA 모델 로딩 중...
 Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
 Device set to use cuda:0
-[2025-12-16 08:18:06,287: WARNING/MainProcess] VQA 질문 분석: What is the animal doing in the image?
-[2025-12-16 08:18:06,336: WARNING/MainProcess] VQA 답변: sleeping
-[2025-12-16 08:18:06,338: WARNING/MainProcess] [Step 1] 완료 (0.93s)
-[2025-12-16 08:18:06,339: WARNING/MainProcess] GPU Peak Memory: 33229.75 MB
-[2025-12-16 08:18:06,441: WARNING/MainProcess] wandb: updating run metadata
-[2025-12-16 08:18:06,845: WARNING/MainProcess] wandb: uploading history steps 0-2, summary, console lines 1-16
-[2025-12-16 08:18:06,910: WARNING/MainProcess] wandb: 
+[2025-12-17 09:15:23,055: WARNING/MainProcess] VQA 질문 분석: What is the animal doing in the image?
+[2025-12-17 09:15:23,127: WARNING/MainProcess] VQA 답변: sleeping
+[2025-12-17 09:15:23,128: WARNING/MainProcess] [Step 1] 완료 (1.94s)
+[2025-12-17 09:15:23,128: WARNING/MainProcess] GPU Peak Memory: 33219.05 MB
+[2025-12-17 09:15:23,231: WARNING/MainProcess] wandb: updating run metadata
+[2025-12-17 09:15:23,632: WARNING/MainProcess] wandb: uploading history steps 0-2, summary, console lines 1-16
+[2025-12-17 09:15:23,763: WARNING/MainProcess] wandb: 
 wandb: Run summary:
-wandb: system/peak_gpu_memory_mb 33229.74707
-wandb:        timer/llm_planning 1.32201
-wandb:             timer/run_vqa 0.92927
-wandb:       timer/total_latency 2.972
+wandb: system/peak_gpu_memory_mb 33219.04932
+wandb:        timer/llm_planning 0.89099
+wandb:             timer/run_vqa 1.94071
+wandb:       timer/total_latency 3.57699
 wandb: 
-[2025-12-16 08:18:06,911: WARNING/MainProcess] wandb:  View run job_7a884582-0a51-4c22-9a4f-ed5cf508e44b at: https://wandb.ai/1032677-ebay/ai_agent_project/runs/kx7l69zz
+[2025-12-17 09:15:23,763: WARNING/MainProcess] wandb:  View run job_9d3e7f1f-c799-4d28-91a2-ac8a7f86adbf at: https://wandb.ai/1032677-ebay/ai_agent_project/runs/8dizbhes
 wandb:  View project at: https://wandb.ai/1032677-ebay/ai_agent_project
 wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
-[2025-12-16 08:18:06,911: WARNING/MainProcess] wandb: Find logs at: ./wandb/run-20251216_081803-kx7l69zz/logs
-[2025-12-16 08:18:06,948: INFO/MainProcess] Task app.tasks.run_agent_task[7a884582-0a51-4c22-9a4f-ed5cf508e44b] succeeded in 3.5820913282223046s: {'status': 'success', 'metrics': {'timer/total_latency': 2.9719979763031006, 'system/peak_gpu_memory_mb': 33229.7470703125}, 'type': 'text', 'data': 'sleeping'}
-[2025-12-16 08:18:06,960: INFO/MainProcess] Task app.tasks.run_agent_task[3b64c289-10d9-41f2-9139-01e97a41a2a2] received
-[2025-12-16 08:18:07,478: WARNING/MainProcess] wandb: Tracking run with wandb version 0.23.1
-[2025-12-16 08:18:07,478: WARNING/MainProcess] wandb: Run data is saved locally in /workspace/Interactive-AI-Agent/backend/wandb/run-20251216_081807-4l0huh37
+[2025-12-17 09:15:23,763: WARNING/MainProcess] wandb: Find logs at: ./wandb/run-20251217_091519-8dizbhes/logs
+[2025-12-17 09:15:23,786: INFO/MainProcess] Task app.tasks.run_agent_task[9d3e7f1f-c799-4d28-91a2-ac8a7f86adbf] succeeded in 4.235343879088759s: {'status': 'success', 'metrics': {'timer/total_latency': 3.5769948959350586, 'system/peak_gpu_memory_mb': 33219.04931640625}, 'type': 'text', 'data': 'sleeping'}
+[2025-12-17 09:15:23,800: INFO/MainProcess] Task app.tasks.run_agent_task[107c1011-4683-448e-a4b9-0361180c4d7a] received
+[2025-12-17 09:15:24,471: WARNING/MainProcess] wandb: setting up run w11wg8ed
+[2025-12-17 09:15:24,728: WARNING/MainProcess] wandb: Tracking run with wandb version 0.23.1
+[2025-12-17 09:15:24,728: WARNING/MainProcess] wandb: Run data is saved locally in /workspace/Interactive-AI-Agent/backend/wandb/run-20251217_091523-w11wg8ed
 wandb: Run `wandb offline` to turn off syncing.
-[2025-12-16 08:18:07,479: WARNING/MainProcess] wandb: Syncing run job_3b64c289-10d9-41f2-9139-01e97a41a2a2
-[2025-12-16 08:18:07,479: WARNING/MainProcess] wandb:  View project at https://wandb.ai/1032677-ebay/ai_agent_project
-[2025-12-16 08:18:07,479: WARNING/MainProcess] wandb:  View run at https://wandb.ai/1032677-ebay/ai_agent_project/runs/4l0huh37
-[2025-12-16 08:18:07,646: WARNING/MainProcess] LLM: 'add a red sofa in the center'에 대한 계획 수립 중...
-[2025-12-16 08:18:08,429: WARNING/MainProcess] 📋 계획: [
+[2025-12-17 09:15:24,728: WARNING/MainProcess] wandb: Syncing run job_107c1011-4683-448e-a4b9-0361180c4d7a
+[2025-12-17 09:15:24,728: WARNING/MainProcess] wandb:  View project at https://wandb.ai/1032677-ebay/ai_agent_project
+[2025-12-17 09:15:24,729: WARNING/MainProcess] wandb:  View run at https://wandb.ai/1032677-ebay/ai_agent_project/runs/w11wg8ed
+[2025-12-17 09:15:24,872: WARNING/MainProcess] LLM: 'add a red sofa in the center'에 대한 계획 수립 중...
+[2025-12-17 09:15:26,395: WARNING/MainProcess] 📋 계획: [
   {
     "tool_name": "run_img2img",
     "parameters": {
       "image": "[ORIGINAL_IMAGE]",
-      "prompt": "a red sofa in the center of the image, ensuring the same style, lighting, and background are maintained as in the original photo."
+      "prompt": "a red sofa in the center of the room, with the same style, lighting, and background as the original image to ensure visual consistency."
     }
   }
 ]
-[2025-12-16 08:18:08,429: WARNING/MainProcess] [Step 1] run_img2img 실행 중...
-[2025-12-16 08:18:08,429: WARNING/MainProcess] FLUX.2 이미지 생성 중...
-[2025-12-16 08:18:08,825: WARNING/MainProcess]   0%|          | 0/20 [00:00<?, ?it/s]
-[2025-12-16 08:18:09,984: WARNING/MainProcess]  30%|###       | 6/20 [00:01<00:02,  5.18it/s]
-[2025-12-16 08:18:11,641: WARNING/MainProcess]  35%|###5      | 7/20 [00:02<00:06,  2.11it/s]
-[2025-12-16 08:18:13,294: WARNING/MainProcess]  40%|####      | 8/20 [00:04<00:08,  1.37it/s]
-[2025-12-16 08:18:14,950: WARNING/MainProcess]  45%|####5     | 9/20 [00:06<00:10,  1.06it/s]
-[2025-12-16 08:18:16,607: WARNING/MainProcess]  50%|#####     | 10/20 [00:07<00:11,  1.13s/it]
-[2025-12-16 08:18:18,266: WARNING/MainProcess]  55%|#####5    | 11/20 [00:09<00:11,  1.27s/it]
-[2025-12-16 08:18:19,926: WARNING/MainProcess]  60%|######    | 12/20 [00:11<00:10,  1.37s/it]
-[2025-12-16 08:18:21,588: WARNING/MainProcess]  65%|######5   | 13/20 [00:12<00:10,  1.46s/it]
-[2025-12-16 08:18:23,252: WARNING/MainProcess]  70%|#######   | 14/20 [00:14<00:09,  1.52s/it]
-[2025-12-16 08:18:24,914: WARNING/MainProcess]  75%|#######5  | 15/20 [00:16<00:07,  1.56s/it]
-[2025-12-16 08:18:26,577: WARNING/MainProcess]  80%|########  | 16/20 [00:17<00:06,  1.59s/it]
-[2025-12-16 08:18:28,241: WARNING/MainProcess]  85%|########5 | 17/20 [00:19<00:04,  1.61s/it]
-[2025-12-16 08:18:29,905: WARNING/MainProcess]  90%|######### | 18/20 [00:21<00:03,  1.63s/it]
-[2025-12-16 08:18:31,570: WARNING/MainProcess]  95%|#########5| 19/20 [00:22<00:01,  1.64s/it]
-[2025-12-16 08:18:33,235: WARNING/MainProcess] 100%|##########| 20/20 [00:24<00:00,  1.65s/it]
-[2025-12-16 08:18:33,236: WARNING/MainProcess] 100%|##########| 20/20 [00:24<00:00,  1.22s/it]
-[2025-12-16 08:18:42,429: INFO/MainProcess] 
-
-============ 📊 FLUX.2 GPU Profiling Results (Top 10) ============
-[2025-12-16 08:18:48,358: INFO/MainProcess] -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg       CPU Mem  Self CPU Mem      CUDA Mem  Self CUDA Mem    # of Calls  
--------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-                                         FLUX_INFERENCE        -3.02%  -1017764.361us       100.00%       33.719s       33.719s       0.000us         0.00%     2126.854s     2126.854s           0 B     -12.50 MB     777.00 KB     -17.60 GB             1  
-                                    Command Buffer Full        72.55%       24.464s        72.55%       24.464s      17.264ms     2089.863s      6209.42%     2089.863s        1.475s           0 B           0 B           0 B           0 B          1417  
-                             Torch-Compiled Region: 0/0         0.02%       6.242ms        67.27%       22.682s        1.134s       33.234s        98.74%     2003.060s      100.153s           0 B           0 B           0 B           0 B            20  
-                                        cudaGraphLaunch         3.37%        1.135s        63.69%       21.477s        1.074s       0.000us         0.00%     1969.824s       98.491s           0 B           0 B           0 B           0 B            20  
-                                           Buffer Flush         0.09%      30.180ms         3.38%        1.140s        1.140s        1.667s         4.95%      123.372s      123.372s           0 B           0 B     599.50 KB     599.50 KB             1  
-                                         FLUX_INFERENCE         0.00%       0.000us         0.00%       0.000us       0.000us       33.695s       100.11%       33.695s       33.695s           0 B           0 B           0 B           0 B             1  
-void cutlass::Kernel2<cutlass_80_tensorop_bf16_s1681...         0.00%       0.000us         0.00%       0.000us       0.000us       26.920s        79.99%       26.920s       7.154ms           0 B           0 B           0 B           0 B          3763  
-void kDequantizeBlockwise<__nv_bfloat16, 512, 64, 8,...         0.00%       0.000us         0.00%       0.000us       0.000us        2.469s         7.34%        2.469s     590.706us           0 B           0 B           0 B           0 B          4180  
-void pytorch_flash::flash_fwd_kernel<Flash_fwd_kerne...         0.00%       0.000us         0.00%       0.000us       0.000us        2.438s         7.24%        2.438s       2.177ms           0 B           0 B           0 B           0 B          1120  
-                                Activity Buffer Request         0.01%       4.526ms         0.01%       4.526ms       2.263ms        1.667s         4.95%        1.667s     833.592ms           0 B           0 B           0 B           0 B             2  
--------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-Self CPU time total: 33.719s
-Self CUDA time total: 33.656s
-
-[2025-12-16 08:18:48,359: INFO/MainProcess] ==================================================================
-[2025-12-16 08:18:48,359: INFO/MainProcess] ⏱️ Diffusion Model (UNet+VAE) Time: 39.93s
-[2025-12-16 08:18:48,359: INFO/MainProcess] ⏱️ Full Img2Img Time (Encoder+Diffusion): 39.93s
-[2025-12-16 08:18:48,449: WARNING/MainProcess] [Step 1] 완료 (40.02s)
-[2025-12-16 08:18:48,449: WARNING/MainProcess] GPU Peak Memory: 33944.77 MB
-[2025-12-16 08:18:48,468: WARNING/MainProcess] CLIP Score: 34.7075 (Prompt: a red sofa in the center of the image, ensuring the same style, lighting, and background are maintained as in the original photo.)
-[2025-12-16 08:18:48,571: WARNING/MainProcess] wandb: updating run metadata
-[2025-12-16 08:18:48,973: WARNING/MainProcess] wandb: uploading history steps 1-3, summary, console lines 1-54
-[2025-12-16 08:18:49,097: WARNING/MainProcess] wandb: 
+[2025-12-17 09:15:26,396: WARNING/MainProcess] [Step 1] run_img2img 실행 중...
+[2025-12-17 09:15:26,396: WARNING/MainProcess] FLUX.2 이미지 생성 중...
+[2025-12-17 09:15:26,790: WARNING/MainProcess]   0%|          | 0/8 [00:00<?, ?it/s]
+[2025-12-17 09:15:27,882: WARNING/MainProcess]  12%|#2        | 1/8 [00:01<00:07,  1.09s/it]
+[2025-12-17 09:15:29,681: WARNING/MainProcess]  25%|##5       | 2/8 [00:02<00:09,  1.51s/it]
+[2025-12-17 09:15:31,481: WARNING/MainProcess]  38%|###7      | 3/8 [00:04<00:08,  1.64s/it]
+[2025-12-17 09:15:33,286: WARNING/MainProcess]  50%|#####     | 4/8 [00:06<00:06,  1.71s/it]
+[2025-12-17 09:15:35,092: WARNING/MainProcess]  62%|######2   | 5/8 [00:08<00:05,  1.74s/it]
+[2025-12-17 09:15:36,901: WARNING/MainProcess]  75%|#######5  | 6/8 [00:10<00:03,  1.76s/it]
+[2025-12-17 09:15:38,712: WARNING/MainProcess]  88%|########7 | 7/8 [00:11<00:01,  1.78s/it]
+[2025-12-17 09:15:40,523: WARNING/MainProcess] 100%|##########| 8/8 [00:13<00:00,  1.79s/it]
+[2025-12-17 09:15:40,524: WARNING/MainProcess] 100%|##########| 8/8 [00:13<00:00,  1.72s/it]
+[2025-12-17 09:15:41,317: INFO/MainProcess] ⏱️ Diffusion Model (UNet+VAE) Time: 14.92s
+[2025-12-17 09:15:41,317: INFO/MainProcess] ⏱️ Full Img2Img Time (Encoder+Diffusion): 14.92s
+[2025-12-17 09:15:41,405: WARNING/MainProcess] [Step 1] 완료 (15.01s)
+[2025-12-17 09:15:41,405: WARNING/MainProcess] GPU Peak Memory: 34259.20 MB
+[2025-12-17 09:15:41,425: WARNING/MainProcess] CLIP Score: 35.3573 (Prompt: a red sofa in the center of the room, with the same style, lighting, and background as the original image to ensure visual consistency.)
+[2025-12-17 09:15:41,527: WARNING/MainProcess] wandb: updating run metadata
+[2025-12-17 09:15:41,929: WARNING/MainProcess] wandb: uploading history steps 1-3, summary, console lines 1-26
+[2025-12-17 09:15:42,049: WARNING/MainProcess] wandb: 
 wandb: Run summary:
-wandb:     evaluation/clip_score 34.7075
+wandb:     evaluation/clip_score 35.3573
 wandb:  evaluation/target_prompt a red sofa in the ce...
-wandb: system/peak_gpu_memory_mb 33944.76514
-wandb:        timer/llm_planning 0.78156
-wandb:         timer/run_img2img 40.01935
-wandb:       timer/total_latency 41.48834
+wandb: system/peak_gpu_memory_mb 34259.20361
+wandb:        timer/llm_planning 1.52174
+wandb:         timer/run_img2img 15.00851
+wandb:       timer/total_latency 17.6039
 wandb: 
-[2025-12-16 08:18:49,098: WARNING/MainProcess] wandb:  View run job_3b64c289-10d9-41f2-9139-01e97a41a2a2 at: https://wandb.ai/1032677-ebay/ai_agent_project/runs/4l0huh37
+[2025-12-17 09:15:42,050: WARNING/MainProcess] wandb:  View run job_107c1011-4683-448e-a4b9-0361180c4d7a at: https://wandb.ai/1032677-ebay/ai_agent_project/runs/w11wg8ed
 wandb:  View project at: https://wandb.ai/1032677-ebay/ai_agent_project
 wandb: Synced 5 W&B file(s), 1 media file(s), 0 artifact file(s) and 0 other file(s)
-[2025-12-16 08:18:49,098: WARNING/MainProcess] wandb: Find logs at: ./wandb/run-20251216_081807-4l0huh37/logs
-[2025-12-16 08:18:49,139: INFO/MainProcess] Task app.tasks.run_agent_task[3b64c289-10d9-41f2-9139-01e97a41a2a2] succeeded in 42.17855679988861s: {'status': 'success', 'metrics': {'timer/total_latency': 41.48834156990051, 'system/peak_gpu_memory_mb': 33944.76513671875, 'evaluation/clip_score': 34.7075, 'evaluation/target_prompt': 'a red sofa in the center of the image, ensuring the same style, lighting, and background are maintained as in the original photo.'}, 'type': 'image', 'data': '/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAHgAoADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZ...', ...
-[2025-12-16 08:18:49,153: INFO/MainProcess] Task app.tasks.run_agent_task[477e6eec-8029-4c79-a782-4c73761f97ae] received
-[2025-12-16 08:18:49,789: WARNING/MainProcess] wandb: Tracking run with wandb version 0.23.1
-[2025-12-16 08:18:49,789: WARNING/MainProcess] wandb: Run data is saved locally in /workspace/Interactive-AI-Agent/backend/wandb/run-20251216_081849-kk08xte7
+[2025-12-17 09:15:42,050: WARNING/MainProcess] wandb: Find logs at: ./wandb/run-20251217_091523-w11wg8ed/logs
+[2025-12-17 09:15:42,080: INFO/MainProcess] Task app.tasks.run_agent_task[107c1011-4683-448e-a4b9-0361180c4d7a] succeeded in 18.2786862924695s: {'status': 'success', 'metrics': {'timer/total_latency': 17.6038978099823, 'system/peak_gpu_memory_mb': 34259.20361328125, 'evaluation/clip_score': 35.3573, 'evaluation/target_prompt': 'a red sofa in the center of the room, with the same style, lighting, and background as the original image to ensure visual consistency.'}, 'type': 'image', 'data': '/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAHgAoADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5Ok...', ...
+[2025-12-17 09:15:42,095: INFO/MainProcess] Task app.tasks.run_agent_task[56a61877-1c9a-4c73-a6f2-43cf2b092f1c] received
+[2025-12-17 09:15:42,720: WARNING/MainProcess] wandb: Tracking run with wandb version 0.23.1
+[2025-12-17 09:15:42,720: WARNING/MainProcess] wandb: Run data is saved locally in /workspace/Interactive-AI-Agent/backend/wandb/run-20251217_091542-9ve71013
 wandb: Run `wandb offline` to turn off syncing.
-[2025-12-16 08:18:49,789: WARNING/MainProcess] wandb: Syncing run job_477e6eec-8029-4c79-a782-4c73761f97ae
-[2025-12-16 08:18:49,790: WARNING/MainProcess] wandb:  View project at https://wandb.ai/1032677-ebay/ai_agent_project
-[2025-12-16 08:18:49,790: WARNING/MainProcess] wandb:  View run at https://wandb.ai/1032677-ebay/ai_agent_project/runs/kk08xte7
-[2025-12-16 08:18:49,975: WARNING/MainProcess] LLM: 'transform the room into a futuristic spaceship interior'에 대한 계획 수립 중...
-[2025-12-16 08:18:50,727: WARNING/MainProcess] 📋 계획: [
+[2025-12-17 09:15:42,721: WARNING/MainProcess] wandb: Syncing run job_56a61877-1c9a-4c73-a6f2-43cf2b092f1c
+[2025-12-17 09:15:42,721: WARNING/MainProcess] wandb:  View project at https://wandb.ai/1032677-ebay/ai_agent_project
+[2025-12-17 09:15:42,721: WARNING/MainProcess] wandb:  View run at https://wandb.ai/1032677-ebay/ai_agent_project/runs/9ve71013
+[2025-12-17 09:15:42,865: WARNING/MainProcess] LLM: 'transform the room into a futuristic spaceship interior'에 대한 계획 수립 중...
+[2025-12-17 09:15:45,221: WARNING/MainProcess] 📋 계획: [
   {
     "tool_name": "run_img2img",
     "parameters": {
       "image": "[ORIGINAL_IMAGE]",
-      "prompt": "transform the room into a futuristic spaceship interior, maintaining the same lighting conditions, color scheme, and perspective as the original image"
+      "prompt": "transform the room into a futuristic spaceship interior, maintaining the same perspective and lighting as the original image, with high-tech panels and displays, sleek metallic finishes, and a view of outer space through a large window. The overall style and mood of the scene should match the original image's atmosphere."
     }
   }
 ]
-[2025-12-16 08:18:50,728: WARNING/MainProcess] [Step 1] run_img2img 실행 중...
-[2025-12-16 08:18:50,728: WARNING/MainProcess] FLUX.2 이미지 생성 중...
-[2025-12-16 08:18:51,134: WARNING/MainProcess]   0%|          | 0/20 [00:00<?, ?it/s]
-[2025-12-16 08:18:52,292: WARNING/MainProcess]  30%|###       | 6/20 [00:01<00:02,  5.18it/s]
-[2025-12-16 08:18:53,951: WARNING/MainProcess]  35%|###5      | 7/20 [00:02<00:06,  2.11it/s]
-[2025-12-16 08:18:55,610: WARNING/MainProcess]  40%|####      | 8/20 [00:04<00:08,  1.37it/s]
-[2025-12-16 08:18:57,273: WARNING/MainProcess]  45%|####5     | 9/20 [00:06<00:10,  1.05it/s]
-[2025-12-16 08:18:58,937: WARNING/MainProcess]  50%|#####     | 10/20 [00:07<00:11,  1.13s/it]
-[2025-12-16 08:19:00,603: WARNING/MainProcess]  55%|#####5    | 11/20 [00:09<00:11,  1.27s/it]
-[2025-12-16 08:19:02,269: WARNING/MainProcess]  60%|######    | 12/20 [00:11<00:11,  1.38s/it]
-[2025-12-16 08:19:03,935: WARNING/MainProcess]  65%|######5   | 13/20 [00:12<00:10,  1.46s/it]
-[2025-12-16 08:19:05,602: WARNING/MainProcess]  70%|#######   | 14/20 [00:14<00:09,  1.52s/it]
-[2025-12-16 08:19:07,272: WARNING/MainProcess]  75%|#######5  | 15/20 [00:16<00:07,  1.56s/it]
-[2025-12-16 08:19:08,940: WARNING/MainProcess]  80%|########  | 16/20 [00:17<00:06,  1.59s/it]
-[2025-12-16 08:19:10,607: WARNING/MainProcess]  85%|########5 | 17/20 [00:19<00:04,  1.62s/it]
-[2025-12-16 08:19:12,277: WARNING/MainProcess]  90%|######### | 18/20 [00:21<00:03,  1.63s/it]
-[2025-12-16 08:19:13,946: WARNING/MainProcess]  95%|#########5| 19/20 [00:22<00:01,  1.64s/it]
-[2025-12-16 08:19:15,616: WARNING/MainProcess] 100%|##########| 20/20 [00:24<00:00,  1.65s/it]
-[2025-12-16 08:19:15,619: WARNING/MainProcess] 100%|##########| 20/20 [00:24<00:00,  1.22s/it]
-[2025-12-16 08:19:24,894: INFO/MainProcess] 
-
-============ 📊 FLUX.2 GPU Profiling Results (Top 10) ============
-[2025-12-16 08:19:30,757: INFO/MainProcess] -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg       CPU Mem  Self CPU Mem      CUDA Mem  Self CUDA Mem    # of Calls  
--------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-                                         FLUX_INFERENCE        -2.86%  -967339.963us       100.00%       33.825s       33.825s       0.000us         0.00%     1968.899s     1968.899s           0 B     -12.50 MB     777.00 KB     -17.60 GB             1  
-                             Torch-Compiled Region: 0/0         0.03%       9.828ms        67.22%       22.738s        1.137s       31.722s        94.00%     1968.477s       98.424s           0 B           0 B           0 B           0 B            20  
-                                    Command Buffer Full        72.40%       24.488s        72.40%       24.488s      17.605ms     1936.755s      5738.90%     1936.755s        1.392s           0 B           0 B           0 B           0 B          1391  
-                                        cudaGraphLaunch         3.39%        1.147s        63.67%       21.537s        1.077s       0.000us         0.00%     1936.753s       96.838s           0 B           0 B           0 B           0 B            20  
-                                         FLUX_INFERENCE         0.00%       0.000us         0.00%       0.000us       0.000us       33.794s       100.14%       33.794s       33.794s           0 B           0 B           0 B           0 B             1  
-void cutlass::Kernel2<cutlass_80_tensorop_bf16_s1681...         0.00%       0.000us         0.00%       0.000us       0.000us       27.003s        80.01%       27.003s       7.176ms           0 B           0 B           0 B           0 B          3763  
-void kDequantizeBlockwise<__nv_bfloat16, 512, 64, 8,...         0.00%       0.000us         0.00%       0.000us       0.000us        2.469s         7.32%        2.469s     590.743us           0 B           0 B           0 B           0 B          4180  
-void pytorch_flash::flash_fwd_kernel<Flash_fwd_kerne...         0.00%       0.000us         0.00%       0.000us       0.000us        2.445s         7.25%        2.445s       2.183ms           0 B           0 B           0 B           0 B          1120  
-                                triton_poi_fused_cat_22         0.00%       0.000us         0.00%       0.000us       0.000us     586.330ms         1.74%     586.330ms     610.760us           0 B           0 B           0 B           0 B           960  
-                                             MatMul4Bit         0.04%      13.590ms         0.16%      53.924ms     192.586us       0.000us         0.00%     276.081ms     986.004us           0 B           0 B       3.16 GB     -41.41 GB           280  
--------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-Self CPU time total: 33.826s
-Self CUDA time total: 33.748s
-
-[2025-12-16 08:19:30,757: INFO/MainProcess] ==================================================================
-[2025-12-16 08:19:30,757: INFO/MainProcess] ⏱️ Diffusion Model (UNet+VAE) Time: 40.03s
-[2025-12-16 08:19:30,757: INFO/MainProcess] ⏱️ Full Img2Img Time (Encoder+Diffusion): 40.03s
-[2025-12-16 08:19:30,811: WARNING/MainProcess] [Step 1] 완료 (40.08s)
-[2025-12-16 08:19:30,812: WARNING/MainProcess] GPU Peak Memory: 33943.89 MB
-[2025-12-16 08:19:30,833: WARNING/MainProcess] CLIP Score: 32.6927 (Prompt: transform the room into a futuristic spaceship interior, maintaining the same lighting conditions, color scheme, and perspective as the original image)
-[2025-12-16 08:19:30,936: WARNING/MainProcess] wandb: updating run metadata
-[2025-12-16 08:19:31,338: WARNING/MainProcess] wandb: uploading history steps 1-3, summary, console lines 1-54
-[2025-12-16 08:19:31,487: WARNING/MainProcess] wandb: 
+[2025-12-17 09:15:45,222: WARNING/MainProcess] [Step 1] run_img2img 실행 중...
+[2025-12-17 09:15:45,222: WARNING/MainProcess] FLUX.2 이미지 생성 중...
+[2025-12-17 09:15:45,603: WARNING/MainProcess]   0%|          | 0/8 [00:00<?, ?it/s]
+[2025-12-17 09:15:46,705: WARNING/MainProcess]  12%|#2        | 1/8 [00:01<00:07,  1.10s/it]
+[2025-12-17 09:15:48,519: WARNING/MainProcess]  25%|##5       | 2/8 [00:02<00:09,  1.52s/it]
+[2025-12-17 09:15:50,331: WARNING/MainProcess]  38%|###7      | 3/8 [00:04<00:08,  1.65s/it]
+[2025-12-17 09:15:52,142: WARNING/MainProcess]  50%|#####     | 4/8 [00:06<00:06,  1.72s/it]
+[2025-12-17 09:15:53,954: WARNING/MainProcess]  62%|######2   | 5/8 [00:08<00:05,  1.75s/it]
+[2025-12-17 09:15:55,767: WARNING/MainProcess]  75%|#######5  | 6/8 [00:10<00:03,  1.77s/it]
+[2025-12-17 09:15:57,582: WARNING/MainProcess]  88%|########7 | 7/8 [00:11<00:01,  1.79s/it]
+[2025-12-17 09:15:59,398: WARNING/MainProcess] 100%|##########| 8/8 [00:13<00:00,  1.80s/it]
+[2025-12-17 09:15:59,398: WARNING/MainProcess] 100%|##########| 8/8 [00:13<00:00,  1.72s/it]
+[2025-12-17 09:16:00,193: INFO/MainProcess] ⏱️ Diffusion Model (UNet+VAE) Time: 14.97s
+[2025-12-17 09:16:00,193: INFO/MainProcess] ⏱️ Full Img2Img Time (Encoder+Diffusion): 14.97s
+[2025-12-17 09:16:00,249: WARNING/MainProcess] [Step 1] 완료 (15.03s)
+[2025-12-17 09:16:00,249: WARNING/MainProcess] GPU Peak Memory: 34259.20 MB
+[2025-12-17 09:16:00,270: WARNING/MainProcess] CLIP Score: 32.6287 (Prompt: transform the room into a futuristic spaceship interior, maintaining the same perspective and lighting as the original image, with high-tech panels and displays, sleek metallic finishes, and a view of outer space through a large window. The overall style and mood of the scene should match the original image's atmosphere.)
+[2025-12-17 09:16:00,373: WARNING/MainProcess] wandb: updating run metadata
+[2025-12-17 09:16:01,203: WARNING/MainProcess] wandb: 
 wandb: Run summary:
-wandb:     evaluation/clip_score 32.6927
+wandb:     evaluation/clip_score 32.6287
 wandb:  evaluation/target_prompt transform the room i...
-wandb: system/peak_gpu_memory_mb 33943.89062
-wandb:        timer/llm_planning 0.75114
-wandb:         timer/run_img2img 40.08289
-wandb:       timer/total_latency 41.65704
+wandb: system/peak_gpu_memory_mb 34259.20361
+wandb:        timer/llm_planning 2.35523
+wandb:         timer/run_img2img 15.02688
+wandb:       timer/total_latency 18.15308
 wandb: 
-[2025-12-16 08:19:31,488: WARNING/MainProcess] wandb:  View run job_477e6eec-8029-4c79-a782-4c73761f97ae at: https://wandb.ai/1032677-ebay/ai_agent_project/runs/kk08xte7
+[2025-12-17 09:16:01,203: WARNING/MainProcess] wandb:  View run job_56a61877-1c9a-4c73-a6f2-43cf2b092f1c at: https://wandb.ai/1032677-ebay/ai_agent_project/runs/9ve71013
 wandb:  View project at: https://wandb.ai/1032677-ebay/ai_agent_project
 wandb: Synced 5 W&B file(s), 1 media file(s), 0 artifact file(s) and 0 other file(s)
-[2025-12-16 08:19:31,488: WARNING/MainProcess] wandb: Find logs at: ./wandb/run-20251216_081849-kk08xte7/logs
-[2025-12-16 08:19:31,539: INFO/MainProcess] Task app.tasks.run_agent_task[477e6eec-8029-4c79-a782-4c73761f97ae] succeeded in 42.38511794805527s: {'status': 'success', 'metrics': {'timer/total_latency': 41.65703797340393, 'system/peak_gpu_memory_mb': 33943.890625, 'evaluation/clip_score': 32.6927, 'evaluation/target_prompt': 'transform the room into a futuristic spaceship interior, maintaining the same lighting conditions, color scheme, and perspective as the original image'}, 'type': 'image', 'data': '/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAHgAoADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJyg...', ...
-[2025-12-16 08:19:31,554: INFO/MainProcess] Task app.tasks.run_agent_task[2a4ed4f9-14be-4ee6-8eac-82a92eedded5] received
-[2025-12-16 08:19:32,100: WARNING/MainProcess] wandb: Tracking run with wandb version 0.23.1
-[2025-12-16 08:19:32,100: WARNING/MainProcess] wandb: Run data is saved locally in /workspace/Interactive-AI-Agent/backend/wandb/run-20251216_081931-kzrx54z2
+[2025-12-17 09:16:01,204: WARNING/MainProcess] wandb: Find logs at: ./wandb/run-20251217_091542-9ve71013/logs
+[2025-12-17 09:16:01,234: INFO/MainProcess] Task app.tasks.run_agent_task[56a61877-1c9a-4c73-a6f2-43cf2b092f1c] succeeded in 19.138283640146255s: {'status': 'success', 'metrics': {'timer/total_latency': 18.15307641029358, 'system/peak_gpu_memory_mb': 34259.20361328125, 'evaluation/clip_score': 32.6287, 'evaluation/target_prompt': 'transform the room into a futuristic spaceship interior, maintaining the same perspective and lighting as the original image, with high-tech panels and displays, sleek metallic finishes, and a view of outer space through a large window. The overall style and mood of the scene should match the original image\'s atmosphere.'}, 'type': 'image', 'data': '/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAHgAoADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJy...', ...
+[2025-12-17 09:16:01,246: INFO/MainProcess] Task app.tasks.run_agent_task[7f7e28af-13c9-4cc2-b1e7-9967ad5bd8e6] received
+[2025-12-17 09:16:01,942: WARNING/MainProcess] wandb: Tracking run with wandb version 0.23.1
+[2025-12-17 09:16:01,943: WARNING/MainProcess] wandb: Run data is saved locally in /workspace/Interactive-AI-Agent/backend/wandb/run-20251217_091601-vlba402n
 wandb: Run `wandb offline` to turn off syncing.
-[2025-12-16 08:19:32,100: WARNING/MainProcess] wandb: Syncing run job_2a4ed4f9-14be-4ee6-8eac-82a92eedded5
-[2025-12-16 08:19:32,101: WARNING/MainProcess] wandb:  View project at https://wandb.ai/1032677-ebay/ai_agent_project
-[2025-12-16 08:19:32,101: WARNING/MainProcess] wandb:  View run at https://wandb.ai/1032677-ebay/ai_agent_project/runs/kzrx54z2
-[2025-12-16 08:19:32,271: WARNING/MainProcess] LLM: 'what is the color of the wall?'에 대한 계획 수립 중...
-[2025-12-16 08:19:32,730: WARNING/MainProcess] 📋 계획: [
+[2025-12-17 09:16:01,943: WARNING/MainProcess] wandb: Syncing run job_7f7e28af-13c9-4cc2-b1e7-9967ad5bd8e6
+[2025-12-17 09:16:01,943: WARNING/MainProcess] wandb:  View project at https://wandb.ai/1032677-ebay/ai_agent_project
+[2025-12-17 09:16:01,943: WARNING/MainProcess] wandb:  View run at https://wandb.ai/1032677-ebay/ai_agent_project/runs/vlba402n
+[2025-12-17 09:16:02,087: WARNING/MainProcess] LLM: 'what is the color of the wall?'에 대한 계획 수립 중...
+[2025-12-17 09:16:03,052: WARNING/MainProcess] 📋 계획: [
   {
     "tool_name": "run_vqa",
     "parameters": {
-      "question": "What is the color of the wall in the image?"
+      "question": "What is the color of the wall?"
     }
   }
 ]
-[2025-12-16 08:19:32,730: WARNING/MainProcess] [Step 1] run_vqa 실행 중...
-[2025-12-16 08:19:32,731: WARNING/MainProcess] VQA 질문 분석: What is the color of the wall in the image?
-[2025-12-16 08:19:32,773: WARNING/MainProcess] VQA 답변: white
-[2025-12-16 08:19:32,775: WARNING/MainProcess] [Step 1] 완료 (0.04s)
-[2025-12-16 08:19:32,775: WARNING/MainProcess] GPU Peak Memory: 33228.70 MB
-[2025-12-16 08:19:32,880: WARNING/MainProcess] wandb: updating run metadata
-[2025-12-16 08:19:33,282: WARNING/MainProcess] wandb: uploading history steps 0-2, summary, console lines 1-13
-[2025-12-16 08:19:33,380: WARNING/MainProcess] wandb: 
+[2025-12-17 09:16:03,052: WARNING/MainProcess] [Step 1] run_vqa 실행 중...
+[2025-12-17 09:16:03,052: WARNING/MainProcess] VQA 질문 분석: What is the color of the wall?
+[2025-12-17 09:16:03,102: WARNING/MainProcess] VQA 답변: white
+[2025-12-17 09:16:03,103: WARNING/MainProcess] [Step 1] 완료 (0.05s)
+[2025-12-17 09:16:03,104: WARNING/MainProcess] GPU Peak Memory: 33218.04 MB
+[2025-12-17 09:16:03,207: WARNING/MainProcess] wandb: updating run metadata
+[2025-12-17 09:16:03,610: WARNING/MainProcess] wandb: uploading config.yaml
+[2025-12-17 09:16:03,841: WARNING/MainProcess] wandb: 
 wandb: Run summary:
-wandb: system/peak_gpu_memory_mb 33228.69824
-wandb:        timer/llm_planning 0.45746
-wandb:             timer/run_vqa 0.04326
-wandb:       timer/total_latency 1.21984
+wandb: system/peak_gpu_memory_mb 33218.04004
+wandb:        timer/llm_planning 0.96389
+wandb:             timer/run_vqa 0.05055
+wandb:       timer/total_latency 1.85618
 wandb: 
-[2025-12-16 08:19:33,380: WARNING/MainProcess] wandb:  View run job_2a4ed4f9-14be-4ee6-8eac-82a92eedded5 at: https://wandb.ai/1032677-ebay/ai_agent_project/runs/kzrx54z2
+[2025-12-17 09:16:03,842: WARNING/MainProcess] wandb:  View run job_7f7e28af-13c9-4cc2-b1e7-9967ad5bd8e6 at: https://wandb.ai/1032677-ebay/ai_agent_project/runs/vlba402n
 wandb:  View project at: https://wandb.ai/1032677-ebay/ai_agent_project
 wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
-[2025-12-16 08:19:33,381: WARNING/MainProcess] wandb: Find logs at: ./wandb/run-20251216_081931-kzrx54z2/logs
-[2025-12-16 08:19:33,420: INFO/MainProcess] Task app.tasks.run_agent_task[2a4ed4f9-14be-4ee6-8eac-82a92eedded5] succeeded in 1.8647989737801254s: {'status': 'success', 'metrics': {'timer/total_latency': 1.2198421955108643, 'system/peak_gpu_memory_mb': 33228.6982421875}, 'type': 'text', 'data': 'white'}
-[2025-12-16 08:19:33,438: INFO/MainProcess] Task app.tasks.run_agent_task[d1ffa963-862b-4635-9359-d8de7f60a8dc] received
-[2025-12-16 08:19:33,969: WARNING/MainProcess] wandb: Tracking run with wandb version 0.23.1
-[2025-12-16 08:19:33,970: WARNING/MainProcess] wandb: Run data is saved locally in /workspace/Interactive-AI-Agent/backend/wandb/run-20251216_081933-nn61pyzy
+[2025-12-17 09:16:03,842: WARNING/MainProcess] wandb: Find logs at: ./wandb/run-20251217_091601-vlba402n/logs
+[2025-12-17 09:16:03,866: INFO/MainProcess] Task app.tasks.run_agent_task[7f7e28af-13c9-4cc2-b1e7-9967ad5bd8e6] succeeded in 2.618483727797866s: {'status': 'success', 'metrics': {'timer/total_latency': 1.8561794757843018, 'system/peak_gpu_memory_mb': 33218.0400390625}, 'type': 'text', 'data': 'white'}
+[2025-12-17 09:16:03,882: INFO/MainProcess] Task app.tasks.run_agent_task[c4adb8bd-30f6-4d15-a1a2-186088823622] received
+[2025-12-17 09:16:04,503: WARNING/MainProcess] wandb: Tracking run with wandb version 0.23.1
+[2025-12-17 09:16:04,503: WARNING/MainProcess] wandb: Run data is saved locally in /workspace/Interactive-AI-Agent/backend/wandb/run-20251217_091604-eg34jx8r
 wandb: Run `wandb offline` to turn off syncing.
-[2025-12-16 08:19:33,970: WARNING/MainProcess] wandb: Syncing run job_d1ffa963-862b-4635-9359-d8de7f60a8dc
-[2025-12-16 08:19:33,970: WARNING/MainProcess] wandb:  View project at https://wandb.ai/1032677-ebay/ai_agent_project
-[2025-12-16 08:19:33,970: WARNING/MainProcess] wandb:  View run at https://wandb.ai/1032677-ebay/ai_agent_project/runs/nn61pyzy
-[2025-12-16 08:19:34,144: WARNING/MainProcess] LLM: 'change the person to a robot'에 대한 계획 수립 중...
-[2025-12-16 08:19:35,409: WARNING/MainProcess] 📋 계획: [
+[2025-12-17 09:16:04,503: WARNING/MainProcess] wandb: Syncing run job_c4adb8bd-30f6-4d15-a1a2-186088823622
+[2025-12-17 09:16:04,503: WARNING/MainProcess] wandb:  View project at https://wandb.ai/1032677-ebay/ai_agent_project
+[2025-12-17 09:16:04,503: WARNING/MainProcess] wandb:  View run at https://wandb.ai/1032677-ebay/ai_agent_project/runs/eg34jx8r
+[2025-12-17 09:16:04,629: WARNING/MainProcess] LLM: 'change the person to a robot'에 대한 계획 수립 중...
+[2025-12-17 09:16:05,616: WARNING/MainProcess] 📋 계획: [
   {
     "tool_name": "run_img2img",
     "parameters": {
       "image": "[ORIGINAL_IMAGE]",
-      "prompt": "change the person to a robot, maintaining the same pose, in the same lighting and background as the original image, with the same overall style."
+      "prompt": "change the person to a robot, with the robot standing in the same pose, same lighting, and same background as the original photo."
     }
   }
 ]
-[2025-12-16 08:19:35,409: WARNING/MainProcess] [Step 1] run_img2img 실행 중...
-[2025-12-16 08:19:35,410: WARNING/MainProcess] FLUX.2 이미지 생성 중...
-[2025-12-16 08:19:35,824: WARNING/MainProcess]   0%|          | 0/20 [00:00<?, ?it/s]
-[2025-12-16 08:19:36,987: WARNING/MainProcess]  30%|###       | 6/20 [00:01<00:02,  5.16it/s]
-[2025-12-16 08:19:38,649: WARNING/MainProcess]  35%|###5      | 7/20 [00:02<00:06,  2.10it/s]
-[2025-12-16 08:19:40,312: WARNING/MainProcess]  40%|####      | 8/20 [00:04<00:08,  1.37it/s]
-[2025-12-16 08:19:41,980: WARNING/MainProcess]  45%|####5     | 9/20 [00:06<00:10,  1.05it/s]
-[2025-12-16 08:19:43,647: WARNING/MainProcess]  50%|#####     | 10/20 [00:07<00:11,  1.13s/it]
-[2025-12-16 08:19:45,317: WARNING/MainProcess]  55%|#####5    | 11/20 [00:09<00:11,  1.27s/it]
-[2025-12-16 08:19:46,991: WARNING/MainProcess]  60%|######    | 12/20 [00:11<00:11,  1.38s/it]
-[2025-12-16 08:19:48,665: WARNING/MainProcess]  65%|######5   | 13/20 [00:12<00:10,  1.47s/it]
-[2025-12-16 08:19:50,342: WARNING/MainProcess]  70%|#######   | 14/20 [00:14<00:09,  1.53s/it]
-[2025-12-16 08:19:52,015: WARNING/MainProcess]  75%|#######5  | 15/20 [00:16<00:07,  1.57s/it]
-[2025-12-16 08:19:53,687: WARNING/MainProcess]  80%|########  | 16/20 [00:17<00:06,  1.60s/it]
-[2025-12-16 08:19:55,362: WARNING/MainProcess]  85%|########5 | 17/20 [00:19<00:04,  1.62s/it]
-[2025-12-16 08:19:57,034: WARNING/MainProcess]  90%|######### | 18/20 [00:21<00:03,  1.64s/it]
-[2025-12-16 08:19:58,708: WARNING/MainProcess]  95%|#########5| 19/20 [00:22<00:01,  1.65s/it]
-[2025-12-16 08:20:00,380: WARNING/MainProcess] 100%|##########| 20/20 [00:24<00:00,  1.65s/it]
-[2025-12-16 08:20:00,383: WARNING/MainProcess] 100%|##########| 20/20 [00:24<00:00,  1.23s/it]
-[2025-12-16 08:20:09,683: INFO/MainProcess] 
-
-============ 📊 FLUX.2 GPU Profiling Results (Top 10) ============
-[2025-12-16 08:20:16,212: INFO/MainProcess] -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg       CPU Mem  Self CPU Mem      CUDA Mem  Self CUDA Mem    # of Calls  
--------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-                                         FLUX_INFERENCE        -2.91%  -989084.930us       100.00%       33.941s       33.941s       0.000us         0.00%     2134.247s     2134.247s           0 B     -12.50 MB     777.00 KB     -17.61 GB             1  
-                                    Command Buffer Full        72.41%       24.577s        72.41%       24.577s      17.332ms     2097.050s      6196.67%     2097.050s        1.479s           0 B           0 B           0 B           0 B          1418  
-                             Torch-Compiled Region: 0/0         0.03%       9.877ms        67.19%       22.805s        1.140s       33.421s        98.76%     2009.691s      100.485s           0 B           0 B           0 B           0 B            20  
-                                        cudaGraphLaunch         3.38%        1.149s        63.64%       21.601s        1.080s       0.000us         0.00%     1976.268s       98.813s           0 B           0 B           0 B           0 B            20  
-                                           Buffer Flush         0.09%      31.422ms         3.37%        1.144s        1.144s        1.678s         4.96%      124.135s      124.135s           0 B           0 B     599.50 KB     599.50 KB             1  
-                                         FLUX_INFERENCE         0.00%       0.000us         0.00%       0.000us       0.000us       33.911s       100.21%       33.911s       33.911s           0 B           0 B           0 B           0 B             1  
-void cutlass::Kernel2<cutlass_80_tensorop_bf16_s1681...         0.00%       0.000us         0.00%       0.000us       0.000us       27.089s        80.05%       27.089s       7.199ms           0 B           0 B           0 B           0 B          3763  
-void kDequantizeBlockwise<__nv_bfloat16, 512, 64, 8,...         0.00%       0.000us         0.00%       0.000us       0.000us        2.469s         7.30%        2.469s     590.754us           0 B           0 B           0 B           0 B          4180  
-void pytorch_flash::flash_fwd_kernel<Flash_fwd_kerne...         0.00%       0.000us         0.00%       0.000us       0.000us        2.453s         7.25%        2.453s       2.191ms           0 B           0 B           0 B           0 B          1120  
-                                Activity Buffer Request         0.01%       3.739ms         0.01%       3.739ms       1.869ms        1.678s         4.96%        1.678s     838.753ms           0 B           0 B           0 B           0 B             2  
--------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-Self CPU time total: 33.941s
-Self CUDA time total: 33.842s
-
-[2025-12-16 08:20:16,212: INFO/MainProcess] ==================================================================
-[2025-12-16 08:20:16,212: INFO/MainProcess] ⏱️ Diffusion Model (UNet+VAE) Time: 40.80s
-[2025-12-16 08:20:16,212: INFO/MainProcess] ⏱️ Full Img2Img Time (Encoder+Diffusion): 40.80s
-[2025-12-16 08:20:16,301: WARNING/MainProcess] [Step 1] 완료 (40.89s)
-[2025-12-16 08:20:16,302: WARNING/MainProcess] GPU Peak Memory: 33943.89 MB
-[2025-12-16 08:20:16,321: WARNING/MainProcess] CLIP Score: 27.4817 (Prompt: change the person to a robot, maintaining the same pose, in the same lighting and background as the original image, with the same overall style.)
-[2025-12-16 08:20:16,424: WARNING/MainProcess] wandb: updating run metadata
-[2025-12-16 08:20:16,826: WARNING/MainProcess] wandb: uploading history steps 1-3, summary, console lines 1-54
-[2025-12-16 08:20:16,921: WARNING/MainProcess] wandb: 
+[2025-12-17 09:16:05,616: WARNING/MainProcess] [Step 1] run_img2img 실행 중...
+[2025-12-17 09:16:05,616: WARNING/MainProcess] FLUX.2 이미지 생성 중...
+[2025-12-17 09:16:05,995: WARNING/MainProcess]   0%|          | 0/8 [00:00<?, ?it/s]
+[2025-12-17 09:16:07,097: WARNING/MainProcess]  12%|#2        | 1/8 [00:01<00:07,  1.10s/it]
+[2025-12-17 09:16:08,912: WARNING/MainProcess]  25%|##5       | 2/8 [00:02<00:09,  1.52s/it]
+[2025-12-17 09:16:10,728: WARNING/MainProcess]  38%|###7      | 3/8 [00:04<00:08,  1.66s/it]
+[2025-12-17 09:16:12,546: WARNING/MainProcess]  50%|#####     | 4/8 [00:06<00:06,  1.72s/it]
+[2025-12-17 09:16:14,366: WARNING/MainProcess]  62%|######2   | 5/8 [00:08<00:05,  1.76s/it]
+[2025-12-17 09:16:16,187: WARNING/MainProcess]  75%|#######5  | 6/8 [00:10<00:03,  1.78s/it]
+[2025-12-17 09:16:18,010: WARNING/MainProcess]  88%|########7 | 7/8 [00:12<00:01,  1.79s/it]
+[2025-12-17 09:16:19,834: WARNING/MainProcess] 100%|##########| 8/8 [00:13<00:00,  1.80s/it]
+[2025-12-17 09:16:19,834: WARNING/MainProcess] 100%|##########| 8/8 [00:13<00:00,  1.73s/it]
+[2025-12-17 09:16:20,630: INFO/MainProcess] ⏱️ Diffusion Model (UNet+VAE) Time: 15.01s
+[2025-12-17 09:16:20,630: INFO/MainProcess] ⏱️ Full Img2Img Time (Encoder+Diffusion): 15.01s
+[2025-12-17 09:16:20,709: WARNING/MainProcess] [Step 1] 완료 (15.09s)
+[2025-12-17 09:16:20,710: WARNING/MainProcess] GPU Peak Memory: 34259.20 MB
+[2025-12-17 09:16:20,728: WARNING/MainProcess] CLIP Score: 27.1583 (Prompt: change the person to a robot, with the robot standing in the same pose, same lighting, and same background as the original photo.)
+[2025-12-17 09:16:20,830: WARNING/MainProcess] wandb: updating run metadata
+[2025-12-17 09:16:21,233: WARNING/MainProcess] wandb: uploading history steps 1-3, summary, console lines 1-26
+[2025-12-17 09:16:21,288: WARNING/MainProcess] wandb: 
 wandb: Run summary:
-wandb:     evaluation/clip_score 27.4817
+wandb:     evaluation/clip_score 27.1583
 wandb:  evaluation/target_prompt change the person to...
-wandb: system/peak_gpu_memory_mb 33943.89062
-wandb:        timer/llm_planning 1.26424
-wandb:         timer/run_img2img 40.89119
-wandb:       timer/total_latency 42.86181
+wandb: system/peak_gpu_memory_mb 34259.20361
+wandb:        timer/llm_planning 0.98573
+wandb:         timer/run_img2img 15.09268
+wandb:       timer/total_latency 16.8261
 wandb: 
-[2025-12-16 08:20:16,922: WARNING/MainProcess] wandb:  View run job_d1ffa963-862b-4635-9359-d8de7f60a8dc at: https://wandb.ai/1032677-ebay/ai_agent_project/runs/nn61pyzy
+[2025-12-17 09:16:21,289: WARNING/MainProcess] wandb:  View run job_c4adb8bd-30f6-4d15-a1a2-186088823622 at: https://wandb.ai/1032677-ebay/ai_agent_project/runs/eg34jx8r
 wandb:  View project at: https://wandb.ai/1032677-ebay/ai_agent_project
 wandb: Synced 5 W&B file(s), 1 media file(s), 0 artifact file(s) and 0 other file(s)
-[2025-12-16 08:20:16,922: WARNING/MainProcess] wandb: Find logs at: ./wandb/run-20251216_081933-nn61pyzy/logs
-[2025-12-16 08:20:16,965: INFO/MainProcess] Task app.tasks.run_agent_task[d1ffa963-862b-4635-9359-d8de7f60a8dc] succeeded in 43.52567646512762s: {'status': 'success', 'metrics': {'timer/total_latency': 42.86181092262268, 'system/peak_gpu_memory_mb': 33943.890625, 'evaluation/clip_score': 27.4817, 'evaluation/target_prompt': 'change the person to a robot, maintaining the same pose, in the same lighting and background as the original image, with the same overall style.'}, 'type': 'image', 'data': '/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAHgAoADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2N...', ...
-[2025-12-16 08:20:16,985: INFO/MainProcess] Task app.tasks.run_agent_task[482f182e-742f-41ac-99bd-17cdd55d858d] received
-[2025-12-16 08:20:17,677: WARNING/MainProcess] wandb: setting up run org9qpf4
-[2025-12-16 08:20:17,682: WARNING/MainProcess] wandb: Tracking run with wandb version 0.23.1
-[2025-12-16 08:20:17,683: WARNING/MainProcess] wandb: Run data is saved locally in /workspace/Interactive-AI-Agent/backend/wandb/run-20251216_082017-org9qpf4
+[2025-12-17 09:16:21,289: WARNING/MainProcess] wandb: Find logs at: ./wandb/run-20251217_091604-eg34jx8r/logs
+[2025-12-17 09:16:21,318: INFO/MainProcess] Task app.tasks.run_agent_task[c4adb8bd-30f6-4d15-a1a2-186088823622] succeeded in 17.434357799589634s: {'status': 'success', 'metrics': {'timer/total_latency': 16.82610249519348, 'system/peak_gpu_memory_mb': 34259.20361328125, 'evaluation/clip_score': 27.1583, 'evaluation/target_prompt': 'change the person to a robot, with the robot standing in the same pose, same lighting, and same background as the original photo.'}, 'type': 'image', 'data': '/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAHgAoADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZ...', ...
+[2025-12-17 09:16:21,338: INFO/MainProcess] Task app.tasks.run_agent_task[7c96a0b6-f4d7-4cc4-995a-a45a7e14c5a5] received
+[2025-12-17 09:16:22,293: WARNING/MainProcess] wandb: setting up run jxlj3375
+[2025-12-17 09:16:22,566: WARNING/MainProcess] wandb: Tracking run with wandb version 0.23.1
+[2025-12-17 09:16:22,566: WARNING/MainProcess] wandb: Run data is saved locally in /workspace/Interactive-AI-Agent/backend/wandb/run-20251217_091621-jxlj3375
 wandb: Run `wandb offline` to turn off syncing.
-[2025-12-16 08:20:17,683: WARNING/MainProcess] wandb: Syncing run job_482f182e-742f-41ac-99bd-17cdd55d858d
-[2025-12-16 08:20:17,683: WARNING/MainProcess] wandb:  View project at https://wandb.ai/1032677-ebay/ai_agent_project
-[2025-12-16 08:20:17,683: WARNING/MainProcess] wandb:  View run at https://wandb.ai/1032677-ebay/ai_agent_project/runs/org9qpf4
-[2025-12-16 08:20:17,851: WARNING/MainProcess] LLM: 'make the person look like a marble statue'에 대한 계획 수립 중...
-[2025-12-16 08:20:19,699: WARNING/MainProcess] 📋 계획: [
+[2025-12-17 09:16:22,566: WARNING/MainProcess] wandb: Syncing run job_7c96a0b6-f4d7-4cc4-995a-a45a7e14c5a5
+[2025-12-17 09:16:22,567: WARNING/MainProcess] wandb:  View project at https://wandb.ai/1032677-ebay/ai_agent_project
+[2025-12-17 09:16:22,567: WARNING/MainProcess] wandb:  View run at https://wandb.ai/1032677-ebay/ai_agent_project/runs/jxlj3375
+[2025-12-17 09:16:22,724: WARNING/MainProcess] LLM: 'make the person look like a marble statue'에 대한 계획 수립 중...
+[2025-12-17 09:16:24,231: WARNING/MainProcess] 📋 계획: [
   {
     "tool_name": "run_img2img",
     "parameters": {
       "image": "[ORIGINAL_IMAGE]",
-      "prompt": "transform the person into a marble statue, preserving the same pose, lighting, and background as the original image, with a realistic marble texture and details."
+      "prompt": "Transform the person to look like a marble statue while retaining the same pose, lighting, and background as the original image. The texture should resemble polished marble with fine details, maintaining the original artistic style of the photo."
     }
   }
 ]
-[2025-12-16 08:20:19,700: WARNING/MainProcess] [Step 1] run_img2img 실행 중...
-[2025-12-16 08:20:19,700: WARNING/MainProcess] FLUX.2 이미지 생성 중...
-[2025-12-16 08:20:20,107: WARNING/MainProcess]   0%|          | 0/20 [00:00<?, ?it/s]
-[2025-12-16 08:20:21,266: WARNING/MainProcess]  30%|###       | 6/20 [00:01<00:02,  5.18it/s]
-[2025-12-16 08:20:22,931: WARNING/MainProcess]  35%|###5      | 7/20 [00:02<00:06,  2.10it/s]
-[2025-12-16 08:20:24,594: WARNING/MainProcess]  40%|####      | 8/20 [00:04<00:08,  1.37it/s]
-[2025-12-16 08:20:26,263: WARNING/MainProcess]  45%|####5     | 9/20 [00:06<00:10,  1.05it/s]
-[2025-12-16 08:20:27,931: WARNING/MainProcess]  50%|#####     | 10/20 [00:07<00:11,  1.13s/it]
-[2025-12-16 08:20:29,602: WARNING/MainProcess]  55%|#####5    | 11/20 [00:09<00:11,  1.27s/it]
-[2025-12-16 08:20:31,273: WARNING/MainProcess]  60%|######    | 12/20 [00:11<00:11,  1.38s/it]
-[2025-12-16 08:20:32,944: WARNING/MainProcess]  65%|######5   | 13/20 [00:12<00:10,  1.46s/it]
-[2025-12-16 08:20:34,616: WARNING/MainProcess]  70%|#######   | 14/20 [00:14<00:09,  1.52s/it]
-[2025-12-16 08:20:36,290: WARNING/MainProcess]  75%|#######5  | 15/20 [00:16<00:07,  1.57s/it]
-[2025-12-16 08:20:37,961: WARNING/MainProcess]  80%|########  | 16/20 [00:17<00:06,  1.60s/it]
-[2025-12-16 08:20:39,636: WARNING/MainProcess]  85%|########5 | 17/20 [00:19<00:04,  1.62s/it]
-[2025-12-16 08:20:41,306: WARNING/MainProcess]  90%|######### | 18/20 [00:21<00:03,  1.64s/it]
-[2025-12-16 08:20:42,978: WARNING/MainProcess]  95%|#########5| 19/20 [00:22<00:01,  1.65s/it]
-[2025-12-16 08:20:44,653: WARNING/MainProcess] 100%|##########| 20/20 [00:24<00:00,  1.65s/it]
-[2025-12-16 08:20:44,655: WARNING/MainProcess] 100%|##########| 20/20 [00:24<00:00,  1.23s/it]
-[2025-12-16 08:20:53,933: INFO/MainProcess] 
-
-============ 📊 FLUX.2 GPU Profiling Results (Top 10) ============
-[2025-12-16 08:21:00,323: INFO/MainProcess] -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg       CPU Mem  Self CPU Mem      CUDA Mem  Self CUDA Mem    # of Calls  
--------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-                                         FLUX_INFERENCE        -2.88%  -976639.190us       100.00%       33.904s       33.904s       0.000us         0.00%     1971.864s     1971.864s           0 B     -12.50 MB     777.00 KB     -17.61 GB             1  
-                             Torch-Compiled Region: 0/0         0.03%      11.663ms        67.23%       22.793s        1.140s       31.798s        94.00%     1971.440s       98.572s           0 B           0 B           0 B           0 B            20  
-                                    Command Buffer Full        72.42%       24.552s        72.42%       24.552s      17.438ms     1939.642s      5733.98%     1939.642s        1.378s           0 B           0 B           0 B           0 B          1408  
-                                        cudaGraphLaunch         3.39%        1.150s        63.70%       21.597s        1.080s       0.000us         0.00%     1939.640s       96.982s           0 B           0 B           0 B           0 B            20  
-                                         FLUX_INFERENCE         0.00%       0.000us         0.00%       0.000us       0.000us       33.872s       100.13%       33.872s       33.872s           0 B           0 B           0 B           0 B             1  
-void cutlass::Kernel2<cutlass_80_tensorop_bf16_s1681...         0.00%       0.000us         0.00%       0.000us       0.000us       27.073s        80.03%       27.073s       7.195ms           0 B           0 B           0 B           0 B          3763  
-void kDequantizeBlockwise<__nv_bfloat16, 512, 64, 8,...         0.00%       0.000us         0.00%       0.000us       0.000us        2.469s         7.30%        2.469s     590.746us           0 B           0 B           0 B           0 B          4180  
-void pytorch_flash::flash_fwd_kernel<Flash_fwd_kerne...         0.00%       0.000us         0.00%       0.000us       0.000us        2.452s         7.25%        2.452s       2.189ms           0 B           0 B           0 B           0 B          1120  
-                                triton_poi_fused_cat_22         0.00%       0.000us         0.00%       0.000us       0.000us     586.468ms         1.73%     586.468ms     610.904us           0 B           0 B           0 B           0 B           960  
-                                             MatMul4Bit         0.04%      13.109ms         0.14%      48.905ms     174.662us       0.000us         0.00%     276.782ms     988.509us           0 B           0 B       3.16 GB     -41.41 GB           280  
--------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-Self CPU time total: 33.905s
-Self CUDA time total: 33.827s
-
-[2025-12-16 08:21:00,324: INFO/MainProcess] ==================================================================
-[2025-12-16 08:21:00,324: INFO/MainProcess] ⏱️ Diffusion Model (UNet+VAE) Time: 40.62s
-[2025-12-16 08:21:00,324: INFO/MainProcess] ⏱️ Full Img2Img Time (Encoder+Diffusion): 40.62s
-[2025-12-16 08:21:00,422: WARNING/MainProcess] [Step 1] 완료 (40.72s)
-[2025-12-16 08:21:00,422: WARNING/MainProcess] GPU Peak Memory: 33943.89 MB
-[2025-12-16 08:21:00,441: WARNING/MainProcess] CLIP Score: 24.5874 (Prompt: transform the person into a marble statue, preserving the same pose, lighting, and background as the original image, with a realistic marble texture and details.)
-[2025-12-16 08:21:00,544: WARNING/MainProcess] wandb: updating run metadata
-[2025-12-16 08:21:00,946: WARNING/MainProcess] wandb: uploading history steps 1-3, summary, console lines 1-54
-[2025-12-16 08:21:01,094: WARNING/MainProcess] wandb: 
+[2025-12-17 09:16:24,232: WARNING/MainProcess] [Step 1] run_img2img 실행 중...
+[2025-12-17 09:16:24,232: WARNING/MainProcess] FLUX.2 이미지 생성 중...
+[2025-12-17 09:16:24,610: WARNING/MainProcess]   0%|          | 0/8 [00:00<?, ?it/s]
+[2025-12-17 09:16:25,718: WARNING/MainProcess]  12%|#2        | 1/8 [00:01<00:07,  1.11s/it]
+[2025-12-17 09:16:27,543: WARNING/MainProcess]  25%|##5       | 2/8 [00:02<00:09,  1.53s/it]
+[2025-12-17 09:16:29,370: WARNING/MainProcess]  38%|###7      | 3/8 [00:04<00:08,  1.67s/it]
+[2025-12-17 09:16:31,199: WARNING/MainProcess]  50%|#####     | 4/8 [00:06<00:06,  1.73s/it]
+[2025-12-17 09:16:33,028: WARNING/MainProcess]  62%|######2   | 5/8 [00:08<00:05,  1.77s/it]
+[2025-12-17 09:16:34,861: WARNING/MainProcess]  75%|#######5  | 6/8 [00:10<00:03,  1.79s/it]
+[2025-12-17 09:16:36,693: WARNING/MainProcess]  88%|########7 | 7/8 [00:12<00:01,  1.80s/it]
+[2025-12-17 09:16:38,529: WARNING/MainProcess] 100%|##########| 8/8 [00:13<00:00,  1.81s/it]
+[2025-12-17 09:16:38,529: WARNING/MainProcess] 100%|##########| 8/8 [00:13<00:00,  1.74s/it]
+[2025-12-17 09:16:39,328: INFO/MainProcess] ⏱️ Diffusion Model (UNet+VAE) Time: 15.10s
+[2025-12-17 09:16:39,328: INFO/MainProcess] ⏱️ Full Img2Img Time (Encoder+Diffusion): 15.10s
+[2025-12-17 09:16:39,414: WARNING/MainProcess] [Step 1] 완료 (15.18s)
+[2025-12-17 09:16:39,414: WARNING/MainProcess] GPU Peak Memory: 34259.20 MB
+[2025-12-17 09:16:39,433: WARNING/MainProcess] CLIP Score: 24.7513 (Prompt: Transform the person to look like a marble statue while retaining the same pose, lighting, and background as the original image. The texture should resemble polished marble with fine details, maintaining the original artistic style of the photo.)
+[2025-12-17 09:16:39,535: WARNING/MainProcess] wandb: updating run metadata
+[2025-12-17 09:16:39,937: WARNING/MainProcess] wandb: uploading history steps 1-3, summary, console lines 1-26
+[2025-12-17 09:16:40,054: WARNING/MainProcess] wandb: 
 wandb: Run summary:
-wandb:     evaluation/clip_score 24.5874
-wandb:  evaluation/target_prompt transform the person...
-wandb: system/peak_gpu_memory_mb 33943.89062
-wandb:        timer/llm_planning 1.84659
-wandb:         timer/run_img2img 40.72096
-wandb:       timer/total_latency 43.43498
+wandb:     evaluation/clip_score 24.7513
+wandb:  evaluation/target_prompt Transform the person...
+wandb: system/peak_gpu_memory_mb 34259.20361
+wandb:        timer/llm_planning 1.50667
+wandb:         timer/run_img2img 15.18125
+wandb:       timer/total_latency 18.07388
 wandb: 
-[2025-12-16 08:21:01,094: WARNING/MainProcess] wandb:  View run job_482f182e-742f-41ac-99bd-17cdd55d858d at: https://wandb.ai/1032677-ebay/ai_agent_project/runs/org9qpf4
+[2025-12-17 09:16:40,055: WARNING/MainProcess] wandb:  View run job_7c96a0b6-f4d7-4cc4-995a-a45a7e14c5a5 at: https://wandb.ai/1032677-ebay/ai_agent_project/runs/jxlj3375
 wandb:  View project at: https://wandb.ai/1032677-ebay/ai_agent_project
 wandb: Synced 5 W&B file(s), 1 media file(s), 0 artifact file(s) and 0 other file(s)
-[2025-12-16 08:21:01,095: WARNING/MainProcess] wandb: Find logs at: ./wandb/run-20251216_082017-org9qpf4/logs
-[2025-12-16 08:21:01,137: INFO/MainProcess] Task app.tasks.run_agent_task[482f182e-742f-41ac-99bd-17cdd55d858d] succeeded in 44.150297922082245s: {'status': 'success', 'metrics': {'timer/total_latency': 43.434975147247314, 'system/peak_gpu_memory_mb': 33943.890625, 'evaluation/clip_score': 24.5874, 'evaluation/target_prompt': 'transform the person into a marble statue, preserving the same pose, lighting, and background as the original image, with a realistic marble texture and details.'}, 'type': 'image', 'data': '/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAHgAoADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOE...', ...
-[2025-12-16 08:21:01,155: INFO/MainProcess] Task app.tasks.run_agent_task[ae9ad042-d4d7-4e15-aa36-9e0bb4a7c781] received
-[2025-12-16 08:21:01,751: WARNING/MainProcess] wandb: Tracking run with wandb version 0.23.1
-[2025-12-16 08:21:01,752: WARNING/MainProcess] wandb: Run data is saved locally in /workspace/Interactive-AI-Agent/backend/wandb/run-20251216_082101-7aklomn3
+[2025-12-17 09:16:40,055: WARNING/MainProcess] wandb: Find logs at: ./wandb/run-20251217_091621-jxlj3375/logs
+[2025-12-17 09:16:40,083: INFO/MainProcess] Task app.tasks.run_agent_task[7c96a0b6-f4d7-4cc4-995a-a45a7e14c5a5] succeeded in 18.74316689185798s: {'status': 'success', 'metrics': {'timer/total_latency': 18.073883056640625, 'system/peak_gpu_memory_mb': 34259.20361328125, 'evaluation/clip_score': 24.7513, 'evaluation/target_prompt': 'Transform the person to look like a marble statue while retaining the same pose, lighting, and background as the original image. The texture should resemble polished marble with fine details, maintaining the original artistic style of the photo.'}, 'type': 'image', 'data': '/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAHgAoADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBg...', ...
+[2025-12-17 09:16:40,103: INFO/MainProcess] Task app.tasks.run_agent_task[d1522ecb-a385-4992-89f8-4085c0e142ea] received
+[2025-12-17 09:16:40,707: WARNING/MainProcess] wandb: Tracking run with wandb version 0.23.1
+[2025-12-17 09:16:40,707: WARNING/MainProcess] wandb: Run data is saved locally in /workspace/Interactive-AI-Agent/backend/wandb/run-20251217_091640-a0cokgyy
 wandb: Run `wandb offline` to turn off syncing.
-[2025-12-16 08:21:01,752: WARNING/MainProcess] wandb: Syncing run job_ae9ad042-d4d7-4e15-aa36-9e0bb4a7c781
-[2025-12-16 08:21:01,752: WARNING/MainProcess] wandb:  View project at https://wandb.ai/1032677-ebay/ai_agent_project
-[2025-12-16 08:21:01,752: WARNING/MainProcess] wandb:  View run at https://wandb.ai/1032677-ebay/ai_agent_project/runs/7aklomn3
-[2025-12-16 08:21:01,934: WARNING/MainProcess] LLM: 'is the person smiling?'에 대한 계획 수립 중...
-[2025-12-16 08:21:03,045: WARNING/MainProcess] 📋 계획: [
+[2025-12-17 09:16:40,708: WARNING/MainProcess] wandb: Syncing run job_d1522ecb-a385-4992-89f8-4085c0e142ea
+[2025-12-17 09:16:40,708: WARNING/MainProcess] wandb:  View project at https://wandb.ai/1032677-ebay/ai_agent_project
+[2025-12-17 09:16:40,708: WARNING/MainProcess] wandb:  View run at https://wandb.ai/1032677-ebay/ai_agent_project/runs/a0cokgyy
+[2025-12-17 09:16:40,850: WARNING/MainProcess] LLM: 'is the person smiling?'에 대한 계획 수립 중...
+[2025-12-17 09:16:41,823: WARNING/MainProcess] 📋 계획: [
   {
     "tool_name": "run_vqa",
     "parameters": {
@@ -614,189 +443,135 @@ wandb: Run `wandb offline` to turn off syncing.
     }
   }
 ]
-[2025-12-16 08:21:03,046: WARNING/MainProcess] [Step 1] run_vqa 실행 중...
-[2025-12-16 08:21:03,046: WARNING/MainProcess] VQA 질문 분석: is the person smiling?
-[2025-12-16 08:21:03,093: WARNING/MainProcess] VQA 답변: yes
-[2025-12-16 08:21:03,095: WARNING/MainProcess] [Step 1] 완료 (0.05s)
-[2025-12-16 08:21:03,095: WARNING/MainProcess] GPU Peak Memory: 33229.74 MB
-[2025-12-16 08:21:03,201: WARNING/MainProcess] wandb: updating run metadata
-[2025-12-16 08:21:03,604: WARNING/MainProcess] wandb: 
+[2025-12-17 09:16:41,823: WARNING/MainProcess] [Step 1] run_vqa 실행 중...
+[2025-12-17 09:16:41,823: WARNING/MainProcess] VQA 질문 분석: is the person smiling?
+[2025-12-17 09:16:41,875: WARNING/MainProcess] VQA 답변: yes
+[2025-12-17 09:16:41,876: WARNING/MainProcess] [Step 1] 완료 (0.05s)
+[2025-12-17 09:16:41,876: WARNING/MainProcess] GPU Peak Memory: 33218.81 MB
+[2025-12-17 09:16:41,980: WARNING/MainProcess] wandb: updating run metadata
+[2025-12-17 09:16:42,381: WARNING/MainProcess] wandb: uploading history steps 0-2, summary, console lines 1-13
+[2025-12-17 09:16:42,656: WARNING/MainProcess] wandb: 
 wandb: Run summary:
-wandb: system/peak_gpu_memory_mb 33229.73535
-wandb:        timer/llm_planning 1.11019
-wandb:             timer/run_vqa 0.04734
-wandb:       timer/total_latency 1.93841
+wandb: system/peak_gpu_memory_mb 33218.80713
+wandb:        timer/llm_planning 0.9717
+wandb:             timer/run_vqa 0.05158
+wandb:       timer/total_latency 1.77127
 wandb: 
-[2025-12-16 08:21:03,604: WARNING/MainProcess] wandb:  View run job_ae9ad042-d4d7-4e15-aa36-9e0bb4a7c781 at: https://wandb.ai/1032677-ebay/ai_agent_project/runs/7aklomn3
+[2025-12-17 09:16:42,656: WARNING/MainProcess] wandb:  View run job_d1522ecb-a385-4992-89f8-4085c0e142ea at: https://wandb.ai/1032677-ebay/ai_agent_project/runs/a0cokgyy
 wandb:  View project at: https://wandb.ai/1032677-ebay/ai_agent_project
 wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
-[2025-12-16 08:21:03,605: WARNING/MainProcess] wandb: Find logs at: ./wandb/run-20251216_082101-7aklomn3/logs
-[2025-12-16 08:21:03,645: INFO/MainProcess] Task app.tasks.run_agent_task[ae9ad042-d4d7-4e15-aa36-9e0bb4a7c781] succeeded in 2.488313287962228s: {'status': 'success', 'metrics': {'timer/total_latency': 1.9384064674377441, 'system/peak_gpu_memory_mb': 33229.7353515625}, 'type': 'text', 'data': 'yes'}
-[2025-12-16 08:21:03,657: INFO/MainProcess] Task app.tasks.run_agent_task[eb1bff2d-6045-4138-a6a0-12173a056f8b] received
-[2025-12-16 08:21:04,216: WARNING/MainProcess] wandb: Tracking run with wandb version 0.23.1
-[2025-12-16 08:21:04,217: WARNING/MainProcess] wandb: Run data is saved locally in /workspace/Interactive-AI-Agent/backend/wandb/run-20251216_082103-uid9mg9i
+[2025-12-17 09:16:42,656: WARNING/MainProcess] wandb: Find logs at: ./wandb/run-20251217_091640-a0cokgyy/logs
+[2025-12-17 09:16:42,667: INFO/MainProcess] Task app.tasks.run_agent_task[d1522ecb-a385-4992-89f8-4085c0e142ea] succeeded in 2.562365297228098s: {'status': 'success', 'metrics': {'timer/total_latency': 1.7712664604187012, 'system/peak_gpu_memory_mb': 33218.80712890625}, 'type': 'text', 'data': 'yes'}
+[2025-12-17 09:16:42,675: INFO/MainProcess] Task app.tasks.run_agent_task[89386806-ea04-4d8b-8ef4-59786ede7755] received
+[2025-12-17 09:16:43,253: WARNING/MainProcess] wandb: Tracking run with wandb version 0.23.1
+[2025-12-17 09:16:43,254: WARNING/MainProcess] wandb: Run data is saved locally in /workspace/Interactive-AI-Agent/backend/wandb/run-20251217_091642-02hr2vg7
 wandb: Run `wandb offline` to turn off syncing.
-[2025-12-16 08:21:04,217: WARNING/MainProcess] wandb: Syncing run job_eb1bff2d-6045-4138-a6a0-12173a056f8b
-[2025-12-16 08:21:04,218: WARNING/MainProcess] wandb:  View project at https://wandb.ai/1032677-ebay/ai_agent_project
-[2025-12-16 08:21:04,218: WARNING/MainProcess] wandb:  View run at https://wandb.ai/1032677-ebay/ai_agent_project/runs/uid9mg9i
-[2025-12-16 08:21:04,397: WARNING/MainProcess] LLM: 'change the pizza to a cake'에 대한 계획 수립 중...
-[2025-12-16 08:21:04,989: WARNING/MainProcess] 📋 계획: [
+[2025-12-17 09:16:43,254: WARNING/MainProcess] wandb: Syncing run job_89386806-ea04-4d8b-8ef4-59786ede7755
+[2025-12-17 09:16:43,254: WARNING/MainProcess] wandb:  View project at https://wandb.ai/1032677-ebay/ai_agent_project
+[2025-12-17 09:16:43,254: WARNING/MainProcess] wandb:  View run at https://wandb.ai/1032677-ebay/ai_agent_project/runs/02hr2vg7
+[2025-12-17 09:16:43,396: WARNING/MainProcess] LLM: 'change the pizza to a cake'에 대한 계획 수립 중...
+[2025-12-17 09:16:44,904: WARNING/MainProcess] 📋 계획: [
   {
     "tool_name": "run_img2img",
     "parameters": {
       "image": "[ORIGINAL_IMAGE]",
-      "prompt": "change the pizza to a cake, with the cake in the same position, same lighting, and same background as the original photo."
+      "prompt": "change the pizza to a cake, ensuring the cake is placed in the same position, with similar lighting and background as the original image to maintain the same style."
     }
   }
 ]
-[2025-12-16 08:21:04,990: WARNING/MainProcess] [Step 1] run_img2img 실행 중...
-[2025-12-16 08:21:04,990: WARNING/MainProcess] FLUX.2 이미지 생성 중...
-[2025-12-16 08:21:05,384: WARNING/MainProcess]   0%|          | 0/20 [00:00<?, ?it/s]
-[2025-12-16 08:21:06,545: WARNING/MainProcess]  30%|###       | 6/20 [00:01<00:02,  5.17it/s]
-[2025-12-16 08:21:08,209: WARNING/MainProcess]  35%|###5      | 7/20 [00:02<00:06,  2.10it/s]
-[2025-12-16 08:21:09,871: WARNING/MainProcess]  40%|####      | 8/20 [00:04<00:08,  1.37it/s]
-[2025-12-16 08:21:11,538: WARNING/MainProcess]  45%|####5     | 9/20 [00:06<00:10,  1.05it/s]
-[2025-12-16 08:21:13,207: WARNING/MainProcess]  50%|#####     | 10/20 [00:07<00:11,  1.13s/it]
-[2025-12-16 08:21:14,876: WARNING/MainProcess]  55%|#####5    | 11/20 [00:09<00:11,  1.27s/it]
-[2025-12-16 08:21:16,547: WARNING/MainProcess]  60%|######    | 12/20 [00:11<00:11,  1.38s/it]
-[2025-12-16 08:21:18,218: WARNING/MainProcess]  65%|######5   | 13/20 [00:12<00:10,  1.46s/it]
-[2025-12-16 08:21:19,888: WARNING/MainProcess]  70%|#######   | 14/20 [00:14<00:09,  1.52s/it]
-[2025-12-16 08:21:21,561: WARNING/MainProcess]  75%|#######5  | 15/20 [00:16<00:07,  1.57s/it]
-[2025-12-16 08:21:23,235: WARNING/MainProcess]  80%|########  | 16/20 [00:17<00:06,  1.60s/it]
-[2025-12-16 08:21:24,906: WARNING/MainProcess]  85%|########5 | 17/20 [00:19<00:04,  1.62s/it]
-[2025-12-16 08:21:26,584: WARNING/MainProcess]  90%|######### | 18/20 [00:21<00:03,  1.64s/it]
-[2025-12-16 08:21:28,259: WARNING/MainProcess]  95%|#########5| 19/20 [00:22<00:01,  1.65s/it]
-[2025-12-16 08:21:29,933: WARNING/MainProcess] 100%|##########| 20/20 [00:24<00:00,  1.66s/it]
-[2025-12-16 08:21:29,935: WARNING/MainProcess] 100%|##########| 20/20 [00:24<00:00,  1.23s/it]
-[2025-12-16 08:21:39,228: INFO/MainProcess] 
-
-============ 📊 FLUX.2 GPU Profiling Results (Top 10) ============
-[2025-12-16 08:21:45,186: INFO/MainProcess] -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg       CPU Mem  Self CPU Mem      CUDA Mem  Self CUDA Mem    # of Calls  
--------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-                                         FLUX_INFERENCE        -2.89%  -980079.323us       100.00%       33.904s       33.904s       0.000us         0.00%     2120.282s     2120.282s           0 B     -12.50 MB     777.00 KB     -17.68 GB             1  
-                                    Command Buffer Full        72.41%       24.551s        72.41%       24.551s      17.375ms     2083.093s      6156.11%     2083.093s        1.474s           0 B           0 B           0 B           0 B          1413  
-                             Torch-Compiled Region: 0/0         0.04%      11.948ms        67.23%       22.794s        1.140s       33.414s        98.75%     1999.213s       99.961s           0 B           0 B           0 B           0 B            20  
-                                        cudaGraphLaunch         3.39%        1.151s        63.70%       21.597s        1.080s       0.000us         0.00%     1965.797s       98.290s           0 B           0 B           0 B           0 B            20  
-                                           Buffer Flush         0.03%       9.222ms         3.29%        1.115s        1.115s        1.676s         4.95%      120.646s      120.646s           0 B           0 B     599.50 KB     599.50 KB             1  
-                                         FLUX_INFERENCE         0.00%       0.000us         0.00%       0.000us       0.000us       33.877s       100.12%       33.877s       33.877s           0 B           0 B           0 B           0 B             1  
-void cutlass::Kernel2<cutlass_80_tensorop_bf16_s1681...         0.00%       0.000us         0.00%       0.000us       0.000us       27.083s        80.04%       27.083s       7.197ms           0 B           0 B           0 B           0 B          3763  
-void kDequantizeBlockwise<__nv_bfloat16, 512, 64, 8,...         0.00%       0.000us         0.00%       0.000us       0.000us        2.469s         7.30%        2.469s     590.757us           0 B           0 B           0 B           0 B          4180  
-void pytorch_flash::flash_fwd_kernel<Flash_fwd_kerne...         0.00%       0.000us         0.00%       0.000us       0.000us        2.453s         7.25%        2.453s       2.190ms           0 B           0 B           0 B           0 B          1120  
-                                Activity Buffer Request         0.01%       4.729ms         0.01%       4.729ms       2.364ms        1.676s         4.95%        1.676s     837.818ms           0 B           0 B           0 B           0 B             2  
--------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-Self CPU time total: 33.904s
-Self CUDA time total: 33.838s
-
-[2025-12-16 08:21:45,187: INFO/MainProcess] ==================================================================
-[2025-12-16 08:21:45,187: INFO/MainProcess] ⏱️ Diffusion Model (UNet+VAE) Time: 40.20s
-[2025-12-16 08:21:45,187: INFO/MainProcess] ⏱️ Full Img2Img Time (Encoder+Diffusion): 40.20s
-[2025-12-16 08:21:45,325: WARNING/MainProcess] [Step 1] 완료 (40.33s)
-[2025-12-16 08:21:45,326: WARNING/MainProcess] GPU Peak Memory: 33943.89 MB
-[2025-12-16 08:21:45,345: WARNING/MainProcess] CLIP Score: 25.0897 (Prompt: change the pizza to a cake, with the cake in the same position, same lighting, and same background as the original photo.)
-[2025-12-16 08:21:45,448: WARNING/MainProcess] wandb: updating run metadata
-[2025-12-16 08:21:45,850: WARNING/MainProcess] wandb: uploading history steps 1-3, summary, console lines 1-54
-[2025-12-16 08:21:45,911: WARNING/MainProcess] wandb: 
+[2025-12-17 09:16:44,904: WARNING/MainProcess] [Step 1] run_img2img 실행 중...
+[2025-12-17 09:16:44,904: WARNING/MainProcess] FLUX.2 이미지 생성 중...
+[2025-12-17 09:16:45,285: WARNING/MainProcess]   0%|          | 0/8 [00:00<?, ?it/s]
+[2025-12-17 09:16:46,397: WARNING/MainProcess]  12%|#2        | 1/8 [00:01<00:07,  1.11s/it]
+[2025-12-17 09:16:48,228: WARNING/MainProcess]  25%|##5       | 2/8 [00:02<00:09,  1.53s/it]
+[2025-12-17 09:16:50,061: WARNING/MainProcess]  38%|###7      | 3/8 [00:04<00:08,  1.67s/it]
+[2025-12-17 09:16:51,896: WARNING/MainProcess]  50%|#####     | 4/8 [00:06<00:06,  1.74s/it]
+[2025-12-17 09:16:53,732: WARNING/MainProcess]  62%|######2   | 5/8 [00:08<00:05,  1.77s/it]
+[2025-12-17 09:16:55,569: WARNING/MainProcess]  75%|#######5  | 6/8 [00:10<00:03,  1.79s/it]
+[2025-12-17 09:16:57,407: WARNING/MainProcess]  88%|########7 | 7/8 [00:12<00:01,  1.81s/it]
+[2025-12-17 09:16:59,247: WARNING/MainProcess] 100%|##########| 8/8 [00:13<00:00,  1.82s/it]
+[2025-12-17 09:16:59,247: WARNING/MainProcess] 100%|##########| 8/8 [00:13<00:00,  1.75s/it]
+[2025-12-17 09:17:00,049: INFO/MainProcess] ⏱️ Diffusion Model (UNet+VAE) Time: 15.14s
+[2025-12-17 09:17:00,050: INFO/MainProcess] ⏱️ Full Img2Img Time (Encoder+Diffusion): 15.14s
+[2025-12-17 09:17:00,141: WARNING/MainProcess] [Step 1] 완료 (15.24s)
+[2025-12-17 09:17:00,141: WARNING/MainProcess] GPU Peak Memory: 34259.20 MB
+[2025-12-17 09:17:00,159: WARNING/MainProcess] CLIP Score: 27.6166 (Prompt: change the pizza to a cake, ensuring the cake is placed in the same position, with similar lighting and background as the original image to maintain the same style.)
+[2025-12-17 09:17:00,262: WARNING/MainProcess] wandb: updating run metadata
+[2025-12-17 09:17:00,663: WARNING/MainProcess] wandb: uploading history steps 1-3, summary, console lines 1-26
+[2025-12-17 09:17:00,805: WARNING/MainProcess] wandb: 
 wandb: Run summary:
-wandb:     evaluation/clip_score 25.0897
+wandb:     evaluation/clip_score 27.6166
 wandb:  evaluation/target_prompt change the pizza to ...
-wandb: system/peak_gpu_memory_mb 33943.89062
-wandb:        timer/llm_planning 0.59093
-wandb:         timer/run_img2img 40.3348
-wandb:       timer/total_latency 41.66746
+wandb: system/peak_gpu_memory_mb 34259.20361
+wandb:        timer/llm_planning 1.50724
+wandb:         timer/run_img2img 15.23595
+wandb:       timer/total_latency 17.46509
 wandb: 
-[2025-12-16 08:21:45,912: WARNING/MainProcess] wandb:  View run job_eb1bff2d-6045-4138-a6a0-12173a056f8b at: https://wandb.ai/1032677-ebay/ai_agent_project/runs/uid9mg9i
+[2025-12-17 09:17:00,806: WARNING/MainProcess] wandb:  View run job_89386806-ea04-4d8b-8ef4-59786ede7755 at: https://wandb.ai/1032677-ebay/ai_agent_project/runs/02hr2vg7
 wandb:  View project at: https://wandb.ai/1032677-ebay/ai_agent_project
 wandb: Synced 5 W&B file(s), 1 media file(s), 0 artifact file(s) and 0 other file(s)
-[2025-12-16 08:21:45,912: WARNING/MainProcess] wandb: Find logs at: ./wandb/run-20251216_082103-uid9mg9i/logs
-[2025-12-16 08:21:45,954: INFO/MainProcess] Task app.tasks.run_agent_task[eb1bff2d-6045-4138-a6a0-12173a056f8b] succeeded in 42.295593752060086s: {'status': 'success', 'metrics': {'timer/total_latency': 41.66746401786804, 'system/peak_gpu_memory_mb': 33943.890625, 'evaluation/clip_score': 25.0897, 'evaluation/target_prompt': 'change the pizza to a cake, with the cake in the same position, same lighting, and same background as the original photo.'}, 'type': 'image', 'data': '/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAHgAoADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldY...', ...
-[2025-12-16 08:21:45,967: INFO/MainProcess] Task app.tasks.run_agent_task[7e2e542e-5cbf-4003-8795-0d5ee3f53291] received
-[2025-12-16 08:21:46,660: WARNING/MainProcess] wandb: Tracking run with wandb version 0.23.1
-[2025-12-16 08:21:46,661: WARNING/MainProcess] wandb: Run data is saved locally in /workspace/Interactive-AI-Agent/backend/wandb/run-20251216_082146-evxhztk3
+[2025-12-17 09:17:00,806: WARNING/MainProcess] wandb: Find logs at: ./wandb/run-20251217_091642-02hr2vg7/logs
+[2025-12-17 09:17:00,818: INFO/MainProcess] Task app.tasks.run_agent_task[89386806-ea04-4d8b-8ef4-59786ede7755] succeeded in 18.142126178368926s: {'status': 'success', 'metrics': {'timer/total_latency': 17.465092420578003, 'system/peak_gpu_memory_mb': 34259.20361328125, 'evaluation/clip_score': 27.6166, 'evaluation/target_prompt': 'change the pizza to a cake, ensuring the cake is placed in the same position, with similar lighting and background as the original image to maintain the same style.'}, 'type': 'image', 'data': '/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAHgAoADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnL...', ...
+[2025-12-17 09:17:00,825: INFO/MainProcess] Task app.tasks.run_agent_task[7a5f1d07-36d1-4f9a-a019-96270edd6ead] received
+[2025-12-17 09:17:01,479: WARNING/MainProcess] wandb: setting up run 41epla5c
+[2025-12-17 09:17:01,656: WARNING/MainProcess] wandb: Tracking run with wandb version 0.23.1
+[2025-12-17 09:17:01,656: WARNING/MainProcess] wandb: Run data is saved locally in /workspace/Interactive-AI-Agent/backend/wandb/run-20251217_091700-41epla5c
 wandb: Run `wandb offline` to turn off syncing.
-[2025-12-16 08:21:46,661: WARNING/MainProcess] wandb: Syncing run job_7e2e542e-5cbf-4003-8795-0d5ee3f53291
-[2025-12-16 08:21:46,661: WARNING/MainProcess] wandb:  View project at https://wandb.ai/1032677-ebay/ai_agent_project
-[2025-12-16 08:21:46,662: WARNING/MainProcess] wandb:  View run at https://wandb.ai/1032677-ebay/ai_agent_project/runs/evxhztk3
-[2025-12-16 08:21:46,832: WARNING/MainProcess] LLM: 'make the food look like it is burning with blue fire'에 대한 계획 수립 중...
-[2025-12-16 08:21:47,712: WARNING/MainProcess] 📋 계획: [
+[2025-12-17 09:17:01,656: WARNING/MainProcess] wandb: Syncing run job_7a5f1d07-36d1-4f9a-a019-96270edd6ead
+[2025-12-17 09:17:01,657: WARNING/MainProcess] wandb:  View project at https://wandb.ai/1032677-ebay/ai_agent_project
+[2025-12-17 09:17:01,657: WARNING/MainProcess] wandb:  View run at https://wandb.ai/1032677-ebay/ai_agent_project/runs/41epla5c
+[2025-12-17 09:17:01,801: WARNING/MainProcess] LLM: 'make the food look like it is burning with blue fire'에 대한 계획 수립 중...
+[2025-12-17 09:17:04,015: WARNING/MainProcess] 📋 계획: [
   {
     "tool_name": "run_img2img",
     "parameters": {
       "image": "[ORIGINAL_IMAGE]",
-      "prompt": "The food is engulfed in blue flames, with flames flickering naturally around it, maintaining the same background, lighting, and photo style as the original image."
+      "prompt": "the food with blue flames, creating the effect of burning with blue fire, maintaining the same plating, lighting, and style as the original image."
     }
   }
 ]
-[2025-12-16 08:21:47,713: WARNING/MainProcess] [Step 1] run_img2img 실행 중...
-[2025-12-16 08:21:47,713: WARNING/MainProcess] FLUX.2 이미지 생성 중...
-[2025-12-16 08:21:48,119: WARNING/MainProcess]   0%|          | 0/20 [00:00<?, ?it/s]
-[2025-12-16 08:21:49,284: WARNING/MainProcess]  30%|###       | 6/20 [00:01<00:02,  5.15it/s]
-[2025-12-16 08:21:50,949: WARNING/MainProcess]  35%|###5      | 7/20 [00:02<00:06,  2.10it/s]
-[2025-12-16 08:21:52,616: WARNING/MainProcess]  40%|####      | 8/20 [00:04<00:08,  1.36it/s]
-[2025-12-16 08:21:54,286: WARNING/MainProcess]  45%|####5     | 9/20 [00:06<00:10,  1.05it/s]
-[2025-12-16 08:21:55,958: WARNING/MainProcess]  50%|#####     | 10/20 [00:07<00:11,  1.13s/it]
-[2025-12-16 08:21:57,629: WARNING/MainProcess]  55%|#####5    | 11/20 [00:09<00:11,  1.28s/it]
-[2025-12-16 08:21:59,300: WARNING/MainProcess]  60%|######    | 12/20 [00:11<00:11,  1.38s/it]
-[2025-12-16 08:22:00,973: WARNING/MainProcess]  65%|######5   | 13/20 [00:12<00:10,  1.47s/it]
-[2025-12-16 08:22:02,645: WARNING/MainProcess]  70%|#######   | 14/20 [00:14<00:09,  1.53s/it]
-[2025-12-16 08:22:04,319: WARNING/MainProcess]  75%|#######5  | 15/20 [00:16<00:07,  1.57s/it]
-[2025-12-16 08:22:05,992: WARNING/MainProcess]  80%|########  | 16/20 [00:17<00:06,  1.60s/it]
-[2025-12-16 08:22:07,664: WARNING/MainProcess]  85%|########5 | 17/20 [00:19<00:04,  1.62s/it]
-[2025-12-16 08:22:09,342: WARNING/MainProcess]  90%|######### | 18/20 [00:21<00:03,  1.64s/it]
-[2025-12-16 08:22:11,016: WARNING/MainProcess]  95%|#########5| 19/20 [00:22<00:01,  1.65s/it]
-[2025-12-16 08:22:12,690: WARNING/MainProcess] 100%|##########| 20/20 [00:24<00:00,  1.66s/it]
-[2025-12-16 08:22:12,691: WARNING/MainProcess] 100%|##########| 20/20 [00:24<00:00,  1.23s/it]
-[2025-12-16 08:22:21,998: INFO/MainProcess] 
-
-============ 📊 FLUX.2 GPU Profiling Results (Top 10) ============
-[2025-12-16 08:22:28,336: INFO/MainProcess] -------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg       CPU Mem  Self CPU Mem      CUDA Mem  Self CUDA Mem    # of Calls  
--------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-                                         FLUX_INFERENCE        -2.87%  -974966.943us       100.00%       33.934s       33.934s       0.000us         0.00%     1968.242s     1968.242s           0 B     -12.50 MB     777.00 KB     -17.61 GB             1  
-                             Torch-Compiled Region: 0/0         0.04%      12.951ms        67.23%       22.813s        1.141s       31.827s        94.01%     1967.819s       98.391s           0 B           0 B           0 B           0 B            20  
-                                    Command Buffer Full        72.37%       24.557s        72.37%       24.557s      17.504ms     1935.991s      5718.25%     1935.991s        1.380s           0 B           0 B           0 B           0 B          1403  
-                                        cudaGraphLaunch         3.40%        1.155s        63.69%       21.614s        1.081s       0.000us         0.00%     1935.990s       96.799s           0 B           0 B           0 B           0 B            20  
-                                         FLUX_INFERENCE         0.00%       0.000us         0.00%       0.000us       0.000us       33.902s       100.13%       33.902s       33.902s           0 B           0 B           0 B           0 B             1  
-void cutlass::Kernel2<cutlass_80_tensorop_bf16_s1681...         0.00%       0.000us         0.00%       0.000us       0.000us       27.100s        80.04%       27.100s       7.202ms           0 B           0 B           0 B           0 B          3763  
-void kDequantizeBlockwise<__nv_bfloat16, 512, 64, 8,...         0.00%       0.000us         0.00%       0.000us       0.000us        2.469s         7.29%        2.469s     590.751us           0 B           0 B           0 B           0 B          4180  
-void pytorch_flash::flash_fwd_kernel<Flash_fwd_kerne...         0.00%       0.000us         0.00%       0.000us       0.000us        2.454s         7.25%        2.454s       2.191ms           0 B           0 B           0 B           0 B          1120  
-                                triton_poi_fused_cat_22         0.00%       0.000us         0.00%       0.000us       0.000us     586.326ms         1.73%     586.326ms     610.757us           0 B           0 B           0 B           0 B           960  
-                                             MatMul4Bit         0.04%      13.989ms         0.15%      52.247ms     186.596us       0.000us         0.00%     276.353ms     986.973us           0 B           0 B       3.16 GB     -41.41 GB           280  
--------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
-Self CPU time total: 33.934s
-Self CUDA time total: 33.856s
-
-[2025-12-16 08:22:28,336: INFO/MainProcess] ==================================================================
-[2025-12-16 08:22:28,336: INFO/MainProcess] ⏱️ Diffusion Model (UNet+VAE) Time: 40.62s
-[2025-12-16 08:22:28,336: INFO/MainProcess] ⏱️ Full Img2Img Time (Encoder+Diffusion): 40.62s
-[2025-12-16 08:22:28,416: WARNING/MainProcess] [Step 1] 완료 (40.70s)
-[2025-12-16 08:22:28,416: WARNING/MainProcess] GPU Peak Memory: 33943.89 MB
-[2025-12-16 08:22:28,436: WARNING/MainProcess] CLIP Score: 34.4459 (Prompt: The food is engulfed in blue flames, with flames flickering naturally around it, maintaining the same background, lighting, and photo style as the original image.)
-[2025-12-16 08:22:28,539: WARNING/MainProcess] wandb: updating run metadata
-[2025-12-16 08:22:28,942: WARNING/MainProcess] wandb: uploading history steps 1-3, summary, console lines 1-54
-[2025-12-16 08:22:29,056: WARNING/MainProcess] wandb: 
+[2025-12-17 09:17:04,016: WARNING/MainProcess] [Step 1] run_img2img 실행 중...
+[2025-12-17 09:17:04,016: WARNING/MainProcess] FLUX.2 이미지 생성 중...
+[2025-12-17 09:17:04,397: WARNING/MainProcess]   0%|          | 0/8 [00:00<?, ?it/s]
+[2025-12-17 09:17:05,512: WARNING/MainProcess]  12%|#2        | 1/8 [00:01<00:07,  1.11s/it]
+[2025-12-17 09:17:07,349: WARNING/MainProcess]  25%|##5       | 2/8 [00:02<00:09,  1.54s/it]
+[2025-12-17 09:17:09,187: WARNING/MainProcess]  38%|###7      | 3/8 [00:04<00:08,  1.68s/it]
+[2025-12-17 09:17:11,027: WARNING/MainProcess]  50%|#####     | 4/8 [00:06<00:06,  1.74s/it]
+[2025-12-17 09:17:12,867: WARNING/MainProcess]  62%|######2   | 5/8 [00:08<00:05,  1.78s/it]
+[2025-12-17 09:17:14,710: WARNING/MainProcess]  75%|#######5  | 6/8 [00:10<00:03,  1.80s/it]
+[2025-12-17 09:17:16,554: WARNING/MainProcess]  88%|########7 | 7/8 [00:12<00:01,  1.81s/it]
+[2025-12-17 09:17:18,399: WARNING/MainProcess] 100%|##########| 8/8 [00:14<00:00,  1.82s/it]
+[2025-12-17 09:17:18,399: WARNING/MainProcess] 100%|##########| 8/8 [00:14<00:00,  1.75s/it]
+[2025-12-17 09:17:19,200: INFO/MainProcess] ⏱️ Diffusion Model (UNet+VAE) Time: 15.18s
+[2025-12-17 09:17:19,200: INFO/MainProcess] ⏱️ Full Img2Img Time (Encoder+Diffusion): 15.18s
+[2025-12-17 09:17:19,312: WARNING/MainProcess] [Step 1] 완료 (15.30s)
+[2025-12-17 09:17:19,312: WARNING/MainProcess] GPU Peak Memory: 34259.20 MB
+[2025-12-17 09:17:19,331: WARNING/MainProcess] CLIP Score: 31.5197 (Prompt: the food with blue flames, creating the effect of burning with blue fire, maintaining the same plating, lighting, and style as the original image.)
+[2025-12-17 09:17:19,434: WARNING/MainProcess] wandb: updating run metadata
+[2025-12-17 09:17:19,836: WARNING/MainProcess] wandb: uploading config.yaml
+[2025-12-17 09:17:20,170: WARNING/MainProcess] wandb: 
 wandb: Run summary:
-wandb:     evaluation/clip_score 34.4459
-wandb:  evaluation/target_prompt The food is engulfed...
-wandb: system/peak_gpu_memory_mb 33943.89062
-wandb:        timer/llm_planning 0.87945
-wandb:         timer/run_img2img 40.70185
-wandb:       timer/total_latency 42.44727
+wandb:     evaluation/clip_score 31.5197
+wandb:  evaluation/target_prompt the food with blue f...
+wandb: system/peak_gpu_memory_mb 34259.20361
+wandb:        timer/llm_planning 2.21365
+wandb:         timer/run_img2img 15.29552
+wandb:       timer/total_latency 18.48614
 wandb: 
-[2025-12-16 08:22:29,057: WARNING/MainProcess] wandb:  View run job_7e2e542e-5cbf-4003-8795-0d5ee3f53291 at: https://wandb.ai/1032677-ebay/ai_agent_project/runs/evxhztk3
+[2025-12-17 09:17:20,171: WARNING/MainProcess] wandb:  View run job_7a5f1d07-36d1-4f9a-a019-96270edd6ead at: https://wandb.ai/1032677-ebay/ai_agent_project/runs/41epla5c
 wandb:  View project at: https://wandb.ai/1032677-ebay/ai_agent_project
 wandb: Synced 5 W&B file(s), 1 media file(s), 0 artifact file(s) and 0 other file(s)
-[2025-12-16 08:22:29,057: WARNING/MainProcess] wandb: Find logs at: ./wandb/run-20251216_082146-evxhztk3/logs
-[2025-12-16 08:22:29,102: INFO/MainProcess] Task app.tasks.run_agent_task[7e2e542e-5cbf-4003-8795-0d5ee3f53291] succeeded in 43.13326093228534s: {'status': 'success', 'metrics': {'timer/total_latency': 42.447266817092896, 'system/peak_gpu_memory_mb': 33943.890625, 'evaluation/clip_score': 34.4459, 'evaluation/target_prompt': 'The food is engulfed in blue flames, with flames flickering naturally around it, maintaining the same background, lighting, and photo style as the original image.'}, 'type': 'image', 'data': '/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAHgAoADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNO...', ...
-[2025-12-16 08:22:29,114: INFO/MainProcess] Task app.tasks.run_agent_task[a3d58540-cf26-4087-9656-9c83e1720f37] received
-[2025-12-16 08:22:29,758: WARNING/MainProcess] wandb: Tracking run with wandb version 0.23.1
-[2025-12-16 08:22:29,758: WARNING/MainProcess] wandb: Run data is saved locally in /workspace/Interactive-AI-Agent/backend/wandb/run-20251216_082229-wirbztyi
+[2025-12-17 09:17:20,171: WARNING/MainProcess] wandb: Find logs at: ./wandb/run-20251217_091700-41epla5c/logs
+[2025-12-17 09:17:20,200: INFO/MainProcess] Task app.tasks.run_agent_task[7a5f1d07-36d1-4f9a-a019-96270edd6ead] succeeded in 19.37418550439179s: {'status': 'success', 'metrics': {'timer/total_latency': 18.48614192008972, 'system/peak_gpu_memory_mb': 34259.20361328125, 'evaluation/clip_score': 31.5197, 'evaluation/target_prompt': 'the food with blue flames, creating the effect of burning with blue fire, maintaining the same plating, lighting, and style as the original image.'}, 'type': 'image', 'data': '/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAHgAoADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJy...', ...
+[2025-12-17 09:17:20,214: INFO/MainProcess] Task app.tasks.run_agent_task[e5da2b1f-e6d3-4813-b9a0-f6135ab59f4a] received
+[2025-12-17 09:17:20,773: WARNING/MainProcess] wandb: Tracking run with wandb version 0.23.1
+[2025-12-17 09:17:20,774: WARNING/MainProcess] wandb: Run data is saved locally in /workspace/Interactive-AI-Agent/backend/wandb/run-20251217_091720-g82buvca
 wandb: Run `wandb offline` to turn off syncing.
-[2025-12-16 08:22:29,758: WARNING/MainProcess] wandb: Syncing run job_a3d58540-cf26-4087-9656-9c83e1720f37
-[2025-12-16 08:22:29,759: WARNING/MainProcess] wandb:  View project at https://wandb.ai/1032677-ebay/ai_agent_project
-[2025-12-16 08:22:29,759: WARNING/MainProcess] wandb:  View run at https://wandb.ai/1032677-ebay/ai_agent_project/runs/wirbztyi
-[2025-12-16 08:22:29,926: WARNING/MainProcess] LLM: 'what kind of food is this?'에 대한 계획 수립 중...
-[2025-12-16 08:22:31,010: WARNING/MainProcess] 📋 계획: [
+[2025-12-17 09:17:20,774: WARNING/MainProcess] wandb: Syncing run job_e5da2b1f-e6d3-4813-b9a0-f6135ab59f4a
+[2025-12-17 09:17:20,774: WARNING/MainProcess] wandb:  View project at https://wandb.ai/1032677-ebay/ai_agent_project
+[2025-12-17 09:17:20,774: WARNING/MainProcess] wandb:  View run at https://wandb.ai/1032677-ebay/ai_agent_project/runs/g82buvca
+[2025-12-17 09:17:20,919: WARNING/MainProcess] LLM: 'what kind of food is this?'에 대한 계획 수립 중...
+[2025-12-17 09:17:21,983: WARNING/MainProcess] 📋 계획: [
   {
     "tool_name": "run_vqa",
     "parameters": {
@@ -804,44 +579,157 @@ wandb: Run `wandb offline` to turn off syncing.
     }
   }
 ]
-[2025-12-16 08:22:31,011: WARNING/MainProcess] [Step 1] run_vqa 실행 중...
-[2025-12-16 08:22:31,011: WARNING/MainProcess] VQA 질문 분석: What kind of food is this?
-[2025-12-16 08:22:31,058: WARNING/MainProcess] VQA 답변: pizza
-[2025-12-16 08:22:31,060: WARNING/MainProcess] [Step 1] 완료 (0.05s)
-[2025-12-16 08:22:31,061: WARNING/MainProcess] GPU Peak Memory: 33229.74 MB
-[2025-12-16 08:22:31,166: WARNING/MainProcess] wandb: updating run metadata
-[2025-12-16 08:22:31,570: WARNING/MainProcess] wandb: uploading history steps 0-2, summary, console lines 1-13
-[2025-12-16 08:22:31,605: WARNING/MainProcess] wandb: 
+[2025-12-17 09:17:21,983: WARNING/MainProcess] [Step 1] run_vqa 실행 중...
+[2025-12-17 09:17:21,983: WARNING/MainProcess] VQA 질문 분석: What kind of food is this?
+[2025-12-17 09:17:22,031: WARNING/MainProcess] VQA 답변: pizza
+[2025-12-17 09:17:22,032: WARNING/MainProcess] [Step 1] 완료 (0.05s)
+[2025-12-17 09:17:22,033: WARNING/MainProcess] GPU Peak Memory: 33218.93 MB
+[2025-12-17 09:17:22,136: WARNING/MainProcess] wandb: updating run metadata
+[2025-12-17 09:17:22,539: WARNING/MainProcess] wandb: uploading history steps 0-2, summary, console lines 1-13
+[2025-12-17 09:17:22,766: WARNING/MainProcess] wandb: 
 wandb: Run summary:
-wandb: system/peak_gpu_memory_mb 33229.74121
-wandb:        timer/llm_planning 1.0835
-wandb:             timer/run_vqa 0.04747
-wandb:       timer/total_latency 1.94485
+wandb: system/peak_gpu_memory_mb 33218.92822
+wandb:        timer/llm_planning 1.06252
+wandb:             timer/run_vqa 0.04846
+wandb:       timer/total_latency 1.81731
 wandb: 
-[2025-12-16 08:22:31,606: WARNING/MainProcess] wandb:  View run job_a3d58540-cf26-4087-9656-9c83e1720f37 at: https://wandb.ai/1032677-ebay/ai_agent_project/runs/wirbztyi
+[2025-12-17 09:17:22,766: WARNING/MainProcess] wandb:  View run job_e5da2b1f-e6d3-4813-b9a0-f6135ab59f4a at: https://wandb.ai/1032677-ebay/ai_agent_project/runs/g82buvca
 wandb:  View project at: https://wandb.ai/1032677-ebay/ai_agent_project
 wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
-[2025-12-16 08:22:31,606: WARNING/MainProcess] wandb: Find logs at: ./wandb/run-20251216_082229-wirbztyi/logs
-[2025-12-16 08:22:31,644: INFO/MainProcess] Task app.tasks.run_agent_task[a3d58540-cf26-4087-9656-9c83e1720f37] succeeded in 2.5283908220008016s: {'status': 'success', 'metrics': {'timer/total_latency': 1.944845199584961, 'system/peak_gpu_memory_mb': 33229.7412109375}, 'type': 'text', 'data': 'pizza'}
-[2025-12-16 08:22:31,660: INFO/MainProcess] Task app.tasks.run_agent_task[7bc89837-9252-44b2-a403-aea5b58a6a0e] received
-[2025-12-16 08:22:32,238: WARNING/MainProcess] wandb: Tracking run with wandb version 0.23.1
-[2025-12-16 08:22:32,238: WARNING/MainProcess] wandb: Run data is saved locally in /workspace/Interactive-AI-Agent/backend/wandb/run-20251216_082231-s3rit2nt
+[2025-12-17 09:17:22,766: WARNING/MainProcess] wandb: Find logs at: ./wandb/run-20251217_091720-g82buvca/logs
+[2025-12-17 09:17:22,790: INFO/MainProcess] Task app.tasks.run_agent_task[e5da2b1f-e6d3-4813-b9a0-f6135ab59f4a] succeeded in 2.574425270780921s: {'status': 'success', 'metrics': {'timer/total_latency': 1.817314863204956, 'system/peak_gpu_memory_mb': 33218.92822265625}, 'type': 'text', 'data': 'pizza'}
+[2025-12-17 09:17:22,808: INFO/MainProcess] Task app.tasks.run_agent_task[f26fb447-d60a-4af7-90c5-9f2241687cc8] received
+[2025-12-17 09:17:23,402: WARNING/MainProcess] wandb: Tracking run with wandb version 0.23.1
+[2025-12-17 09:17:23,403: WARNING/MainProcess] wandb: Run data is saved locally in /workspace/Interactive-AI-Agent/backend/wandb/run-20251217_091722-2emzabcw
 wandb: Run `wandb offline` to turn off syncing.
-[2025-12-16 08:22:32,238: WARNING/MainProcess] wandb: Syncing run job_7bc89837-9252-44b2-a403-aea5b58a6a0e
-[2025-12-16 08:22:32,238: WARNING/MainProcess] wandb:  View project at https://wandb.ai/1032677-ebay/ai_agent_project
-[2025-12-16 08:22:32,239: WARNING/MainProcess] wandb:  View run at https://wandb.ai/1032677-ebay/ai_agent_project/runs/s3rit2nt
-[2025-12-16 08:22:32,406: WARNING/MainProcess] LLM: 'add a flying car in the sky'에 대한 계획 수립 중...
-[2025-12-16 08:22:34,131: WARNING/MainProcess] 📋 계획: [
+[2025-12-17 09:17:23,403: WARNING/MainProcess] wandb: Syncing run job_f26fb447-d60a-4af7-90c5-9f2241687cc8
+[2025-12-17 09:17:23,403: WARNING/MainProcess] wandb:  View project at https://wandb.ai/1032677-ebay/ai_agent_project
+[2025-12-17 09:17:23,403: WARNING/MainProcess] wandb:  View run at https://wandb.ai/1032677-ebay/ai_agent_project/runs/2emzabcw
+[2025-12-17 09:17:23,548: WARNING/MainProcess] LLM: 'add a flying car in the sky'에 대한 계획 수립 중...
+[2025-12-17 09:17:25,268: WARNING/MainProcess] 📋 계획: [
   {
     "tool_name": "run_img2img",
     "parameters": {
       "image": "[ORIGINAL_IMAGE]",
-      "prompt": "a flying car in the sky, maintaining the same style and lighting as the original image, ensuring the sky's background blends seamlessly with the new element."
+      "prompt": "add a flying car in the sky, maintaining the same style, lighting, and perspective of the original image to ensure it looks seamlessly integrated."
     }
   }
 ]
-[2025-12-16 08:22:34,132: WARNING/MainProcess] [Step 1] run_img2img 실행 중...
-[2025-12-16 08:22:34,132: WARNING/MainProcess] FLUX.2 이미지 생성 중...
-[2025-12-16 08:22:34,525: WARNING/MainProcess]   0%|          | 0/20 [00:00<?, ?it/s]
-/usr/lib/python3.12/multiprocessing/resource_tracker.py:254: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
-  warnings.warn('resource_tracker: There appear to be %d '
+[2025-12-17 09:17:25,269: WARNING/MainProcess] [Step 1] run_img2img 실행 중...
+[2025-12-17 09:17:25,269: WARNING/MainProcess] FLUX.2 이미지 생성 중...
+[2025-12-17 09:17:25,644: WARNING/MainProcess]   0%|          | 0/8 [00:00<?, ?it/s]
+[2025-12-17 09:17:26,615: WARNING/MainProcess]  12%|#2        | 1/8 [00:00<00:06,  1.03it/s]
+[2025-12-17 09:17:28,211: WARNING/MainProcess]  25%|##5       | 2/8 [00:02<00:08,  1.34s/it]
+[2025-12-17 09:17:29,809: WARNING/MainProcess]  38%|###7      | 3/8 [00:04<00:07,  1.46s/it]
+[2025-12-17 09:17:31,409: WARNING/MainProcess]  50%|#####     | 4/8 [00:05<00:06,  1.51s/it]
+[2025-12-17 09:17:33,010: WARNING/MainProcess]  62%|######2   | 5/8 [00:07<00:04,  1.54s/it]
+[2025-12-17 09:17:34,613: WARNING/MainProcess]  75%|#######5  | 6/8 [00:08<00:03,  1.56s/it]
+[2025-12-17 09:17:36,216: WARNING/MainProcess]  88%|########7 | 7/8 [00:10<00:01,  1.58s/it]
+[2025-12-17 09:17:37,822: WARNING/MainProcess] 100%|##########| 8/8 [00:12<00:00,  1.59s/it]
+[2025-12-17 09:17:37,822: WARNING/MainProcess] 100%|##########| 8/8 [00:12<00:00,  1.52s/it]
+[2025-12-17 09:17:38,518: INFO/MainProcess] ⏱️ Diffusion Model (UNet+VAE) Time: 13.25s
+[2025-12-17 09:17:38,518: INFO/MainProcess] ⏱️ Full Img2Img Time (Encoder+Diffusion): 13.25s
+[2025-12-17 09:17:38,573: WARNING/MainProcess] [Step 1] 완료 (13.30s)
+[2025-12-17 09:17:38,574: WARNING/MainProcess] GPU Peak Memory: 34206.49 MB
+[2025-12-17 09:17:38,589: WARNING/MainProcess] CLIP Score: 21.435 (Prompt: add a flying car in the sky, maintaining the same style, lighting, and perspective of the original image to ensure it looks seamlessly integrated.)
+[2025-12-17 09:17:38,692: WARNING/MainProcess] wandb: uploading history steps 0-0, summary; updating run metadata
+[2025-12-17 09:17:39,093: WARNING/MainProcess] wandb: uploading history steps 1-3, summary, console lines 1-26
+[2025-12-17 09:17:39,220: WARNING/MainProcess] wandb: 
+wandb: Run summary:
+wandb:     evaluation/clip_score 21.435
+wandb:  evaluation/target_prompt add a flying car in ...
+wandb: system/peak_gpu_memory_mb 34206.48828
+wandb:        timer/llm_planning 1.71956
+wandb:         timer/run_img2img 13.30405
+wandb:       timer/total_latency 15.76417
+wandb: 
+[2025-12-17 09:17:39,220: WARNING/MainProcess] wandb:  View run job_f26fb447-d60a-4af7-90c5-9f2241687cc8 at: https://wandb.ai/1032677-ebay/ai_agent_project/runs/2emzabcw
+wandb:  View project at: https://wandb.ai/1032677-ebay/ai_agent_project
+wandb: Synced 5 W&B file(s), 1 media file(s), 0 artifact file(s) and 0 other file(s)
+[2025-12-17 09:17:39,220: WARNING/MainProcess] wandb: Find logs at: ./wandb/run-20251217_091722-2emzabcw/logs
+[2025-12-17 09:17:39,247: INFO/MainProcess] Task app.tasks.run_agent_task[f26fb447-d60a-4af7-90c5-9f2241687cc8] succeeded in 16.437634179368615s: {'status': 'success', 'metrics': {'timer/total_latency': 15.764170169830322, 'system/peak_gpu_memory_mb': 34206.48828125, 'evaluation/clip_score': 21.435, 'evaluation/target_prompt': 'add a flying car in the sky, maintaining the same style, lighting, and perspective of the original image to ensure it looks seamlessly integrated.'}, 'type': 'image', 'data': '/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAGQAoADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpK...', ...
+[2025-12-17 09:17:39,266: INFO/MainProcess] Task app.tasks.run_agent_task[b1dd949b-3619-4329-9542-de82e4232d26] received
+[2025-12-17 09:17:39,860: WARNING/MainProcess] wandb: Tracking run with wandb version 0.23.1
+[2025-12-17 09:17:39,861: WARNING/MainProcess] wandb: Run data is saved locally in /workspace/Interactive-AI-Agent/backend/wandb/run-20251217_091739-yv0z6q9x
+wandb: Run `wandb offline` to turn off syncing.
+[2025-12-17 09:17:39,861: WARNING/MainProcess] wandb: Syncing run job_b1dd949b-3619-4329-9542-de82e4232d26
+[2025-12-17 09:17:39,861: WARNING/MainProcess] wandb:  View project at https://wandb.ai/1032677-ebay/ai_agent_project
+[2025-12-17 09:17:39,861: WARNING/MainProcess] wandb:  View run at https://wandb.ai/1032677-ebay/ai_agent_project/runs/yv0z6q9x
+[2025-12-17 09:17:40,003: WARNING/MainProcess] LLM: 'make it look like a post-apocalyptic ruin'에 대한 계획 수립 중...
+[2025-12-17 09:17:42,496: WARNING/MainProcess] 📋 계획: [
+  {
+    "tool_name": "run_img2img",
+    "parameters": {
+      "image": "[ORIGINAL_IMAGE]",
+      "prompt": "transform the scene into a post-apocalyptic ruin, maintaining the same overall composition and lighting, with crumbling structures, overgrown vegetation, and a desolate atmosphere in the same style as the original image."
+    }
+  }
+]
+[2025-12-17 09:17:42,497: WARNING/MainProcess] [Step 1] run_img2img 실행 중...
+[2025-12-17 09:17:42,497: WARNING/MainProcess] FLUX.2 이미지 생성 중...
+[2025-12-17 09:17:42,868: WARNING/MainProcess]   0%|          | 0/8 [00:00<?, ?it/s]
+[2025-12-17 09:17:43,841: WARNING/MainProcess]  12%|#2        | 1/8 [00:00<00:06,  1.03it/s]
+[2025-12-17 09:17:45,441: WARNING/MainProcess]  25%|##5       | 2/8 [00:02<00:08,  1.34s/it]
+[2025-12-17 09:17:47,043: WARNING/MainProcess]  38%|###7      | 3/8 [00:04<00:07,  1.46s/it]
+[2025-12-17 09:17:48,648: WARNING/MainProcess]  50%|#####     | 4/8 [00:05<00:06,  1.52s/it]
+[2025-12-17 09:17:50,252: WARNING/MainProcess]  62%|######2   | 5/8 [00:07<00:04,  1.55s/it]
+[2025-12-17 09:17:51,858: WARNING/MainProcess]  75%|#######5  | 6/8 [00:08<00:03,  1.57s/it]
+[2025-12-17 09:17:53,464: WARNING/MainProcess]  88%|########7 | 7/8 [00:10<00:01,  1.58s/it]
+[2025-12-17 09:17:55,070: WARNING/MainProcess] 100%|##########| 8/8 [00:12<00:00,  1.59s/it]
+[2025-12-17 09:17:55,070: WARNING/MainProcess] 100%|##########| 8/8 [00:12<00:00,  1.53s/it]
+[2025-12-17 09:17:55,767: INFO/MainProcess] ⏱️ Diffusion Model (UNet+VAE) Time: 13.27s
+[2025-12-17 09:17:55,767: INFO/MainProcess] ⏱️ Full Img2Img Time (Encoder+Diffusion): 13.27s
+[2025-12-17 09:17:55,838: WARNING/MainProcess] [Step 1] 완료 (13.34s)
+[2025-12-17 09:17:55,838: WARNING/MainProcess] GPU Peak Memory: 34206.49 MB
+[2025-12-17 09:17:55,855: WARNING/MainProcess] CLIP Score: 31.8388 (Prompt: transform the scene into a post-apocalyptic ruin, maintaining the same overall composition and lighting, with crumbling structures, overgrown vegetation, and a desolate atmosphere in the same style as the original image.)
+[2025-12-17 09:17:55,958: WARNING/MainProcess] wandb: updating run metadata
+[2025-12-17 09:17:56,464: WARNING/MainProcess] wandb: uploading history steps 1-3, summary, console lines 1-26
+[2025-12-17 09:17:56,478: WARNING/MainProcess] wandb: 
+wandb: Run summary:
+wandb:     evaluation/clip_score 31.8388
+wandb:  evaluation/target_prompt transform the scene ...
+wandb: system/peak_gpu_memory_mb 34206.48828
+wandb:        timer/llm_planning 2.4926
+wandb:         timer/run_img2img 13.34024
+wandb:       timer/total_latency 16.57066
+wandb: 
+[2025-12-17 09:17:56,478: WARNING/MainProcess] wandb:  View run job_b1dd949b-3619-4329-9542-de82e4232d26 at: https://wandb.ai/1032677-ebay/ai_agent_project/runs/yv0z6q9x
+wandb:  View project at: https://wandb.ai/1032677-ebay/ai_agent_project
+wandb: Synced 5 W&B file(s), 1 media file(s), 0 artifact file(s) and 0 other file(s)
+[2025-12-17 09:17:56,479: WARNING/MainProcess] wandb: Find logs at: ./wandb/run-20251217_091739-yv0z6q9x/logs
+[2025-12-17 09:17:56,507: INFO/MainProcess] Task app.tasks.run_agent_task[b1dd949b-3619-4329-9542-de82e4232d26] succeeded in 17.23958534374833s: {'status': 'success', 'metrics': {'timer/total_latency': 16.5706570148468, 'system/peak_gpu_memory_mb': 34206.48828125, 'evaluation/clip_score': 31.8388, 'evaluation/target_prompt': 'transform the scene into a post-apocalyptic ruin, maintaining the same overall composition and lighting, with crumbling structures, overgrown vegetation, and a desolate atmosphere in the same style as the original image.'}, 'type': 'image', 'data': '/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAGQAoADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQA...', ...
+[2025-12-17 09:17:56,530: INFO/MainProcess] Task app.tasks.run_agent_task[87048c34-dcfb-410d-b2d9-65ca6e43e3e0] received
+[2025-12-17 09:17:57,154: WARNING/MainProcess] wandb: Tracking run with wandb version 0.23.1
+[2025-12-17 09:17:57,155: WARNING/MainProcess] wandb: Run data is saved locally in /workspace/Interactive-AI-Agent/backend/wandb/run-20251217_091756-vqwqedb7
+wandb: Run `wandb offline` to turn off syncing.
+[2025-12-17 09:17:57,155: WARNING/MainProcess] wandb: Syncing run job_87048c34-dcfb-410d-b2d9-65ca6e43e3e0
+[2025-12-17 09:17:57,155: WARNING/MainProcess] wandb:  View project at https://wandb.ai/1032677-ebay/ai_agent_project
+[2025-12-17 09:17:57,155: WARNING/MainProcess] wandb:  View run at https://wandb.ai/1032677-ebay/ai_agent_project/runs/vqwqedb7
+[2025-12-17 09:17:57,298: WARNING/MainProcess] LLM: 'is it day or night?'에 대한 계획 수립 중...
+[2025-12-17 09:17:58,156: WARNING/MainProcess] 📋 계획: [
+  {
+    "tool_name": "run_vqa",
+    "parameters": {
+      "question": "Is it day or night in the image?"
+    }
+  }
+]
+[2025-12-17 09:17:58,157: WARNING/MainProcess] [Step 1] run_vqa 실행 중...
+[2025-12-17 09:17:58,157: WARNING/MainProcess] VQA 질문 분석: Is it day or night in the image?
+[2025-12-17 09:17:58,212: WARNING/MainProcess] VQA 답변: day
+[2025-12-17 09:17:58,213: WARNING/MainProcess] [Step 1] 완료 (0.05s)
+[2025-12-17 09:17:58,213: WARNING/MainProcess] GPU Peak Memory: 33222.06 MB
+[2025-12-17 09:17:58,317: WARNING/MainProcess] wandb: updating run metadata
+[2025-12-17 09:17:58,719: WARNING/MainProcess] wandb: uploading history steps 0-2, summary, console lines 1-13
+[2025-12-17 09:17:58,830: WARNING/MainProcess] wandb: 
+wandb: Run summary:
+wandb: system/peak_gpu_memory_mb 33222.05908
+wandb:        timer/llm_planning 0.85742
+wandb:             timer/run_vqa 0.05485
+wandb:       timer/total_latency 1.68155
+wandb: 
+[2025-12-17 09:17:58,830: WARNING/MainProcess] wandb:  View run job_87048c34-dcfb-410d-b2d9-65ca6e43e3e0 at: https://wandb.ai/1032677-ebay/ai_agent_project/runs/vqwqedb7
+wandb:  View project at: https://wandb.ai/1032677-ebay/ai_agent_project
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+[2025-12-17 09:17:58,831: WARNING/MainProcess] wandb: Find logs at: ./wandb/run-20251217_091756-vqwqedb7/logs
+[2025-12-17 09:17:58,854: INFO/MainProcess] Task app.tasks.run_agent_task[87048c34-dcfb-410d-b2d9-65ca6e43e3e0] succeeded in 2.322196502238512s: {'status': 'success', 'metrics': {'timer/total_latency': 1.6815516948699951, 'system/peak_gpu_memory_mb': 33222.05908203125}, 'type': 'text', 'data': 'day'}

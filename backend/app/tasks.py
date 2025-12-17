@@ -68,7 +68,7 @@ def run_agent_task(self, prompt: str, image_data: str):
         last_result = None
         final_data = None
         
-        # CLIP 평가를 위해 '목표 프롬프트'를 저장할 변수
+        # CLIP 평가를 위해 목표 프롬프트를 저장할 변수
         target_prompt = "" 
         
         for idx, step in enumerate(plan):
@@ -117,6 +117,18 @@ def run_agent_task(self, prompt: str, image_data: str):
             metrics["evaluation/clip_score"] = clip_score
             metrics["evaluation/target_prompt"] = target_prompt
             print(f"CLIP Score: {clip_score} (Prompt: {target_prompt})")
+
+            print("Self-Feedback: 에이전트가 생성한 이미지를 스스로 검수 중...")
+            verification_question = f"Does this image accurately represent the request: '{prompt}'? Answer yes or no with a brief reason."
+
+            self_feedback_ans = run_vqa(final_data, verification_question)
+            metrics["evaluation/self_feedback_ans"] = self_feedback_ans
+            is_success = 1 if "yes" in self_feedback_ans.lower() else 0
+            metrics["evaluation/self_success_rate"] = is_success
+
+            print(f"Self-Feedback 결과: {self_feedback_ans}")
+            print(f"최종 판단: {'PASS' if is_success else 'FAIL'}")
+
         
         # 지표 전송
         wandb.log(metrics)
