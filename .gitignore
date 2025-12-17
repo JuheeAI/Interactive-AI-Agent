@@ -1,27 +1,30 @@
+# Environment variables (보안 필수!)
 .env
+backend/.env
 
-# Python 관련
-venv/
-__pycache__/
-*.pyc
+# Python specific
+**/__pycache__/
+*.py[cod]
 
-# Node.js 관련
-frontend/node_modules/
-frontend/dist/
-frontend/.env*
+# Redis & Logs
+backend/dump.rdb
+backend/*.log
 
-# IDE 및 OS 관련
-.vscode/
-.idea/
-.DS_Store
-
-# W&B 로컬 데이터
+# WandB (개인 실험 기록)
 backend/wandb/
 
-# AI 모델 파일
-backend/tools/vqa_models/
-backend/tools/sam_models/
-backend/tools/rae_models/
+# Local Data (대용량 이미지 및 결과물)
+backend/data/benchmark_results/
+backend/data/profiling_logs/
+backend/data/test_images/
+evaluation_data/*.json
 
-# 테스트용 이미지
-backend/test_image.jpg
+# Node.js
+frontend/node_modules/
+frontend/dist/
+frontend/.eslintcache
+
+# OS specific
+.DS_Store
+Thumbs.db
+tree_result.txt

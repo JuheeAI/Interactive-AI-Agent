@@ -34,16 +34,31 @@ export CELERY_RESULT_BACKEND=redis://localhost:6379/0
 export HF_HOME="/workspace/hf_cache"
 export HF_HUB_DISABLE_PROGRESS_BARS=1
 
+export IMAGEIO_FFMPEG_EXE=/usr/bin/ffmpeg
+export PYTORCH_CUDA_ALLOC_CONF=max_split_size_mb:128
+export CUDA_MODULE_LOADING=LAZY
+export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
+
 echo "Celery 서버 시작 (Eventlet Pool, Concurrency=10)..."
 # 백그라운드 실행
 WANDB_API_KEY=$WANDB_API_KEY WANDB_PROJECT=$WANDB_PROJECT \
 nohup celery -A app.tasks worker \
-    --loglevel=info \
-    --pool=eventlet \
-    --concurrency=10 \
-    --time-limit=300 \
-    --soft-time-limit=280 > celery.log 2>&1 &
-    
+    -Q heavy_tasks \
+    --concurrency=1 \
+    --pool=solo \
+    --hostname=heavy_worker@%h > heavy.log 2>&1 &
+
+nohup celery -A app.tasks worker \
+    -Q light_tasks \
+    --concurrency=1 \
+    --pool=solo \
+    --hostname=light1@%h > light1.log 2>&1 &
+nohup celery -A app.tasks worker \
+    -Q light_tasks \
+    --concurrency=1 \
+    --pool=solo \
+    --hostname=light2@%h > light2.log 2>&1 &
+
 echo "FastAPI Server 시작..."
 uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
 

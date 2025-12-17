@@ -136,7 +136,7 @@ def run_monitor(duration=60):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--duration", type=int, default=300, help="Monitoring duration in seconds")
+    parser.add_argument("--duration", type=int, default=3000, help="Monitoring duration in seconds")
     args = parser.parse_args()
         
     run_monitor(args.duration)

@@ -1,12 +1,24 @@
-# AI 모델 파일이 있는 폴더
-tools/
+# Python bytecode
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/*.pyd
 
-# W&B 로컬 데이터 폴더
-wandb/
+# WandB & Logs (가장 큰 용량 차감)
+backend/wandb/
+backend/*.log
+backend/dump.rdb
 
-# Python 캐시 파일
-__pycache__/
-*.pyc
+# Data & Results
+backend/data/benchmark_results/
+backend/data/profiling_logs/
+backend/data/test_images/
+evaluation_data/
 
-# 테스트 이미지
-test_image.jpg
+# Frontend dependencies
+frontend/node_modules/
+frontend/dist/
+
+# Git history
+.git/
+.gitignore

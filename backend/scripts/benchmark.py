@@ -84,14 +84,16 @@ def prepare_images():
 
 def run_benchmark():
     prepare_images()
+
+    extended_cases = TEST_CASES * 7
     
     results_summary = []
-    print(f"\n벤치마크 시작. 총 {len(TEST_CASES)}개의 태스크를 실행합니다.\n")
+    print(f"\n벤치마크 시작. 총 {len(extended_cases)}개의 태스크를 실행합니다.\n")
 
     if not os.path.exists(RESULT_DIR):
         os.makedirs(RESULT_DIR)
 
-    for i, case in enumerate(tqdm(TEST_CASES, desc="Running Benchmark")):
+    for i, case in enumerate(tqdm(extended_cases, desc="Running Benchmark")):
         filename = case["image"]
         prompt = case["prompt"]
         task_type = case["type"]

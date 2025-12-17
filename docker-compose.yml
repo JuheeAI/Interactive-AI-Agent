@@ -21,9 +21,9 @@ services:
     env_file:
       - .env
 
-  worker:
+  heavy-worker:
     build: ./backend
-    command: celery -A tasks worker --loglevel=info -P gevent -c 1
+    command: celery -A tasks worker -Q heavy_tasks --loglevel=info -c 1
     volumes:
       - ./backend:/app
       - ~/.config/gcloud:/root/.config/gcloud
@@ -42,7 +42,20 @@ services:
             - driver: nvidia
               count: 1
               capabilities: [gpu]
-    
+
+  light-worker:
+    build: ./backend
+    command: celery -A tasks worker -Q light_tasks --loglevel=info -P gevent -c 4
+    volumes:
+      - ./backend:/app
+    depends_on:
+      - redis
+    environment:
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=redis://redis:6379/0
+    env_file:
+      - .env
+
   frontend:
     build:
       context: ./frontend
@@ -52,3 +65,5 @@ services:
       - /app/node_modules
     ports:
       - "5173:5173"
+    environment:
+      - VITE_API_URL=http://localhost:8000 

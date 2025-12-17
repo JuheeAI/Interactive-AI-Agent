@@ -1,3 +1,11 @@
+import multiprocessing
+
+if __name__ == '__main__':
+    try:
+        multiprocessing.set_start_method('spawn', force=True)
+    except RuntimeError:
+        pass
+
 import time
 import json
 import base64
@@ -8,6 +16,7 @@ from PIL import Image
 from celery import Celery
 import wandb
 import torch
+import gc
 
 try:
     from .tools.agent_prompt import AGENT_PROMPT
@@ -30,15 +39,26 @@ celery_app = Celery(
 )
 OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
 
-@celery_app.task(bind=True)
+@celery_app.task(
+    bind=True,
+    max_retries=3,
+    default_retry_delay=20,
+    autoretry_for=(RuntimeError,)
+)
 def run_agent_task(self, prompt: str, image_data: str):
     task_start_time = time.time()
+
+    metrics = {}
 
     # GPU 메모리 측정 초기화 (이전 작업의 기록 삭제)
     if torch.cuda.is_available():
         torch.cuda.reset_peak_memory_stats()
 
-    wandb.init(project="ai_agent_project", name=f"job_{self.request.id}", reinit=True)
+    display_name = f"[{'HEAVY' if 'draw' in prompt or 'transform' in prompt else 'LIGHT'}] {prompt[:15]}..."
+    wandb.init(
+        project="ai_agent_project", 
+        name=display_name, 
+        reinit=True)
     
     try:
         image_bytes = base64.b64decode(image_data)
@@ -96,14 +116,11 @@ def run_agent_task(self, prompt: str, image_data: str):
             elif tool == "run_vqa":
                 last_result = run_vqa(original_image, params['question'])
                 final_data = last_result
+                metrics["evaluation/self_success_rate"] = 1
 
-            duration = time.time() - start_t
-            wandb.log({f"timer/{tool}": duration})
-            print(f"[Step {idx+1}] 완료 ({duration:.2f}s)")
+            wandb.log({f"timer/{tool}": time.time() - start_t})
 
-        total_latency = time.time() - task_start_time
-
-        metrics = {"timer/total_latency": total_latency}
+        metrics["timer/total_latency"] = time.time() - task_start_time
 
         # 1. GPU Peak Memory 측정 (MB)
         if torch.cuda.is_available():
