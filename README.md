@@ -1,7 +1,7 @@
 # **Interactive Multimodal AI Agent API Server**
 **High-Performance AI Serving with Intelligent Task Scheduling & Self-Healing Architecture**
 
-**Interactive Multimodal AI Agent**는 사용자가 업로드한 **'이미지'**와 **'자연어 명령어(Prompt)'**를 동시에 이해하고, 그 의도에 맞춰 이미지를 지능적으로 변환하거나 질문에 답변하는 **멀티모달 AI API 서비스**입니다.
+**Interactive Multimodal AI Agent**는 사용자가 업로드한 '이미지'와 '자연어 명령어(Prompt)'를 동시에 이해하고, 그 의도에 맞춰 이미지를 지능적으로 변환하거나 질문에 답변하는 **멀티모달 AI API 서비스**입니다.
 
 텍스트-이미지 생성을 넘어 유저의 명령(Context)을 분석하여 핵심 기능을 제공합니다.
 
