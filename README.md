@@ -1,13 +1,17 @@
 # **Interactive Multimodal AI Agent API Server**
 **High-Performance AI Serving with Intelligent Task Scheduling & Self-Healing Architecture**
 
-VRAM 48GB 환경에서 고사양 생성 모델(FLUX.2)의 서빙 최적화를 달성하고, 시스템 안정성(Fault Tolerance)과 품질 보증(Self-Feedback)을 자동화한 자율형 에이전트 시스템입니다.
+**Interactive Multimodal AI Agent**는 사용자가 업로드한 **'이미지'**와 **'자연어 명령어(Prompt)'**를 동시에 이해하고, 그 의도에 맞춰 이미지를 지능적으로 변환하거나 질문에 답변하는 **멀티모달 AI API 서비스**입니다.
+
+텍스트-이미지 생성을 넘어 유저의 명령(Context)을 분석하여 핵심 기능을 제공합니다.
 
 ![result](./docs/images/agent_system_stress_test.png)
 
-* **Throughput**: 지능형 큐 분리로 응답 속도 85% 개선.
-* **Stability**: 100+ 연속 고부하 태스크 완주 (성공률 100% 자가 복구).
-* **Quality**: CLIP Score 평균 29.12 달성.
+* **자연어 기반 이미지 편집 (Instruction-based Image Editing):** "고양이를 사이보그 호랑이로 바꿔줘", "소파를 빨간색으로 칠해줘" 등의 복잡한 편집 명령을 FLUX.2 모델 기반으로 고해상도로 수행합니다.
+* **시각적 추론 및 질의응답 (Visual Question Answering, VQA):** "이 음식의 이름은 뭐야?", "사진 속 인물이 웃고 있어?" 등 이미지 내 상황과 맥락을 분석하여 텍스트로 답변합니다.
+* **비동기 API 기반 서비스 연동:** 이 모든 과정이 안정적인 RESTful API로 제공되어 B2C 서비스나 사내 솔루션에 즉시 연동할 수 있습니다.
+
+> **💡 Engineering Focus** > 본 프로젝트는 VRAM 48GB의 제한된 환경에서 고사양 생성 모델(FLUX.2)을 서빙하기 위해, **지능형 태스크 스케줄링(Heavy/Light 분리)**과 **자가 복구(Self-Healing) 아키텍처**를 구축하여 **응답 속도 85% 개선** 및 **105회 연속 스트레스 테스트 성공률 100%**를 달성한 엔지니어링 고도화 사례입니다.
 
 <br>
 
